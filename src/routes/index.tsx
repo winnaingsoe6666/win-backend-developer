@@ -1,29 +1,938 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import portrait from "@/assets/portrait.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking" },
+      {
+        name: "description",
+        content:
+          "Senior Backend / Full-Stack Engineer crafting secure, scalable banking platforms with Java, Spring Boot, PostgreSQL, Microservices & Angular.",
+      },
     ],
   }),
-  component: Index,
+  component: Portfolio,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+/* ----------------------------- DATA ----------------------------- */
+
+const STACK = [
+  {
+    title: "Domain Expertise",
+    code: "01",
+    items: [
+      "Core Banking",
+      "Microfinance",
+      "Loan Management",
+      "Payment Integration",
+      "Stock Exchange Systems",
+      "Financial Reporting",
+    ],
+    tags: ["Business Analysis", "System Integration", "Compliance"],
+  },
+  {
+    title: "Backend & Architecture",
+    code: "02",
+    items: [
+      "Java",
+      "Spring Boot",
+      "REST APIs",
+      "Microservices",
+      "Spring Security",
+      "Shell Scripting",
+    ],
+    tags: ["System Design", "SOLID", "Enterprise Apps"],
+  },
+  {
+    title: "Web App Development",
+    code: "03",
+    items: ["Angular", "TypeScript / JS", "HTML5 / CSS / SCSS", "Responsive UI", "Single Page Apps"],
+    tags: ["UI/UX Design", "Web Vitals", "Accessibility"],
+  },
+  {
+    title: "Database & Storage",
+    code: "04",
+    items: [
+      "PostgreSQL",
+      "Oracle",
+      "MySQL",
+      "Stored Procedures",
+      "Query Optimization",
+      "Database Migration",
+    ],
+    tags: ["Data Modeling", "Indexing", "Modernization"],
+  },
+  {
+    title: "DevOps & Tools",
+    code: "05",
+    items: ["Docker", "Git", "AWS (EC2, S3)", "CI/CD Pipelines", "Linux / Unix", "Test Automation"],
+    tags: ["Agile/Scrum", "Code Reviews", "Git Workflow"],
+  },
+];
+
+const TIMELINE = [
+  {
+    role: "Senior Full-Stack Software Engineer",
+    company: "MSIS Company",
+    period: "Feb 2025 — Present",
+    domain: "Mifos Fineract — Core Banking Platform",
+    impact:
+      "Architected and shipped scalable banking microservices on an open-source financial platform serving enterprise operations.",
+    stack: ["Java", "Spring Boot", "Angular", "Docker", "Gradle", "AWS"],
+    achievement: "Launched 3 new microservices banking projects to production.",
+  },
+  {
+    role: "Senior Software Engineer",
+    company: "DIR-ACE Technology",
+    period: "Apr 2023 — Jan 2025",
+    domain: "Stock Exchange Operations · Offshore (Japan)",
+    impact:
+      "Led full SDLC for Japanese enterprise clients. Mentored a team of 11 — including 4 junior engineers — through code reviews and standards.",
+    stack: ["Java", "Spring Boot", "SQL", "Angular", "Linux", "Excel VBA"],
+    achievement: "🏆 President's Award · Productivity & Quality Assurance (2024).",
+  },
+  {
+    role: "Software Engineer",
+    company: "DIR-ACE Technology",
+    period: "Apr 2022 — Mar 2023",
+    domain: "Financial Margin Reporting (SIMM)",
+    impact:
+      "Optimized complex financial calculations and shipped interactive KPI dashboards. Refactored legacy Oracle SQL for maintainability.",
+    stack: ["Java", "Spring Boot", "Angular", "PostgreSQL", "JBoss"],
+    achievement: "Enhanced system stability and core application performance.",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "DIR-ACE Technology · MAJA",
+    period: "Nov 2020 — May 2023",
+    domain: "JLPT National Registration System",
+    impact:
+      "Engineered high-traffic backend supporting 5,000+ concurrent users with zero downtime. Integrated 2C2P payment gateway.",
+    stack: ["Java 11", "Spring Boot", "PostgreSQL", "jQuery", "Cypress"],
+    achievement: "🏆 President's Award · Best System Development.",
+  },
+  {
+    role: "Junior Programmer",
+    company: "DIR-ACE Technology",
+    period: "Mar 2020 — Mar 2022",
+    domain: "Stock Price Derivative Calculation",
+    impact:
+      "Streamlined daily trade processing with automated testing (Selenium), shell automation, and legacy refactoring.",
+    stack: ["Java 8", "Java Swing", "Spring Boot", "SQL", "Shell"],
+    achievement: "Improved legacy database performance & maintainability.",
+  },
+];
+
+const PROJECTS = [
+  {
+    name: "Mifos Fineract — Core Banking",
+    tags: ["FinTech", "Core Banking", "Open Source"],
+    role: "Senior Full-Stack Engineer",
+    impact: "Built and enhanced scalable banking modules for an open-source financial platform.",
+    stack: ["Java", "Spring Boot", "Docker", "Angular"],
+    featured: true,
+  },
+  {
+    name: "Stock Exchange Operations Platform",
+    tags: ["Enterprise", "FinTech"],
+    role: "Senior Software Engineer",
+    impact:
+      "Enterprise platform managing stock exchange operations, resource allocation, and delivery tracking for Japanese clients.",
+    stack: ["Java", "Spring Boot", "SQL", "Linux"],
+    featured: true,
+  },
+  {
+    name: "JLPT Registration System",
+    tags: ["High Scale", "Enterprise"],
+    role: "Full Stack Developer",
+    impact:
+      "National-scale examination registration supporting online applications, payments, and scheduling at peak load.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "jQuery"],
+    featured: true,
+  },
+  {
+    name: "KPI Management System",
+    tags: ["Enterprise", "Analytics"],
+    role: "Backend Developer",
+    impact: "Performance tracking for monitoring KPIs across departments with interactive dashboards.",
+    stack: ["Java", "Spring Boot", "MySQL", "React"],
+  },
+  {
+    name: "Offshore Development System",
+    tags: ["Enterprise"],
+    role: "Backend Developer",
+    impact: "Platform managing offshore software projects, resources, and delivery tracking.",
+    stack: ["Java", "Spring Boot", "Angular"],
+  },
+  {
+    name: "Smart Attendance System",
+    tags: ["AI", "IoT"],
+    role: "Developer",
+    impact: "Automated attendance with facial recognition and real-time reporting.",
+    stack: ["Python", "OpenCV", "TensorFlow", "Flask"],
+  },
+];
+
+const RECOGNITION = [
+  {
+    title: "ITPEC — Fundamental Information Technology Engineer (FE)",
+    org: "IT Professionals Examination Council, Japan",
+    date: "06 / 2023",
+    note: "National-level IT certification. ID MMFE23S00159.",
+  },
+  {
+    title: "Best System Development Award",
+    org: "DIR-ACE Technology",
+    date: "09 / 2021",
+    note: "For outstanding contribution to the JLPT Registration System project.",
+  },
+  {
+    title: "Quality Assurance Award",
+    org: "DIR-ACE Technology",
+    date: "09 / 2021",
+    note: "Recognized for productivity and quality on the CstNavi team.",
+  },
+  {
+    title: "Java Web Development — Talent Program",
+    org: "ACE Group of Companies",
+    date: "11 / 2019",
+    note: "Selective intensive training in enterprise Java, Spring MVC, and architecture.",
+  },
+];
+
+const FACTS = [
+  { k: "Based in", v: "Chiang Mai, TH", icon: "◉" },
+  { k: "Fuel", v: "Coffee & Curiosity", icon: "☕" },
+  { k: "Focus", v: "FinTech · Core Banking", icon: "◆" },
+  { k: "Languages", v: "Burmese · English · 日本語", icon: "⌘" },
+];
+
+/* ----------------------------- COMPONENT ----------------------------- */
+
+function Portfolio() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
+    <div className="min-h-screen bg-background text-foreground antialiased">
+      <Nav />
+      <Hero />
+      <Marquee />
+      <About />
+      <Arsenal />
+      <Timeline />
+      <Projects />
+      <Recognition />
+      <Contact />
+      <Footer />
+    </div>
+  );
+}
+
+/* ----------------------------- NAV ----------------------------- */
+
+function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const on = () => setScrolled(window.scrollY > 24);
+    on();
+    window.addEventListener("scroll", on);
+    return () => window.removeEventListener("scroll", on);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : ""
+      }`}
     >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+      <div className="mx-auto max-w-7xl px-6 md:px-10 h-16 flex items-center justify-between">
+        <a href="#top" className="flex items-center gap-3 group">
+          <span className="font-mono-tight text-xs text-muted-foreground">[ wns ]</span>
+          <span className="font-display text-lg">Win Naing Soe</span>
+        </a>
+        <nav className="hidden md:flex items-center gap-8 text-sm">
+          {[
+            ["About", "about"],
+            ["Stack", "stack"],
+            ["Career", "career"],
+            ["Work", "work"],
+            ["Awards", "awards"],
+          ].map(([label, id]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="text-muted-foreground hover:text-foreground transition-colors relative group font-mono-tight text-xs uppercase tracking-widest"
+            >
+              <span className="text-primary mr-1.5">·</span>
+              {label}
+            </a>
+          ))}
+        </nav>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-mono-tight uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+        >
+          <span className="size-1.5 rounded-full bg-primary pulse-dot" />
+          Available
+        </a>
+      </div>
+    </header>
+  );
+}
+
+/* ----------------------------- HERO ----------------------------- */
+
+function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage: "radial-gradient(circle at 70% 40%, #000 20%, transparent 70%)",
+        }}
       />
+      <div className="absolute inset-0 grid-bg opacity-[0.15] pointer-events-none" aria-hidden />
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+        {/* meta row */}
+        <div className="flex items-center gap-4 mb-10 font-mono-tight text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="text-primary">◆</span>
+          <span>Portfolio · v2026.06</span>
+          <span className="hidden md:block flex-1 hairline" />
+          <span className="hidden md:inline">Chiang Mai · 13.7°N</span>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <div className="lg:col-span-8">
+            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-6 flex items-center gap-3">
+              <span className="inline-block w-8 h-px bg-primary" />
+              Enterprise Software Engineer
+            </p>
+            <h1 className="font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] font-light">
+              Engineering the{" "}
+              <span className="italic font-normal text-primary">quiet machinery</span>
+              <br />
+              behind modern <span className="text-accent">finance</span>.
+            </h1>
+            <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Six years building secure, scalable backend systems for core banking, microfinance,
+              and stock-exchange operations. Java · Spring Boot · PostgreSQL · Microservices ·
+              Angular.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <a
+                href="#work"
+                className="group inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+              >
+                See selected work
+                <span className="transition-transform group-hover:translate-x-1">→</span>
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-3 rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
+              >
+                Get in touch
+              </a>
+              <a
+                href="https://github.com/winnaingsoe6666"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono-tight"
+              >
+                <span>↗</span>
+                github
+              </a>
+            </div>
+
+            {/* metric strip */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
+              {[
+                ["6+", "years shipping"],
+                ["5,000+", "concurrent users"],
+                ["3", "banking microservices"],
+                ["11", "engineers mentored"],
+              ].map(([n, l]) => (
+                <div key={l} className="bg-card p-5">
+                  <div className="font-display text-3xl md:text-4xl text-primary">{n}</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
+                    {l}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* portrait card */}
+          <div className="lg:col-span-4">
+            <div className="relative animate-float">
+              <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" />
+              <div className="relative rounded-2xl overflow-hidden border border-border bg-card ring-signal">
+                <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-background/60 font-mono-tight text-[10px] uppercase tracking-widest text-muted-foreground">
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-destructive/70" />
+                    <span className="size-2 rounded-full bg-accent/70" />
+                    <span className="size-2 rounded-full bg-primary/70" />
+                  </div>
+                  <span>~/wns/profile.json</span>
+                </div>
+                <img
+                  src={portrait}
+                  alt="Win Naing Soe"
+                  width={1024}
+                  height={1280}
+                  className="w-full aspect-[4/5] object-cover"
+                />
+                <div className="px-5 py-4 border-t border-border space-y-2 font-mono-tight text-xs">
+                  <Line k="name" v="Win Naing Soe" />
+                  <Line k="role" v="Senior Backend / Full-Stack" />
+                  <Line k="domain" v="FinTech · Core Banking" />
+                  <Line k="status" v={<span className="text-primary">open_to_work</span>} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Line({ k, v }: { k: string; v: React.ReactNode }) {
+  return (
+    <div className="flex items-baseline gap-3">
+      <span className="text-muted-foreground w-16 shrink-0">{k}</span>
+      <span className="text-accent">:</span>
+      <span className="truncate">{v}</span>
+    </div>
+  );
+}
+
+/* ----------------------------- MARQUEE ----------------------------- */
+
+function Marquee() {
+  const words = [
+    "Java",
+    "Spring Boot",
+    "PostgreSQL",
+    "Microservices",
+    "Angular",
+    "Docker",
+    "AWS",
+    "Mifos Fineract",
+    "Core Banking",
+    "REST APIs",
+    "Spring Security",
+    "CI/CD",
+    "System Design",
+    "Linux",
+  ];
+  const row = [...words, ...words];
+  return (
+    <section aria-hidden className="border-y border-border bg-card/40 py-6 ticker-mask overflow-hidden">
+      <div className="flex gap-12 animate-marquee whitespace-nowrap font-display text-3xl md:text-5xl text-muted-foreground/70">
+        {row.map((w, i) => (
+          <span key={i} className="flex items-center gap-12">
+            {w}
+            <span className="text-primary">✦</span>
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- ABOUT ----------------------------- */
+
+function About() {
+  return (
+    <section id="about" className="relative py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="00" label="About" />
+        <div className="grid lg:grid-cols-12 gap-12 mt-8">
+          <div className="lg:col-span-7">
+            <h2 className="font-display text-4xl md:text-6xl leading-[1.05] font-light">
+              I build the <span className="italic text-primary">reliable software</span> that quietly
+              moves money, applications, and trust — for banks, exchanges, and the people who
+              depend on them.
+            </h2>
+            <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed text-lg max-w-2xl">
+              <p>
+                Over the last 6+ years I've worked primarily inside FinTech and core-banking
+                environments, shipping secure, scalable systems with Java, Spring Boot, PostgreSQL,
+                Microservices, and Angular.
+              </p>
+              <p>
+                I've launched microservices into production, modernized legacy stacks, and led
+                offshore teams for Japanese enterprise clients. What I enjoy most is the unglamorous
+                work — performance, maintainability, and the long-tail of edge cases — because
+                that's what holds a financial system together at 3am on month-end close.
+              </p>
+              <p>
+                When I'm not coding I'm probably reading, exploring mountains, playing football, or
+                quietly judging IEEE-754 because{" "}
+                <code className="font-mono-tight text-accent">0.1 + 0.2 !== 0.3</code>.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl border border-border bg-card overflow-hidden">
+              {FACTS.map((f, i) => (
+                <div
+                  key={f.k}
+                  className={`px-6 py-5 flex items-center gap-5 ${
+                    i !== FACTS.length - 1 ? "border-b border-border" : ""
+                  }`}
+                >
+                  <span className="font-display text-2xl text-primary w-8">{f.icon}</span>
+                  <div className="flex-1">
+                    <div className="font-mono-tight text-[10px] uppercase tracking-widest text-muted-foreground">
+                      {f.k}
+                    </div>
+                    <div className="text-base mt-0.5">{f.v}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-6">
+              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
+                Currently
+              </div>
+              <p className="text-sm leading-relaxed text-foreground">
+                Architecting microservices on the{" "}
+                <span className="text-primary">Mifos Fineract</span> core-banking platform at MSIS —
+                expanding modular financial features for enterprise deployments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- ARSENAL ----------------------------- */
+
+function Arsenal() {
+  return (
+    <section id="stack" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="01" label="Technical Arsenal" />
+        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+          Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
+        </h2>
+
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+          {STACK.map((s) => (
+            <div key={s.title} className="bg-background p-7 group hover:bg-card transition-colors">
+              <div className="flex items-baseline justify-between mb-5">
+                <h3 className="font-display text-xl">{s.title}</h3>
+                <span className="font-mono-tight text-[10px] text-muted-foreground tracking-widest">
+                  / {s.code}
+                </span>
+              </div>
+              <ul className="space-y-2 font-mono-tight text-sm">
+                {s.items.map((it) => (
+                  <li key={it} className="flex items-center gap-3 text-foreground/90">
+                    <span className="text-primary text-xs">▸</span>
+                    {it}
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6 pt-5 border-t border-border flex flex-wrap gap-1.5">
+                {s.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded border border-border text-muted-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+
+          {/* core expertise tile */}
+          <div className="bg-gradient-to-br from-primary/10 via-background to-accent/10 p-7 md:col-span-2 lg:col-span-1 flex flex-col justify-between">
+            <div>
+              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
+                Core Expertise
+              </div>
+              <h3 className="font-display text-2xl leading-tight">
+                Backend engineering, system modernization, financial systems, and technical
+                leadership.
+              </h3>
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
+              Designing secure REST & microservice architectures · transforming legacy stacks ·
+              building core banking, loan & payment platforms · leading teams and code reviews.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- TIMELINE ----------------------------- */
+
+function Timeline() {
+  return (
+    <section id="career" className="relative py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="02" label="Interactive Career Timeline" />
+        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+          Six years, one through-line:{" "}
+          <span className="italic text-primary">make finance software trustworthy.</span>
+        </h2>
+
+        <div className="relative mt-20">
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" aria-hidden />
+          {TIMELINE.map((t, i) => (
+            <div
+              key={t.role + t.period}
+              className={`relative grid md:grid-cols-2 gap-8 mb-16 last:mb-0 ${
+                i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
+              }`}
+            >
+              <div
+                className={`absolute left-4 md:left-1/2 top-3 -translate-x-1/2 size-3 rounded-full bg-primary ring-4 ring-background pulse-dot`}
+              />
+              <div
+                className={`pl-12 md:pl-0 ${
+                  i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                }`}
+              >
+                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary">
+                  {t.period}
+                </div>
+                <h3 className="font-display text-2xl md:text-3xl mt-2 leading-tight">{t.role}</h3>
+                <div className="text-muted-foreground mt-1 text-sm">{t.company}</div>
+              </div>
+              <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
+                <div className="rounded-xl border border-border bg-card p-6 hover:border-primary/40 transition-colors">
+                  <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-2">
+                    Domain · Impact
+                  </div>
+                  <div className="font-medium text-foreground">{t.domain}</div>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{t.impact}</p>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {t.stack.map((s) => (
+                      <span
+                        key={s}
+                        className="text-[10px] font-mono-tight px-2 py-1 rounded bg-secondary text-secondary-foreground"
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-5 pt-4 border-t border-border text-sm text-primary">
+                    {t.achievement}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- PROJECTS ----------------------------- */
+
+function Projects() {
+  const featured = PROJECTS.filter((p) => p.featured);
+  const others = PROJECTS.filter((p) => !p.featured);
+  return (
+    <section id="work" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="03" label="Selected Work" />
+        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+          Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
+          enterprise modernization.
+        </h2>
+
+        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featured.map((p, i) => (
+            <article
+              key={p.name}
+              className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 transition-all"
+            >
+              <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
+                <div className="absolute inset-0 grid-bg opacity-30" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="font-display text-7xl md:text-8xl text-primary/30 group-hover:text-primary/60 transition-colors">
+                    0{i + 1}
+                  </div>
+                </div>
+                <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded-full bg-background/80 backdrop-blur border border-border"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="absolute top-4 right-4 size-2 rounded-full bg-primary pulse-dot" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl leading-tight">{p.name}</h3>
+                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
+                  {p.role}
+                </div>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
+                <div className="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+                  {p.stack.map((s) => (
+                    <span key={s} className="text-[10px] font-mono-tight text-foreground/80">
+                      {s}
+                      <span className="text-border mx-1.5 last:hidden">/</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* others as list */}
+        <div className="mt-16">
+          <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
+            / Other notable builds
+          </div>
+          <div className="divide-y divide-border border-y border-border">
+            {others.map((p) => (
+              <div
+                key={p.name}
+                className="group grid md:grid-cols-12 gap-4 py-6 items-baseline hover:bg-card/50 px-2 -mx-2 rounded transition-colors"
+              >
+                <div className="md:col-span-4 font-display text-xl">{p.name}</div>
+                <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
+                  {p.role}
+                </div>
+                <div className="md:col-span-4 text-sm text-muted-foreground">{p.impact}</div>
+                <div className="md:col-span-2 font-mono-tight text-xs text-primary text-left md:text-right">
+                  {p.stack.join(" · ")}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- RECOGNITION ----------------------------- */
+
+function Recognition() {
+  return (
+    <section id="awards" className="py-28 md:py-36">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="04" label="Recognition & Education" />
+        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+          Awards, certifications, and the{" "}
+          <span className="italic text-accent">long road of learning</span>.
+        </h2>
+
+        <div className="grid lg:grid-cols-5 gap-10 mt-16">
+          <div className="lg:col-span-3 space-y-4">
+            {RECOGNITION.map((r) => (
+              <div
+                key={r.title}
+                className="group rounded-xl border border-border bg-card p-6 hover:border-primary/50 transition-colors"
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-lg leading-tight">{r.title}</h3>
+                  <span className="font-mono-tight text-xs text-primary shrink-0">{r.date}</span>
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">{r.org}</div>
+                <p className="text-sm mt-3 text-foreground/80">{r.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <aside className="lg:col-span-2 space-y-4">
+            <div className="rounded-2xl border border-border bg-gradient-to-br from-accent/10 via-card to-primary/10 p-7">
+              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-3">
+                Education
+              </div>
+              <h3 className="font-display text-2xl leading-tight">
+                B.E. in Electronics
+              </h3>
+              <div className="text-sm text-muted-foreground mt-1">
+                Technological University, Kalay · 2012 — 2018
+              </div>
+              <ul className="mt-5 space-y-2 text-sm">
+                <li className="flex gap-2">
+                  <span className="text-primary">✦</span>
+                  Project Award · Smart Home Automation
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-primary">✦</span>
+                  Student Union Leader
+                </li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card p-7">
+              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
+                Continuous Learning
+              </div>
+              <p className="text-sm text-foreground/90 leading-relaxed">
+                Constantly expanding into Cloud Architecture, AI-assisted development, advanced
+                System Design, and deeper Financial Technology.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-1.5">
+                {["Cloud Architecture", "AI-Assisted Dev", "System Design", "FinTech"].map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded border border-border text-muted-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- CONTACT ----------------------------- */
+
+function Contact() {
+  const channels = [
+    { label: "Email", v: "winnaingsoe6666@gmail.com", href: "mailto:winnaingsoe6666@gmail.com", icon: "✉" },
+    { label: "WhatsApp", v: "+66 960 308 914", href: "https://wa.me/66960308914", icon: "✆" },
+    { label: "LinkedIn", v: "/in/win-naing-soe", href: "https://linkedin.com/in/win-naing-soe", icon: "in" },
+    { label: "GitHub", v: "@winnaingsoe6666", href: "https://github.com/winnaingsoe6666", icon: "{ }" },
+  ];
+
+  return (
+    <section id="contact" className="relative py-28 md:py-40 border-t border-border bg-gradient-to-b from-background to-card/40">
+      <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
+      <div className="relative mx-auto max-w-6xl px-6 md:px-10">
+        <SectionLabel n="05" label="Let's build something" />
+
+        <h2 className="mt-8 font-display text-5xl md:text-8xl font-light leading-[0.95]">
+          Let's build <br />
+          <span className="italic text-primary">something great</span> <br />
+          together.
+        </h2>
+
+        <div className="mt-14 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p>
+              I'm open to <span className="text-foreground">senior backend</span>,{" "}
+              <span className="text-foreground">full-stack</span>, and{" "}
+              <span className="text-foreground">FinTech</span> roles — remote, hybrid, or with
+              relocation from Chiang Mai.
+            </p>
+            <p>
+              If you're working on core banking, payments, microfinance, system modernization, or
+              an enterprise platform that has to be{" "}
+              <em className="text-accent not-italic">correct, fast, and quiet</em> — I'd love to
+              talk.
+            </p>
+
+            <div className="flex flex-wrap gap-2 pt-4">
+              {[
+                "Senior Software Engineer",
+                "Backend Engineer",
+                "Full-Stack Engineer",
+                "FinTech Projects",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="text-xs font-mono-tight uppercase tracking-wider px-3 py-1.5 rounded-full border border-primary/40 text-primary bg-primary/5"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="rounded-2xl border border-border bg-card divide-y divide-border overflow-hidden">
+              {channels.map((c) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-5 px-6 py-5 hover:bg-background transition-colors group"
+                >
+                  <span className="size-10 rounded-full border border-border flex items-center justify-center font-mono-tight text-sm text-primary group-hover:border-primary/60 transition-colors">
+                    {c.icon}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-mono-tight text-[10px] uppercase tracking-widest text-muted-foreground">
+                      {c.label}
+                    </div>
+                    <div className="truncate">{c.v}</div>
+                  </div>
+                  <span className="text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all">
+                    →
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4 flex items-center gap-3">
+              <span className="size-2 rounded-full bg-primary pulse-dot" />
+              <span className="font-mono-tight text-xs uppercase tracking-widest text-primary">
+                Status: Open to opportunities · responding within 24h
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------- FOOTER ----------------------------- */
+
+function Footer() {
+  return (
+    <footer className="border-t border-border py-10">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 font-mono-tight text-xs text-muted-foreground">
+        <div>
+          © {new Date().getFullYear()} Win Naing Soe · Crafted in Chiang Mai with{" "}
+          <span className="text-accent">☕</span> &amp; <span className="text-primary">code</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="inline-block size-1.5 rounded-full bg-primary" />
+          <span>built · v2026.06 · last commit: today</span>
+          <span className="animate-blink text-primary">▍</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ----------------------------- SHARED ----------------------------- */
+
+function SectionLabel({ n, label }: { n: string; label: string }) {
+  return (
+    <div className="flex items-center gap-4">
+      <span className="font-mono-tight text-xs text-primary tracking-widest">/ {n}</span>
+      <span className="font-mono-tight text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
+        {label}
+      </span>
+      <span className="flex-1 hairline" />
     </div>
   );
 }
