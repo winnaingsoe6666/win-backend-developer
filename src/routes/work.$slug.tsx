@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { getProjectBySlug, PROJECT_DETAILS } from "@/lib/projects-data";
+import { getProjectBySlug, PROJECT_DETAILS, type ProjectDetail } from "@/lib/projects-data";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -116,7 +116,7 @@ export const Route = createFileRoute("/work/$slug")({
 });
 
 function ProjectPage() {
-  const { project: p } = Route.useLoaderData();
+  const { project: p } = Route.useLoaderData() as { project: ProjectDetail };
   const others = PROJECT_DETAILS.filter((x) => x.slug !== p.slug);
 
   return (
