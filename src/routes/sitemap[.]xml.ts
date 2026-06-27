@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { PROJECT_DETAILS } from "@/lib/projects-data";
 
 // TODO: replace with your project URL once a project name or custom domain is set.
 const BASE_URL = "";
@@ -18,6 +19,12 @@ export const Route = createFileRoute("/sitemap.xml")({
         const today = new Date().toISOString().split("T")[0];
         const entries: SitemapEntry[] = [
           { path: "/", lastmod: today, changefreq: "monthly", priority: "1.0" },
+          ...PROJECT_DETAILS.map((p) => ({
+            path: `/work/${p.slug}`,
+            lastmod: today,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
         ];
 
         const urls = entries.map((e) =>
