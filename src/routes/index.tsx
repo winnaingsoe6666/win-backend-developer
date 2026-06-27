@@ -531,7 +531,7 @@ function About() {
         <SectionLabel n="00" label="About" />
         <div className="grid lg:grid-cols-12 gap-12 mt-8">
           <div className="lg:col-span-7">
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.05] font-light">
+            <h2 className="font-sans text-4xl md:text-6xl leading-[1.05] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
               moves money, applications, and trust — for banks, exchanges, and the people who
               depend on them.
@@ -600,7 +600,7 @@ function Arsenal() {
     <section id="stack" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
-        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
@@ -663,7 +663,7 @@ function Timeline() {
     <section id="career" className="relative py-28 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Interactive Career Timeline" />
-        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
         </h2>
@@ -730,7 +730,7 @@ function Projects() {
     <section id="work" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="03" label="Selected Work" />
-        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
           enterprise modernization.
         </h2>
@@ -829,7 +829,7 @@ function Recognition() {
     <section id="awards" className="py-28 md:py-36">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="04" label="Recognition & Education" />
-        <h2 className="mt-6 font-display text-4xl md:text-6xl font-light max-w-3xl">
+        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
         </h2>
@@ -916,7 +916,7 @@ function Contact() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="05" label="Let's build something" />
 
-        <h2 className="mt-8 font-display text-5xl md:text-8xl font-light leading-[0.95]">
+        <h2 className="mt-8 font-sans text-5xl md:text-8xl font-light tracking-tight leading-[0.95]">
           Let's build <br />
           <span className="italic text-primary">something great</span> <br />
           together.

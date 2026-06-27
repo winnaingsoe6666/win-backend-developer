@@ -146,7 +146,7 @@ function ProjectPage() {
             <span className="inline-block w-8 h-px bg-primary" />
             Case Study · {p.client}
           </div>
-          <h1 className="font-display text-[clamp(2.25rem,6vw,5rem)] leading-[0.98] font-light max-w-4xl">
+          <h1 className="font-sans text-[clamp(2.25rem,6vw,5rem)] leading-[0.98] font-light tracking-tight max-w-4xl">
             {p.name}
           </h1>
           <p className="mt-6 text-xl md:text-2xl text-muted-foreground max-w-3xl italic font-display">
