@@ -77,20 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking" },
-      {
-        name: "description",
-        content:
-          "Senior Backend / Full-Stack Engineer with 6+ years in FinTech, core banking, and system modernization. Java, Spring Boot, PostgreSQL, Microservices, Angular.",
-      },
-      { name: "author", content: "Win Naing Soe" },
-      { property: "og:title", content: "Win Naing Soe — Enterprise Software Engineer" },
-      {
-        property: "og:description",
-        content:
-          "Building secure, scalable backend systems for FinTech and core banking. Based in Chiang Mai, Thailand.",
-      },
+      { name: "theme-color", content: "#1a1f1c" },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Win Naing Soe" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -100,6 +90,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Win Naing Soe — Portfolio",
+          url: "/",
+        }),
       },
     ],
   }),

@@ -3,14 +3,77 @@ import { useEffect, useState } from "react";
 import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
+const PAGE_TITLE = "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking";
+const PAGE_DESCRIPTION =
+  "Senior Backend / Full-Stack Engineer with 6+ years building secure, scalable systems for core banking, microfinance, and stock-exchange platforms. Java · Spring Boot · PostgreSQL · Microservices · Angular.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking" },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESCRIPTION },
+      { name: "author", content: "Win Naing Soe" },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Senior Backend / Full-Stack Engineer crafting secure, scalable banking platforms with Java, Spring Boot, PostgreSQL, Microservices & Angular.",
+          "Win Naing Soe, Senior Backend Engineer, Full-Stack Engineer, FinTech, Core Banking, Java, Spring Boot, PostgreSQL, Microservices, Angular, Mifos Fineract, Chiang Mai",
+      },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESCRIPTION },
+      { property: "og:url", content: "/" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      {
+        property: "og:image:alt",
+        content: "Win Naing Soe — Enterprise Software Engineer, FinTech & Core Banking",
+      },
+      { name: "twitter:title", content: PAGE_TITLE },
+      { name: "twitter:description", content: PAGE_DESCRIPTION },
+      { name: "twitter:image", content: "/og-image.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Win Naing Soe",
+          jobTitle: "Senior Backend / Full-Stack Software Engineer",
+          description: PAGE_DESCRIPTION,
+          url: "/",
+          image: "/og-image.jpg",
+          email: "mailto:winnaingsoe6666@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Chiang Mai",
+            addressCountry: "TH",
+          },
+          nationality: "Myanmar",
+          alumniOf: {
+            "@type": "CollegeOrUniversity",
+            name: "Technological University, Kalay",
+          },
+          knowsAbout: [
+            "Java",
+            "Spring Boot",
+            "PostgreSQL",
+            "Microservices",
+            "Angular",
+            "REST APIs",
+            "Core Banking",
+            "FinTech",
+            "Mifos Fineract",
+            "System Modernization",
+            "Docker",
+            "AWS",
+          ],
+          sameAs: [
+            "https://linkedin.com/in/win-naing-soe",
+            "https://github.com/winnaingsoe6666",
+          ],
+        }),
       },
     ],
   }),
