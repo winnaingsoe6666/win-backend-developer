@@ -1,7 +1,19 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
+import { PROJECT_DETAILS } from "@/lib/projects-data";
+
+const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
+  PROJECT_DETAILS.map((p) => [p.name.split(" — ")[0], p.slug]),
+);
+
+function slugForProject(name: string): string | undefined {
+  if (name.startsWith("Mifos")) return "mifos-fineract";
+  if (name.startsWith("Stock Exchange")) return "stock-exchange";
+  if (name.startsWith("JLPT")) return "jlpt-registration";
+  return PROJECT_SLUG_BY_NAME[name];
+}
 
 const PAGE_TITLE = "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking";
 const PAGE_DESCRIPTION =
@@ -724,48 +736,63 @@ function Projects() {
         </h2>
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featured.map((p, i) => (
-            <article
-              key={p.name}
-              className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 transition-all"
-            >
-              <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
-                <div className="absolute inset-0 grid-bg opacity-30" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="font-display text-7xl md:text-8xl text-primary/30 group-hover:text-primary/60 transition-colors">
-                    0{i + 1}
+          {featured.map((p, i) => {
+            const slug = slugForProject(p.name);
+            const Card = (
+              <article
+                className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 transition-all h-full"
+              >
+                <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
+                  <div className="absolute inset-0 grid-bg opacity-30" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="font-display text-7xl md:text-8xl text-primary/30 group-hover:text-primary/60 transition-colors">
+                      0{i + 1}
+                    </div>
                   </div>
+                  <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded-full bg-background/80 backdrop-blur border border-border"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="absolute top-4 right-4 size-2 rounded-full bg-primary pulse-dot" />
                 </div>
-                <div className="absolute top-4 left-4 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded-full bg-background/80 backdrop-blur border border-border"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div className="p-6">
+                  <h3 className="font-display text-xl leading-tight">{p.name}</h3>
+                  <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
+                    {p.role}
+                  </div>
+                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
+                  <div className="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+                    {p.stack.map((s) => (
+                      <span key={s} className="text-[10px] font-mono-tight text-foreground/80">
+                        {s}
+                        <span className="text-border mx-1.5 last:hidden">/</span>
+                      </span>
+                    ))}
+                  </div>
+                  {slug && (
+                    <div className="mt-5 font-mono-tight text-[11px] uppercase tracking-widest text-primary group-hover:translate-x-1 transition-transform">
+                      Read case study →
+                    </div>
+                  )}
                 </div>
-                <div className="absolute top-4 right-4 size-2 rounded-full bg-primary pulse-dot" />
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl leading-tight">{p.name}</h3>
-                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
-                  {p.role}
-                </div>
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
-                <div className="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
-                  {p.stack.map((s) => (
-                    <span key={s} className="text-[10px] font-mono-tight text-foreground/80">
-                      {s}
-                      <span className="text-border mx-1.5 last:hidden">/</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+            return slug ? (
+              <Link key={p.name} to="/work/$slug" params={{ slug }} className="block">
+                {Card}
+              </Link>
+            ) : (
+              <div key={p.name}>{Card}</div>
+            );
+          })}
         </div>
+
 
         {/* others as list */}
         <div className="mt-16">
