@@ -77,7 +77,20 @@
   --border: oklch(0.28 0.014 160 / 70%);
   --input: oklch(0.28 0.014 160);
   --ring: oklch(0.84 0.18 152);
+
+  /* Code surface + syntax (dark) */
+  --code-bg: oklch(0.16 0.014 160);
+  --code-fg: oklch(0.92 0.02 85);
+  --code-border: oklch(0.30 0.014 160 / 60%);
+  --code-muted: oklch(0.55 0.016 160);
+  --syntax-keyword: oklch(0.84 0.18 152);
+  --syntax-string: oklch(0.78 0.15 60);
+  --syntax-number: oklch(0.78 0.13 200);
+  --syntax-function: oklch(0.86 0.14 95);
+  --syntax-comment: oklch(0.50 0.02 160);
+  --syntax-punctuation: oklch(0.65 0.02 160);
 }
+
 
 .dark {
   --background: oklch(0.14 0.012 160);
