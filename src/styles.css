@@ -33,6 +33,17 @@
   --color-parchment: var(--parchment);
   --color-ink: var(--ink);
   --color-ink-deep: var(--ink-deep);
+  --color-code: var(--code-bg);
+  --color-code-foreground: var(--code-fg);
+  --color-code-border: var(--code-border);
+  --color-code-muted: var(--code-muted);
+  --color-syntax-keyword: var(--syntax-keyword);
+  --color-syntax-string: var(--syntax-string);
+  --color-syntax-number: var(--syntax-number);
+  --color-syntax-comment: var(--syntax-comment);
+  --color-syntax-punctuation: var(--syntax-punctuation);
+  --color-syntax-function: var(--syntax-function);
+
   --font-display: "Fraunces", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
