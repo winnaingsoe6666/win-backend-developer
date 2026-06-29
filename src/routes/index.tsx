@@ -453,8 +453,8 @@ function Hero() {
           <div className="lg:col-span-4">
             <div className="relative animate-float">
               <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" />
-              <div className="relative rounded-2xl overflow-hidden border border-border bg-card ring-signal">
-                <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-background/60 font-mono-tight text-[10px] uppercase tracking-widest text-muted-foreground">
+              <div className="relative rounded-2xl overflow-hidden code-surface ring-signal">
+                <div className="flex items-center justify-between px-4 py-2.5 code-chrome font-mono-tight text-[10px] uppercase tracking-widest">
                   <div className="flex items-center gap-1.5">
                     <span className="size-2 rounded-full bg-destructive/70" />
                     <span className="size-2 rounded-full bg-accent/70" />
@@ -469,13 +469,25 @@ function Hero() {
                   height={1280}
                   className="w-full aspect-[4/5] object-cover"
                 />
-                <div className="px-5 py-4 border-t border-border space-y-2 font-mono-tight text-xs">
-                  <Line k="name" v="Win Naing Soe" />
-                  <Line k="role" v="Senior Backend / Full-Stack" />
-                  <Line k="domain" v="FinTech · Core Banking" />
-                  <Line k="status" v={<span className="text-primary">open_to_work</span>} />
+                <div
+                  className="px-5 py-4 border-t font-mono-tight text-xs space-y-1.5"
+                  style={{ borderColor: "var(--color-code-border)" }}
+                >
+                  <div className="flex gap-3">
+                    <span className="code-line-number w-6">1</span>
+                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"{"}</span>
+                  </div>
+                  <Line n={2} k="name" v="Win Naing Soe" />
+                  <Line n={3} k="role" v="Senior Backend / Full-Stack" />
+                  <Line n={4} k="domain" v="FinTech · Core Banking" />
+                  <Line n={5} k="status" v="open_to_work" highlight last />
+                  <div className="flex gap-3">
+                    <span className="code-line-number w-6">6</span>
+                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"}"}</span>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -484,15 +496,38 @@ function Hero() {
   );
 }
 
-function Line({ k, v }: { k: string; v: React.ReactNode }) {
+function Line({
+  n,
+  k,
+  v,
+  highlight,
+}: {
+  n: number;
+  k: string;
+  v: string;
+  highlight?: boolean;
+  last?: boolean;
+}) {
   return (
     <div className="flex items-baseline gap-3">
-      <span className="text-muted-foreground w-16 shrink-0">{k}</span>
-      <span className="text-accent">:</span>
-      <span className="truncate">{v}</span>
+      <span className="code-line-number w-6">{n}</span>
+      <span style={{ color: "var(--color-syntax-punctuation)" }}>{"  "}</span>
+      <span style={{ color: "var(--color-syntax-keyword)" }}>"{k}"</span>
+      <span style={{ color: "var(--color-syntax-punctuation)" }}>:</span>
+      <span
+        className="truncate"
+        style={{
+          color: highlight
+            ? "var(--color-syntax-function)"
+            : "var(--color-syntax-string)",
+        }}
+      >
+        "{v}"
+      </span>
     </div>
   );
 }
+
 
 /* ----------------------------- MARQUEE ----------------------------- */
 
@@ -557,7 +592,7 @@ function About() {
               <p>
                 When I'm not coding I'm probably reading, exploring mountains, playing football, or
                 quietly judging IEEE-754 because{" "}
-                <code className="font-mono-tight text-accent">0.1 + 0.2 !== 0.3</code>.
+                <code className="code-inline">0.1 + 0.2 !== 0.3</code>.
               </p>
             </div>
           </div>
