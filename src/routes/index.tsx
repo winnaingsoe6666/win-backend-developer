@@ -346,13 +346,17 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-mono-tight uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-all"
-        >
-          <span className="size-1.5 rounded-full bg-primary pulse-dot" />
-          Available
-        </a>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-mono-tight uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+          >
+            <span className="size-1.5 rounded-full bg-primary pulse-dot" />
+            Available
+          </a>
+        </div>
+
       </div>
     </header>
   );
