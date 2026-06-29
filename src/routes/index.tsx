@@ -592,7 +592,7 @@ function About() {
               <p>
                 When I'm not coding I'm probably reading, exploring mountains, playing football, or
                 quietly judging IEEE-754 because{" "}
-                <code className="font-mono-tight text-accent">0.1 + 0.2 !== 0.3</code>.
+                <code className="code-inline">0.1 + 0.2 !== 0.3</code>.
               </p>
             </div>
           </div>
