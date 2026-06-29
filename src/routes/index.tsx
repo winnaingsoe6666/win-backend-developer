@@ -496,15 +496,38 @@ function Hero() {
   );
 }
 
-function Line({ k, v }: { k: string; v: React.ReactNode }) {
+function Line({
+  n,
+  k,
+  v,
+  highlight,
+}: {
+  n: number;
+  k: string;
+  v: string;
+  highlight?: boolean;
+  last?: boolean;
+}) {
   return (
     <div className="flex items-baseline gap-3">
-      <span className="text-muted-foreground w-16 shrink-0">{k}</span>
-      <span className="text-accent">:</span>
-      <span className="truncate">{v}</span>
+      <span className="code-line-number w-6">{n}</span>
+      <span style={{ color: "var(--color-syntax-punctuation)" }}>{"  "}</span>
+      <span style={{ color: "var(--color-syntax-keyword)" }}>"{k}"</span>
+      <span style={{ color: "var(--color-syntax-punctuation)" }}>:</span>
+      <span
+        className="truncate"
+        style={{
+          color: highlight
+            ? "var(--color-syntax-function)"
+            : "var(--color-syntax-string)",
+        }}
+      >
+        "{v}"
+      </span>
     </div>
   );
 }
+
 
 /* ----------------------------- MARQUEE ----------------------------- */
 
