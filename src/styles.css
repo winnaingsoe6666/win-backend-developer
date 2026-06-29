@@ -162,7 +162,20 @@
   --border: oklch(0.96 0.04 75 / 16%);
   --input: oklch(0.36 0.05 35);
   --ring: oklch(0.84 0.18 152);
+
+  /* Code surface + syntax (sunset) */
+  --code-bg: oklch(0.18 0.05 35);
+  --code-fg: oklch(0.95 0.04 75);
+  --code-border: oklch(0.96 0.04 75 / 18%);
+  --code-muted: oklch(0.62 0.05 60);
+  --syntax-keyword: oklch(0.84 0.18 152);
+  --syntax-string: oklch(0.80 0.16 65);
+  --syntax-number: oklch(0.78 0.16 20);
+  --syntax-function: oklch(0.82 0.14 95);
+  --syntax-comment: oklch(0.55 0.04 50);
+  --syntax-punctuation: oklch(0.70 0.05 60);
 }
+
 
 @layer base {
   * {
