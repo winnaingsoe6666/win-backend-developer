@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
+import { ThemeToggle } from "@/components/theme-toggle";
+
 
 const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
   PROJECT_DETAILS.map((p) => [p.name.split(" — ")[0], p.slug]),
