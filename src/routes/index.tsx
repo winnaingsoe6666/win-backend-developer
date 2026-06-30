@@ -554,7 +554,7 @@ function Hero() {
           {/* portrait card */}
           <div className="lg:col-span-4">
             <div className="relative animate-float">
-              <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" />
+              <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" style={{ animation: "glow-breathe 8s ease-in-out infinite" }} />
               <div className="relative rounded-2xl overflow-hidden code-surface ring-signal">
                 <div className="flex items-center justify-between px-4 py-2.5 code-chrome font-mono-tight text-[10px] uppercase tracking-widest">
                   <div className="flex items-center gap-1.5">

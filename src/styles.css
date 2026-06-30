@@ -334,12 +334,21 @@
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) rotateY(-2deg) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(2deg) scale(1.02);
+  }
+}
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.6; filter: blur(40px); }
+  50% { opacity: 1; filter: blur(50px); }
 }
 @utility animate-float {
-  animation: float-y 6s ease-in-out infinite;
+  animation: float-3d 8s ease-in-out infinite;
+  perspective: 1000px;
 }
 
 /* ----------------------------- LIQUID AURORA ----------------------------- */
