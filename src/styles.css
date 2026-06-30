@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -56,7 +56,7 @@
   --ink: oklch(0.18 0.014 160);
   --parchment: oklch(0.95 0.02 85);
   --signal: oklch(0.84 0.18 152);
-  --copper: oklch(0.74 0.15 55);
+  --copper: oklch(79.894% 0.13216 196.715);
 
   --background: oklch(0.14 0.012 160);
   --foreground: oklch(0.95 0.02 85);
@@ -89,6 +89,10 @@
   --syntax-function: oklch(0.86 0.14 95);
   --syntax-comment: oklch(0.50 0.02 160);
   --syntax-punctuation: oklch(0.65 0.02 160);
+
+  --wave-filter: none;
+  --wave-blend: screen;
+  --wave-opacity: 0.3;
 }
 
 
@@ -103,7 +107,7 @@
   --ink: oklch(0.28 0.014 160);
   --parchment: oklch(0.97 0.018 85);
   --signal: oklch(0.58 0.17 152);
-  --copper: oklch(0.55 0.15 50);
+  --copper: oklch(62% 0.11295 223.747);
 
   --background: oklch(0.97 0.018 85);
   --foreground: oklch(0.20 0.014 160);
@@ -137,43 +141,47 @@
 }
 
 
-/* ----------------------------- SUNSET (warm ember + signal-green) ----------------------------- */
+/* ----------------------------- SUNSET (pink/purple gradient style) ----------------------------- */
 .theme-sunset {
-  --ink-deep: oklch(0.20 0.045 35);
-  --ink: oklch(0.26 0.05 35);
-  --parchment: oklch(0.96 0.04 75);
-  --signal: oklch(0.84 0.18 152);
-  --copper: oklch(0.78 0.17 50);
+  --ink-deep: #4A1259;
+  --ink: #4A1259;
+  --parchment: #FFC2C5;
+  --signal: #8A2387;
+  --copper: oklch(0.65 0.20 320);
 
-  --background: oklch(0.22 0.045 35);
-  --foreground: oklch(0.96 0.04 75);
-  --card: oklch(0.26 0.05 35);
-  --card-foreground: oklch(0.96 0.04 75);
-  --popover: oklch(0.26 0.05 35);
-  --popover-foreground: oklch(0.96 0.04 75);
-  --primary: oklch(0.84 0.18 152);
-  --primary-foreground: oklch(0.20 0.045 35);
-  --secondary: oklch(0.30 0.055 35);
-  --secondary-foreground: oklch(0.96 0.04 75);
-  --muted: oklch(0.28 0.05 35);
-  --muted-foreground: oklch(0.78 0.05 70);
-  --accent: oklch(0.78 0.17 50);
-  --accent-foreground: oklch(0.20 0.045 35);
-  --border: oklch(0.96 0.04 75 / 16%);
-  --input: oklch(0.36 0.05 35);
-  --ring: oklch(0.84 0.18 152);
+  --background: #FF9A9E;
+  --foreground: #4A1259;
+  --card: #FFC2C5;
+  --card-foreground: #4A1259;
+  --popover: #FFC2C5;
+  --popover-foreground: #4A1259;
+  --primary: #8A2387;
+  --primary-foreground: #FFFFFF;
+  --secondary: oklch(0.85 0.08 345);
+  --secondary-foreground: #4A1259;
+  --muted: oklch(0.90 0.05 350);
+  --muted-foreground: #4A1259;
+  --accent: #8A2387;
+  --accent-foreground: #FFFFFF;
+  --border: oklch(0.45 0.20 325 / 15%);
+  --input: oklch(0.45 0.20 325 / 20%);
+  --ring: #8A2387;
+
+  --wave-filter: sepia(1) saturate(4) hue-rotate(345deg) brightness(1.1);
+  --wave-blend: overlay;
+  --wave-opacity: 0.8;
 
   /* Code surface + syntax (sunset) */
-  --code-bg: oklch(0.18 0.05 35);
-  --code-fg: oklch(0.95 0.04 75);
-  --code-border: oklch(0.96 0.04 75 / 18%);
-  --code-muted: oklch(0.62 0.05 60);
-  --syntax-keyword: oklch(0.84 0.18 152);
-  --syntax-string: oklch(0.80 0.16 65);
-  --syntax-number: oklch(0.78 0.16 20);
-  --syntax-function: oklch(0.82 0.14 95);
-  --syntax-comment: oklch(0.55 0.04 50);
-  --syntax-punctuation: oklch(0.70 0.05 60);
+  --code-bg: oklch(0.92 0.04 350);
+  --code-fg: oklch(0.30 0.12 325);
+  --code-border: oklch(0.45 0.20 325 / 15%);
+  --code-muted: oklch(0.55 0.10 325);
+  --syntax-keyword: oklch(0.45 0.20 325);
+  --syntax-string: oklch(0.60 0.20 335);
+  --syntax-number: oklch(0.55 0.18 290);
+  --syntax-function: oklch(0.50 0.18 310);
+  --syntax-comment: oklch(0.65 0.10 325);
+  --syntax-punctuation: oklch(0.40 0.10 325);
 }
 
 
@@ -198,6 +206,12 @@
     background: var(--color-signal);
     color: var(--color-ink-deep);
   }
+}
+
+@utility hero-bg-wave {
+  filter: var(--wave-filter);
+  mix-blend-mode: var(--wave-blend);
+  opacity: var(--wave-opacity);
 }
 
 @utility font-display {

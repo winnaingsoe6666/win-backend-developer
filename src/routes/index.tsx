@@ -371,7 +371,7 @@ function Hero() {
     <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
       <div
         aria-hidden
-        className="absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
+        className="hero-bg-wave absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: "cover",
@@ -396,13 +396,13 @@ function Hero() {
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
             </p>
-            <h1 className="font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.95] font-light">
+            <h1 className="font-display text-[clamp(2.75rem,8vw,6rem)] leading-[0.95] font-light">
               Engineering the{" "}
               <span className="italic font-normal text-primary">quiet machinery</span>
               <br />
               behind modern <span className="text-accent">finance</span>.
             </h1>
-            <p className="mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="mt-8 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
               Six years building secure, scalable backend systems for core banking, microfinance,
               and stock-exchange operations. Java · Spring Boot · PostgreSQL · Microservices ·
               Angular.
