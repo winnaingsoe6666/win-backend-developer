@@ -469,7 +469,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-32 pb-20 md:pt-44 md:pb-28">
+    <section id="top" className="relative overflow-hidden pt-24 pb-14 md:pt-32 md:pb-20">
       <div
         aria-hidden
         className="hero-bg-wave absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
@@ -484,7 +484,7 @@ function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         {/* meta row */}
-        <div className="flex items-center gap-4 mb-10 font-mono-tight text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="flex items-center gap-4 mb-6 font-mono-tight text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
           <span className="text-primary">◆</span>
           <span>Portfolio · v2026.06</span>
           <span className="hidden md:block flex-1 hairline" />
@@ -493,33 +493,33 @@ function Hero() {
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-8">
-            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-6 flex items-center gap-3">
+            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-4 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
             </p>
-            <h1 className="font-display text-[clamp(2.75rem,8vw,6rem)] leading-[0.95] font-light">
+            <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1] font-light">
               Engineering the{" "}
               <span className="italic font-normal text-primary">quiet machinery</span>
               <br />
               behind modern <span className="text-accent">finance</span>.
             </h1>
-            <p className="mt-8 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+            <p className="mt-5 max-w-2xl text-sm text-muted-foreground leading-relaxed">
               Six years building secure, scalable backend systems for core banking, microfinance,
               and stock-exchange operations. Java · Spring Boot · PostgreSQL · Microservices ·
               Angular.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                className="group inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
               >
                 See selected work
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
+                className="inline-flex items-center gap-3 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
               >
                 Get in touch
               </a>
@@ -534,7 +534,7 @@ function Hero() {
             </div>
 
             {/* metric strip */}
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
               {[
                 ["6+", "years shipping"],
                 ["5,000+", "concurrent users"],
@@ -542,7 +542,7 @@ function Hero() {
                 ["11", "engineers mentored"],
               ].map(([n, l]) => (
                 <div key={l} className="bg-card p-5">
-                  <div className="font-display text-3xl md:text-4xl text-primary">{n}</div>
+                  <div className="font-display text-2xl md:text-3xl text-primary">{n}</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
                     {l}
                   </div>
@@ -653,8 +653,8 @@ function Marquee() {
   ];
   const row = [...words, ...words];
   return (
-    <section aria-hidden className="marquee-wrapper border-y border-border bg-card/40 py-6 ticker-mask overflow-hidden">
-      <div className="flex gap-12 animate-marquee whitespace-nowrap font-display text-3xl md:text-5xl text-muted-foreground/70">
+    <section aria-hidden className="marquee-wrapper border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
+      <div className="flex gap-10 animate-marquee whitespace-nowrap font-display text-xl md:text-3xl text-muted-foreground/70">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-12">
             {w}
@@ -670,17 +670,17 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="relative py-28 md:py-36">
+    <section id="about" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="00" label="About" />
-        <div className="grid lg:grid-cols-12 gap-12 mt-8">
+        <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
-            <h2 className="font-sans text-4xl md:text-6xl leading-[1.05] font-light tracking-tight">
+            <h2 className="font-sans text-2xl md:text-4xl leading-[1.1] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
               moves money, applications, and trust — for banks, exchanges, and the people who
               depend on them.
             </h2>
-            <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed text-lg max-w-2xl">
+            <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed max-w-2xl">
               <p>
                 Over the last 6+ years I've worked primarily inside FinTech and core-banking
                 environments, shipping secure, scalable systems with Java, Spring Boot, PostgreSQL,
@@ -741,18 +741,18 @@ function About() {
 
 function Arsenal() {
   return (
-    <section id="stack" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
+    <section id="stack" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
-        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-4xl font-light tracking-tight max-w-3xl">
           Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
           {STACK.map((s) => (
-            <div key={s.title} className="bg-background p-7 group hover:bg-card transition-colors">
-              <div className="flex items-baseline justify-between mb-5">
-                <h3 className="font-display text-xl">{s.title}</h3>
+            <div key={s.title} className="bg-background p-5 group hover:bg-card transition-colors">
+              <div className="flex items-baseline justify-between mb-4">
+                <h3 className="font-display text-lg">{s.title}</h3>
                 <span className="font-mono-tight text-[10px] text-muted-foreground tracking-widest">
                   / {s.code}
                 </span>
@@ -765,11 +765,11 @@ function Arsenal() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 pt-5 border-t border-border flex flex-wrap gap-1.5">
+              <div className="mt-4 pt-4 border-t border-border flex flex-wrap gap-1.5">
                 {s.tags.map((t) => (
                   <span
                     key={t}
-                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded border border-border text-muted-foreground"
+                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-0.5 rounded border border-border text-muted-foreground"
                   >
                     {t}
                   </span>
@@ -779,17 +779,17 @@ function Arsenal() {
           ))}
 
           {/* core expertise tile */}
-          <div className="bg-gradient-to-br from-primary/10 via-background to-accent/10 p-7 md:col-span-2 lg:col-span-1 flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-primary/10 via-background to-accent/10 p-5 md:col-span-2 lg:col-span-1 flex flex-col justify-between">
             <div>
-              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
+              <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-2">
                 Core Expertise
               </div>
-              <h3 className="font-display text-2xl leading-tight">
+              <h3 className="font-display text-lg leading-tight">
                 Backend engineering, system modernization, financial systems, and technical
                 leadership.
               </h3>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Designing secure REST & microservice architectures · transforming legacy stacks ·
               building core banking, loan & payment platforms · leading teams and code reviews.
             </p>
@@ -804,20 +804,20 @@ function Arsenal() {
 
 function Timeline() {
   return (
-    <section id="career" className="relative py-28 md:py-36">
+    <section id="career" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Interactive Career Timeline" />
-        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-4xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
         </h2>
 
-        <div className="relative mt-20">
+        <div className="relative mt-12">
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" aria-hidden />
           {TIMELINE.map((t, i) => (
             <div
               key={t.role + t.period}
-              className={`relative grid md:grid-cols-2 gap-8 mb-16 last:mb-0 ${
+              className={`relative grid md:grid-cols-2 gap-6 mb-10 last:mb-0 ${
                 i % 2 === 0 ? "" : "md:[&>*:first-child]:order-2"
               }`}
             >
@@ -832,17 +832,17 @@ function Timeline() {
                 <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary">
                   {t.period}
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl mt-2 leading-tight">{t.role}</h3>
+                <h3 className="font-display text-xl md:text-2xl mt-1 leading-tight">{t.role}</h3>
                 <div className="text-muted-foreground mt-1 text-sm">{t.company}</div>
               </div>
               <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
-                <div className="rounded-xl border border-border bg-card p-6 hover:border-primary/40 transition-colors">
+                <div className="rounded-xl border border-border bg-card p-5 hover:border-primary/40 transition-colors">
                   <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-2">
                     Domain · Impact
                   </div>
                   <div className="font-medium text-foreground">{t.domain}</div>
-                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{t.impact}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{t.impact}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {t.stack.map((s) => (
                       <span
                         key={s}
@@ -852,7 +852,7 @@ function Timeline() {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-5 pt-4 border-t border-border text-sm text-primary">
+                  <div className="mt-3 pt-3 border-t border-border text-sm text-primary">
                     {t.achievement}
                   </div>
                 </div>
@@ -871,15 +871,15 @@ function Projects() {
   const featured = PROJECTS.filter((p) => p.featured);
   const others = PROJECTS.filter((p) => !p.featured);
   return (
-    <section id="work" className="relative py-28 md:py-36 bg-card/30 border-y border-border">
+    <section id="work" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="03" label="Selected Work" />
-        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-4xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
           enterprise modernization.
         </h2>
 
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((p, i) => {
             const slug = slugForProject(p.name);
             const Card = (
@@ -889,7 +889,7 @@ function Projects() {
                 <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
                   <div className="absolute inset-0 grid-bg opacity-30" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-display text-7xl md:text-8xl text-primary/30 group-hover:text-primary/60 transition-colors">
+                    <div className="font-display text-5xl md:text-6xl text-primary/30 group-hover:text-primary/60 transition-colors">
                       0{i + 1}
                     </div>
                   </div>
@@ -906,12 +906,12 @@ function Projects() {
                   <div className="absolute top-4 right-4 size-2 rounded-full bg-primary pulse-dot" />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-display text-xl leading-tight">{p.name}</h3>
+                  <h3 className="font-display text-lg leading-tight">{p.name}</h3>
                   <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
                     {p.role}
                   </div>
-                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
-                  <div className="mt-5 pt-4 border-t border-border flex flex-wrap gap-1.5">
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
+                  <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-1.5">
                     {p.stack.map((s) => (
                       <span key={s} className="text-[10px] font-mono-tight text-foreground/80">
                         {s}
@@ -920,7 +920,7 @@ function Projects() {
                     ))}
                   </div>
                   {slug && (
-                    <div className="mt-5 font-mono-tight text-[11px] uppercase tracking-widest text-primary group-hover:translate-x-1 transition-transform">
+                    <div className="mt-3 font-mono-tight text-[11px] uppercase tracking-widest text-primary group-hover:translate-x-1 transition-transform">
                       Read case study →
                     </div>
                   )}
@@ -939,7 +939,7 @@ function Projects() {
 
 
         {/* others as list */}
-        <div className="mt-16">
+        <div className="mt-10">
           <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
             / Other notable builds
           </div>
@@ -947,9 +947,9 @@ function Projects() {
             {others.map((p) => (
               <div
                 key={p.name}
-                className="group grid md:grid-cols-12 gap-4 py-6 items-baseline hover:bg-card/50 px-2 -mx-2 rounded transition-colors"
+                className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 px-2 -mx-2 rounded transition-colors"
               >
-                <div className="md:col-span-4 font-display text-xl">{p.name}</div>
+                <div className="md:col-span-4 font-display text-lg">{p.name}</div>
                 <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
                   {p.role}
                 </div>
@@ -970,20 +970,20 @@ function Projects() {
 
 function Recognition() {
   return (
-    <section id="awards" className="py-28 md:py-36">
+    <section id="awards" className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="04" label="Recognition & Education" />
-        <h2 className="mt-6 font-sans text-4xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-4xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
         </h2>
 
-        <div className="grid lg:grid-cols-5 gap-10 mt-16">
+        <div className="grid lg:grid-cols-5 gap-8 mt-10">
           <div className="lg:col-span-3 space-y-4">
             {RECOGNITION.map((r) => (
               <div
                 key={r.title}
-                className="group rounded-xl border border-border bg-card p-6 hover:border-primary/50 transition-colors"
+                className="group rounded-xl border border-border bg-card p-5 hover:border-primary/50 transition-colors"
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="font-display text-lg leading-tight">{r.title}</h3>
@@ -996,11 +996,11 @@ function Recognition() {
           </div>
 
           <aside className="lg:col-span-2 space-y-4">
-            <div className="rounded-2xl border border-border bg-gradient-to-br from-accent/10 via-card to-primary/10 p-7">
+            <div className="rounded-2xl border border-border bg-gradient-to-br from-accent/10 via-card to-primary/10 p-5">
               <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-3">
                 Education
               </div>
-              <h3 className="font-display text-2xl leading-tight">
+              <h3 className="font-display text-xl leading-tight">
                 B.E. in Electronics
               </h3>
               <div className="text-sm text-muted-foreground mt-1">
@@ -1018,7 +1018,7 @@ function Recognition() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card p-7">
+            <div className="rounded-2xl border border-border bg-card p-5">
               <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
                 Continuous Learning
               </div>
@@ -1055,19 +1055,19 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-28 md:py-40 border-t border-border bg-gradient-to-b from-background to-card/40">
+    <section id="contact" className="relative py-16 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
       <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="05" label="Let's build something" />
 
-        <h2 className="mt-8 font-sans text-5xl md:text-8xl font-light tracking-tight leading-[0.95]">
+        <h2 className="mt-6 font-sans text-3xl md:text-5xl font-light tracking-tight leading-[1]">
           Let's build <br />
           <span className="italic text-primary">something great</span> <br />
           together.
         </h2>
 
-        <div className="mt-14 grid lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground leading-relaxed max-w-xl">
+        <div className="mt-10 grid lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-7 space-y-4 text-muted-foreground leading-relaxed max-w-xl">
             <p>
               I'm open to <span className="text-foreground">senior backend</span>,{" "}
               <span className="text-foreground">full-stack</span>, and{" "}
@@ -1081,7 +1081,7 @@ function Contact() {
               talk.
             </p>
 
-            <div className="flex flex-wrap gap-2 pt-4">
+            <div className="flex flex-wrap gap-2 pt-2">
               {[
                 "Senior Software Engineer",
                 "Backend Engineer",
@@ -1106,7 +1106,7 @@ function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer noopener"
-                  className="flex items-center gap-5 px-6 py-5 hover:bg-background transition-colors group"
+                  className="flex items-center gap-4 px-5 py-4 hover:bg-background transition-colors group"
                 >
                   <span className="size-10 rounded-full border border-border flex items-center justify-center font-mono-tight text-sm text-primary group-hover:border-primary/60 transition-colors">
                     {c.icon}
@@ -1141,7 +1141,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border py-10">
+    <footer className="border-t border-border py-6">
       <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 font-mono-tight text-xs text-muted-foreground">
         <div>
           © {new Date().getFullYear()} Win Naing Soe · Crafted in Chiang Mai with{" "}
