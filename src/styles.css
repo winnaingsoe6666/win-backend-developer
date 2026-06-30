@@ -69,7 +69,7 @@
   --secondary: oklch(0.24 0.018 160);
   --secondary-foreground: oklch(0.95 0.02 85);
   --muted: oklch(0.22 0.014 160);
-  --muted-foreground: oklch(0.68 0.018 120);
+  --muted-foreground: oklch(0.73 0.018 120);
   --accent: oklch(0.74 0.15 55);
   --accent-foreground: oklch(0.14 0.012 160);
   --destructive: oklch(0.62 0.21 25);
@@ -143,29 +143,29 @@
 
 /* ----------------------------- SUNSET (pink/purple gradient style) ----------------------------- */
 .theme-sunset {
-  --ink-deep: #4A1259;
-  --ink: #4A1259;
-  --parchment: #FFC2C5;
-  --signal: #8A2387;
+  --ink-deep: oklch(0.30 0.15 325);
+  --ink: oklch(0.30 0.15 325);
+  --parchment: oklch(0.88 0.06 5);
+  --signal: oklch(0.48 0.20 325);
   --copper: oklch(0.65 0.20 320);
 
-  --background: #FF9A9E;
-  --foreground: #4A1259;
-  --card: #FFC2C5;
-  --card-foreground: #4A1259;
-  --popover: #FFC2C5;
-  --popover-foreground: #4A1259;
-  --primary: #8A2387;
-  --primary-foreground: #FFFFFF;
+  --background: oklch(0.82 0.10 5);
+  --foreground: oklch(0.30 0.15 325);
+  --card: oklch(0.88 0.06 5);
+  --card-foreground: oklch(0.30 0.15 325);
+  --popover: oklch(0.88 0.06 5);
+  --popover-foreground: oklch(0.30 0.15 325);
+  --primary: oklch(0.48 0.20 325);
+  --primary-foreground: oklch(1.00 0 0);
   --secondary: oklch(0.85 0.08 345);
-  --secondary-foreground: #4A1259;
+  --secondary-foreground: oklch(0.30 0.15 325);
   --muted: oklch(0.90 0.05 350);
-  --muted-foreground: #4A1259;
-  --accent: #8A2387;
-  --accent-foreground: #FFFFFF;
+  --muted-foreground: oklch(0.30 0.15 325);
+  --accent: oklch(0.48 0.20 325);
+  --accent-foreground: oklch(1.00 0 0);
   --border: oklch(0.45 0.20 325 / 15%);
   --input: oklch(0.45 0.20 325 / 20%);
-  --ring: #8A2387;
+  --ring: oklch(0.48 0.20 325);
 
   --wave-filter: sepia(1) saturate(4) hue-rotate(345deg) brightness(1.1);
   --wave-blend: overlay;
@@ -205,6 +205,57 @@
   ::selection {
     background: var(--color-signal);
     color: var(--color-ink-deep);
+  }
+
+  /* Focus-visible styles for keyboard accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Skip-to-content link */
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 0 0 0.5rem 0.5rem;
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+  .skip-to-content:focus {
+    top: 0;
+  }
+
+  /* Scroll margin for fixed header offset */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .aurora-orb {
+      animation: none !important;
+    }
+    .animate-marquee {
+      animation: none !important;
+    }
   }
 }
 
@@ -469,4 +520,71 @@
   text-align: right;
   padding-right: 0.75rem;
   opacity: 0.6;
+}
+
+/* ----------------------------- SCROLL PROGRESS BAR ----------------------------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  z-index: 100;
+  transform-origin: left;
+  transition: none;
+}
+
+/* ----------------------------- BACK TO TOP BUTTON ----------------------------- */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-card);
+  color: var(--color-foreground);
+  font-size: 1.125rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(1rem);
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-top:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* ----------------------------- MARQUEE HOVER PAUSE ----------------------------- */
+
+.marquee-wrapper:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ----------------------------- EXTERNAL LINK ICON ----------------------------- */
+
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.75em;
+  opacity: 0.6;
+  vertical-align: super;
+  line-height: 0;
 }

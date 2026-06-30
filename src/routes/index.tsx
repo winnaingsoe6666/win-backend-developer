@@ -1,10 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AuroraBg } from "@/components/aurora-bg";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 
 const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
@@ -12,10 +21,16 @@ const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
 );
 
 function slugForProject(name: string): string | undefined {
-  if (name.startsWith("Mifos")) return "mifos-fineract";
-  if (name.startsWith("Stock Exchange")) return "stock-exchange";
-  if (name.startsWith("JLPT")) return "jlpt-registration";
-  return PROJECT_SLUG_BY_NAME[name];
+  // Exact match first
+  if (PROJECT_SLUG_BY_NAME[name]) return PROJECT_SLUG_BY_NAME[name];
+  // Prefix match: find a key that starts with the given name or vice versa
+  const lowerName = name.toLowerCase();
+  for (const [key, slug] of Object.entries(PROJECT_SLUG_BY_NAME)) {
+    if (key.toLowerCase().startsWith(lowerName) || lowerName.startsWith(key.toLowerCase())) {
+      return slug;
+    }
+  }
+  return undefined;
 }
 
 const PAGE_TITLE = "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking";
@@ -291,24 +306,77 @@ const FACTS = [
 /* ----------------------------- COMPONENT ----------------------------- */
 
 function Portfolio() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? scrollY / docHeight : 0);
+      setShowBackToTop(scrollY > 600);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background text-foreground antialiased">
+      {/* Skip to content */}
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
+
+      {/* Scroll progress bar */}
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+        role="progressbar"
+        aria-valuenow={Math.round(scrollProgress * 100)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label="Page scroll progress"
+      />
+
       <AuroraBg />
       <Nav />
-      <Hero />
-      <Marquee />
-      <About />
-      <Arsenal />
-      <Timeline />
-      <Projects />
-      <Recognition />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <Marquee />
+        <About />
+        <Arsenal />
+        <Timeline />
+        <Projects />
+        <Recognition />
+        <Contact />
+      </main>
       <Footer />
+
+      {/* Back to top button */}
+      <button
+        onClick={scrollToTop}
+        className={`back-to-top ${showBackToTop ? "visible" : ""}`}
+        aria-label="Back to top"
+      >
+        ↑
+      </button>
     </div>
   );
 }
 
 /* ----------------------------- NAV ----------------------------- */
+
+const NAV_LINKS: [string, string][] = [
+  ["About", "about"],
+  ["Stack", "stack"],
+  ["Career", "career"],
+  ["Work", "work"],
+  ["Awards", "awards"],
+];
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -331,13 +399,7 @@ function Nav() {
           <span className="font-display text-lg">Win Naing Soe</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm">
-          {[
-            ["About", "about"],
-            ["Stack", "stack"],
-            ["Career", "career"],
-            ["Work", "work"],
-            ["Awards", "awards"],
-          ].map(([label, id]) => (
+          {NAV_LINKS.map(([label, id]) => (
             <a
               key={id}
               href={`#${id}`}
@@ -352,13 +414,52 @@ function Nav() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-mono-tight uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-mono-tight uppercase tracking-wider text-primary hover:bg-primary hover:text-primary-foreground transition-all"
           >
             <span className="size-1.5 rounded-full bg-primary pulse-dot" />
             Available
           </a>
-        </div>
 
+          {/* Mobile hamburger menu */}
+          <Sheet>
+            <SheetTrigger asChild>
+              <button
+                className="md:hidden inline-flex items-center justify-center size-9 rounded-md border border-border hover:bg-card transition-colors"
+                aria-label="Open navigation menu"
+              >
+                <Menu className="size-5" />
+              </button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-72">
+              <SheetHeader>
+                <SheetTitle className="font-display text-xl">Navigation</SheetTitle>
+              </SheetHeader>
+              <nav className="mt-8 flex flex-col gap-1">
+                {NAV_LINKS.map(([label, id]) => (
+                  <SheetClose asChild key={id}>
+                    <a
+                      href={`#${id}`}
+                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-card transition-colors font-mono-tight text-sm uppercase tracking-widest"
+                    >
+                      <span className="text-primary">·</span>
+                      {label}
+                    </a>
+                  </SheetClose>
+                ))}
+                <div className="my-4 h-px bg-border" />
+                <SheetClose asChild>
+                  <a
+                    href="#contact"
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-mono-tight text-sm uppercase tracking-widest"
+                  >
+                    <span className="size-1.5 rounded-full bg-primary pulse-dot" />
+                    Available · Contact
+                  </a>
+                </SheetClose>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
@@ -428,7 +529,6 @@ function Hero() {
                 rel="noreferrer noopener"
                 className="inline-flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono-tight"
               >
-                <span>↗</span>
                 github
               </a>
             </div>
@@ -469,6 +569,7 @@ function Hero() {
                   alt="Win Naing Soe"
                   width={1024}
                   height={1280}
+                  loading="lazy"
                   className="w-full aspect-[4/5] object-cover"
                 />
                 <div
@@ -552,7 +653,7 @@ function Marquee() {
   ];
   const row = [...words, ...words];
   return (
-    <section aria-hidden className="border-y border-border bg-card/40 py-6 ticker-mask overflow-hidden">
+    <section aria-hidden className="marquee-wrapper border-y border-border bg-card/40 py-6 ticker-mask overflow-hidden">
       <div className="flex gap-12 animate-marquee whitespace-nowrap font-display text-3xl md:text-5xl text-muted-foreground/70">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-12">
@@ -1048,7 +1149,7 @@ function Footer() {
         </div>
         <div className="flex items-center gap-2">
           <span className="inline-block size-1.5 rounded-full bg-primary" />
-          <span>built · v2026.06 · last commit: today</span>
+          <span>built · v2026.06</span>
           <span className="animate-blink text-primary">▍</span>
         </div>
       </div>
