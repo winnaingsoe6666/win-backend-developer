@@ -653,12 +653,12 @@ function Marquee() {
   ];
   const row = [...words, ...words];
   return (
-    <section aria-hidden className="marquee-wrapper border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
-      <div className="flex gap-10 animate-marquee whitespace-nowrap font-display text-xl md:text-3xl text-muted-foreground/70">
+    <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
+      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-xl md:text-3xl">
         {row.map((w, i) => (
-          <span key={i} className="flex items-center gap-12">
-            {w}
-            <span className="text-primary">✦</span>
+          <span key={i} className="flex items-center gap-10">
+            <span className={`marquee-word ${i % 2 === 0 ? "font-light" : "font-medium"}`}>{w}</span>
+            <span className="marquee-sep text-sm">✦</span>
           </span>
         ))}
       </div>

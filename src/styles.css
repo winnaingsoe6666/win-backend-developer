@@ -588,6 +588,29 @@
   animation-play-state: paused;
 }
 
+/* ----------------------------- MARQUEE 3D + GRADIENT ----------------------------- */
+
+.marquee-3d {
+  perspective: 800px;
+}
+.marquee-3d .marquee-track {
+  transform: rotateX(4deg);
+  transform-origin: center center;
+}
+.marquee-word {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.marquee-word:nth-child(even) {
+  opacity: 0.6;
+}
+.marquee-sep {
+  color: var(--color-primary);
+  opacity: 0.4;
+}
+
 /* ----------------------------- EXTERNAL LINK ICON ----------------------------- */
 
 a[target="_blank"]::after {
