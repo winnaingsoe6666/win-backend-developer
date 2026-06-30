@@ -4,6 +4,7 @@ import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { AuroraBg } from "@/components/aurora-bg";
 
 
 const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
