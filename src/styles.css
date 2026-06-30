@@ -357,17 +357,16 @@
   pointer-events: none;
 }
 
-/* Light theme: softer, tighter aurora that reads as ambient tint */
+/* Light theme: brighter, more saturated aurora for parchment visibility */
 .theme-light .aurora-orb {
-  opacity: 0.55;
-  filter: blur(70px);
-  mix-blend-mode: soft-light;
+  opacity: 0.65;
+  filter: blur(55px) brightness(1.5) saturate(1.4);
 }
 
 .theme-light .aurora-orb-1 {
   background: radial-gradient(
     circle at center,
-    color-mix(in oklab, var(--color-signal) 90%, transparent),
+    color-mix(in oklab, var(--color-signal) 85%, transparent),
     transparent 70%
   );
 }
@@ -375,7 +374,7 @@
 .theme-light .aurora-orb-2 {
   background: radial-gradient(
     circle at center,
-    color-mix(in oklab, var(--color-copper) 85%, transparent),
+    color-mix(in oklab, var(--color-copper) 80%, transparent),
     transparent 70%
   );
 }
@@ -383,7 +382,7 @@
 .theme-light .aurora-orb-3 {
   background: radial-gradient(
     circle at center,
-    color-mix(in oklab, var(--color-primary) 80%, transparent),
+    color-mix(in oklab, var(--color-primary) 75%, transparent),
     transparent 65%
   );
 }
@@ -391,7 +390,7 @@
 .theme-light .aurora-orb-4 {
   background: radial-gradient(
     circle at center,
-    color-mix(in oklab, var(--color-accent) 75%, transparent),
+    color-mix(in oklab, var(--color-accent) 70%, transparent),
     transparent 65%
   );
 }
