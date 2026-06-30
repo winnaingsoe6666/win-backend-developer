@@ -293,6 +293,7 @@ const FACTS = [
 function Portfolio() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
+      <AuroraBg />
       <Nav />
       <Hero />
       <Marquee />
