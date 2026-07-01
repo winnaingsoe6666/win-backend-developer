@@ -540,6 +540,19 @@
   opacity: 0.6;
 }
 
+.terminal-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1.1em;
+  background-color: var(--color-primary);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 /* ----------------------------- SCROLL PROGRESS BAR ----------------------------- */
 
 .scroll-progress {

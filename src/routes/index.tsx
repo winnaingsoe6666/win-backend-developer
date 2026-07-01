@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
-import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -492,12 +491,12 @@ function Hero() {
         </div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-4 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
             </p>
-            <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1] font-light">
+            <h1 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
               Engineering the{" "}
               <span className="italic font-normal text-primary">quiet machinery</span>
               <br />
@@ -527,9 +526,10 @@ function Hero() {
                 href="https://github.com/winnaingsoe6666"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono-tight"
+                className="inline-flex items-center gap-3 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
               >
-                github
+                <span className="font-mono-tight">{"{ }"}</span>
+                GitHub
               </a>
             </div>
 
@@ -542,7 +542,7 @@ function Hero() {
                 ["11", "engineers mentored"],
               ].map(([n, l]) => (
                 <div key={l} className="bg-card p-5">
-                  <div className="font-display text-2xl md:text-4xl text-primary">{n}</div>
+                  <div className="font-display text-2xl md:text-5xl text-primary">{n}</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
                     {l}
                   </div>
@@ -551,8 +551,8 @@ function Hero() {
             </div>
           </div>
 
-          {/* portrait card */}
-          <div className="lg:col-span-4">
+          {/* profile terminal */}
+          <div className="lg:col-span-5">
             <div className="relative animate-float">
               <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" style={{ animation: "glow-breathe 8s ease-in-out infinite" }} />
               <div className="relative rounded-2xl overflow-hidden code-surface ring-signal">
@@ -562,35 +562,37 @@ function Hero() {
                     <span className="size-2 rounded-full bg-accent/70" />
                     <span className="size-2 rounded-full bg-primary/70" />
                   </div>
-                  <span>~/wns/profile.json</span>
+                  <span>~/wns — zsh</span>
                 </div>
-                <img
-                  src={portrait}
-                  alt="Win Naing Soe"
-                  width={1024}
-                  height={1280}
-                  loading="lazy"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <div
-                  className="px-5 py-4 border-t font-mono-tight text-xs space-y-1.5"
-                  style={{ borderColor: "var(--color-code-border)" }}
-                >
-                  <div className="flex gap-3">
-                    <span className="code-line-number w-6">1</span>
-                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"{"}</span>
-                  </div>
-                  <Line n={2} k="name" v="Win Naing Soe" />
-                  <Line n={3} k="role" v="Senior Backend / Full-Stack" />
-                  <Line n={4} k="domain" v="FinTech · Core Banking" />
-                  <Line n={5} k="status" v="open_to_work" highlight last />
-                  <div className="flex gap-3">
-                    <span className="code-line-number w-6">6</span>
-                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"}"}</span>
-                  </div>
+                <div className="px-5 py-4 font-mono-tight text-xs space-y-2.5" style={{ minHeight: "220px" }}>
+                  <TerminalLine prompt command="whoami" />
+                  <TerminalOutput>Win Naing Soe</TerminalOutput>
+
+                  <TerminalLine prompt command="cat role.txt" />
+                  <TerminalOutput>
+                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Backend Engineer</span>
+                    {" · "}
+                    <span style={{ color: "var(--color-syntax-function)" }}>System Architect</span>
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="ls skills/" />
+                  <TerminalOutput className="flex flex-wrap gap-x-3">
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>java</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>kafka</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>kubernetes</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>react</span>
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="uptime" />
+                  <TerminalOutput>
+                    <span style={{ color: "var(--color-syntax-number)" }}>8+</span> years in production
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="" cursor />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -631,6 +633,29 @@ function Line({
   );
 }
 
+function TerminalLine({ prompt, command, cursor }: { prompt?: boolean; command: string; cursor?: boolean }) {
+  return (
+    <div className="flex items-center gap-2">
+      {prompt && (
+        <span>
+          <span style={{ color: "var(--color-syntax-function)" }}>~</span>
+          <span style={{ color: "var(--color-syntax-punctuation)" }}> $</span>
+        </span>
+      )}
+      <span style={{ color: "var(--color-code-fg)" }}>{command}</span>
+      {cursor && <span className="terminal-cursor" />}
+    </div>
+  );
+}
+
+function TerminalOutput({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`pl-4 ${className ?? ""}`} style={{ color: "var(--color-code-muted)" }}>
+      {children}
+    </div>
+  );
+}
+
 
 /* ----------------------------- MARQUEE ----------------------------- */
 
@@ -654,7 +679,7 @@ function Marquee() {
   const row = [...words, ...words];
   return (
     <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
-      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-2xl md:text-4xl">
+      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-2xl md:text-5xl">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-10">
             <span className={`marquee-word ${i % 2 === 0 ? "font-light" : "font-medium"}`}>{w}</span>
@@ -675,7 +700,7 @@ function About() {
         <SectionLabel n="00" label="About" />
         <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
-            <h2 className="font-sans text-3xl md:text-5xl leading-[1.1] font-light tracking-tight">
+            <h2 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
               moves money, applications, and trust — for banks, exchanges, and the people who
               depend on them.
@@ -744,7 +769,7 @@ function Arsenal() {
     <section id="stack" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
@@ -807,7 +832,7 @@ function Timeline() {
     <section id="career" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Interactive Career Timeline" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
         </h2>
@@ -874,7 +899,7 @@ function Projects() {
     <section id="work" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="03" label="Selected Work" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
           enterprise modernization.
         </h2>
@@ -973,7 +998,7 @@ function Recognition() {
     <section id="awards" className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="04" label="Recognition & Education" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
         </h2>
@@ -1060,7 +1085,7 @@ function Contact() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="05" label="Let's build something" />
 
-        <h2 className="mt-6 font-sans text-3xl md:text-5xl font-light tracking-tight leading-[1]">
+        <h2 className="mt-6 font-sans text-3xl md:text-6xl font-light tracking-tight leading-[1]">
           Let's build <br />
           <span className="italic text-primary">something great</span> <br />
           together.
