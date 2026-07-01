@@ -496,7 +496,7 @@ function Hero() {
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
             </p>
-            <h1 className="font-display text-[clamp(2rem,5vw,3.5rem)] leading-[1] font-light">
+            <h1 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
               Engineering the{" "}
               <span className="italic font-normal text-primary">quiet machinery</span>
               <br />
@@ -526,9 +526,10 @@ function Hero() {
                 href="https://github.com/winnaingsoe6666"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-2 px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors font-mono-tight"
+                className="inline-flex items-center gap-3 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
               >
-                github
+                <span className="font-mono-tight">{"{ }"}</span>
+                GitHub
               </a>
             </div>
 
@@ -541,7 +542,7 @@ function Hero() {
                 ["11", "engineers mentored"],
               ].map(([n, l]) => (
                 <div key={l} className="bg-card p-5">
-                  <div className="font-display text-2xl md:text-4xl text-primary">{n}</div>
+                  <div className="font-display text-2xl md:text-5xl text-primary">{n}</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
                     {l}
                   </div>
@@ -678,7 +679,7 @@ function Marquee() {
   const row = [...words, ...words];
   return (
     <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
-      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-2xl md:text-4xl">
+      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-2xl md:text-5xl">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-10">
             <span className={`marquee-word ${i % 2 === 0 ? "font-light" : "font-medium"}`}>{w}</span>
@@ -699,7 +700,7 @@ function About() {
         <SectionLabel n="00" label="About" />
         <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
-            <h2 className="font-sans text-3xl md:text-5xl leading-[1.1] font-light tracking-tight">
+            <h2 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
               moves money, applications, and trust — for banks, exchanges, and the people who
               depend on them.
@@ -768,7 +769,7 @@ function Arsenal() {
     <section id="stack" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
@@ -831,7 +832,7 @@ function Timeline() {
     <section id="career" className="relative py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Interactive Career Timeline" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
         </h2>
@@ -898,7 +899,7 @@ function Projects() {
     <section id="work" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="03" label="Selected Work" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
           enterprise modernization.
         </h2>
@@ -997,7 +998,7 @@ function Recognition() {
     <section id="awards" className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="04" label="Recognition & Education" />
-        <h2 className="mt-4 font-sans text-3xl md:text-5xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
         </h2>
@@ -1084,7 +1085,7 @@ function Contact() {
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="05" label="Let's build something" />
 
-        <h2 className="mt-6 font-sans text-3xl md:text-5xl font-light tracking-tight leading-[1]">
+        <h2 className="mt-6 font-sans text-3xl md:text-6xl font-light tracking-tight leading-[1]">
           Let's build <br />
           <span className="italic text-primary">something great</span> <br />
           together.
