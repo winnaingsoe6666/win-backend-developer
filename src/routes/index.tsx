@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useCallback } from "react";
-import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -492,7 +491,7 @@ function Hero() {
         </div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
-          <div className="lg:col-span-8">
+          <div className="lg:col-span-7">
             <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-4 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
@@ -551,8 +550,8 @@ function Hero() {
             </div>
           </div>
 
-          {/* portrait card */}
-          <div className="lg:col-span-4">
+          {/* profile terminal */}
+          <div className="lg:col-span-5">
             <div className="relative animate-float">
               <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" style={{ animation: "glow-breathe 8s ease-in-out infinite" }} />
               <div className="relative rounded-2xl overflow-hidden code-surface ring-signal">
@@ -562,35 +561,37 @@ function Hero() {
                     <span className="size-2 rounded-full bg-accent/70" />
                     <span className="size-2 rounded-full bg-primary/70" />
                   </div>
-                  <span>~/wns/profile.json</span>
+                  <span>~/wns — zsh</span>
                 </div>
-                <img
-                  src={portrait}
-                  alt="Win Naing Soe"
-                  width={1024}
-                  height={1280}
-                  loading="lazy"
-                  className="w-full aspect-[4/5] object-cover"
-                />
-                <div
-                  className="px-5 py-4 border-t font-mono-tight text-xs space-y-1.5"
-                  style={{ borderColor: "var(--color-code-border)" }}
-                >
-                  <div className="flex gap-3">
-                    <span className="code-line-number w-6">1</span>
-                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"{"}</span>
-                  </div>
-                  <Line n={2} k="name" v="Win Naing Soe" />
-                  <Line n={3} k="role" v="Senior Backend / Full-Stack" />
-                  <Line n={4} k="domain" v="FinTech · Core Banking" />
-                  <Line n={5} k="status" v="open_to_work" highlight last />
-                  <div className="flex gap-3">
-                    <span className="code-line-number w-6">6</span>
-                    <span style={{ color: "var(--color-syntax-punctuation)" }}>{"}"}</span>
-                  </div>
+                <div className="px-5 py-4 font-mono-tight text-xs space-y-2.5" style={{ minHeight: "220px" }}>
+                  <TerminalLine prompt command="whoami" />
+                  <TerminalOutput>Win Naing Soe</TerminalOutput>
+
+                  <TerminalLine prompt command="cat role.txt" />
+                  <TerminalOutput>
+                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Backend Engineer</span>
+                    {" · "}
+                    <span style={{ color: "var(--color-syntax-function)" }}>System Architect</span>
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="ls skills/" />
+                  <TerminalOutput className="flex flex-wrap gap-x-3">
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>java</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>kafka</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>kubernetes</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>react</span>
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="uptime" />
+                  <TerminalOutput>
+                    <span style={{ color: "var(--color-syntax-number)" }}>8+</span> years in production
+                  </TerminalOutput>
+
+                  <TerminalLine prompt command="" cursor />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -627,6 +628,29 @@ function Line({
       >
         "{v}"
       </span>
+    </div>
+  );
+}
+
+function TerminalLine({ prompt, command, cursor }: { prompt?: boolean; command: string; cursor?: boolean }) {
+  return (
+    <div className="flex items-center gap-2">
+      {prompt && (
+        <span>
+          <span style={{ color: "var(--color-syntax-function)" }}>~</span>
+          <span style={{ color: "var(--color-syntax-punctuation)" }}> $</span>
+        </span>
+      )}
+      <span style={{ color: "var(--color-code-fg)" }}>{command}</span>
+      {cursor && <span className="terminal-cursor" />}
+    </div>
+  );
+}
+
+function TerminalOutput({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div className={`pl-4 ${className ?? ""}`} style={{ color: "var(--color-code-muted)" }}>
+      {children}
     </div>
   );
 }
