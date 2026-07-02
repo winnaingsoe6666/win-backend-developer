@@ -722,23 +722,25 @@ a[target="_blank"]::after {
 
 /* ----------------------------- MOBILE APP-LIKE: HORIZONTAL CARD SCROLL ----------------------------- */
 
-.projects-scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  -webkit-overflow-scrolling: touch;
-}
+@media (max-width: 767px) {
+  .projects-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
 
-.projects-scroll > * {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  width: 80vw;
-  min-width: 80vw;
+  .projects-scroll > * {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 80vw;
+    min-width: 80vw;
+  }
 }
 
 /* ----------------------------- MOBILE: SCROLL SNAP SECTIONS ----------------------------- */
