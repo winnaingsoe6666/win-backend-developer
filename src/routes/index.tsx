@@ -1,18 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AuroraBg } from "@/components/aurora-bg";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { User, Code2, Briefcase, FolderOpen, Award, Mail } from "lucide-react";
 
 
 const PROJECT_SLUG_BY_NAME: Record<string, string> = Object.fromEntries(
@@ -354,6 +346,7 @@ function Portfolio() {
         <Contact />
       </main>
       <Footer />
+      <BottomTabBar />
 
       {/* Back to top button */}
       <button
@@ -392,7 +385,7 @@ function Nav() {
         scrolled ? "backdrop-blur-xl bg-background/70 border-b border-border" : ""
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 md:px-10 h-16 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 h-16 flex items-center justify-between safe-area-top">
         <a href="#top" className="flex items-center gap-3 group">
           <span className="font-mono-tight text-xs text-muted-foreground">[ wns ]</span>
           <span className="font-display text-lg">Win Naing Soe</span>
@@ -418,46 +411,6 @@ function Nav() {
             <span className="size-1.5 rounded-full bg-primary pulse-dot" />
             Available
           </a>
-
-          {/* Mobile hamburger menu */}
-          <Sheet>
-            <SheetTrigger asChild>
-              <button
-                className="md:hidden inline-flex items-center justify-center size-9 rounded-md border border-border hover:bg-card transition-colors"
-                aria-label="Open navigation menu"
-              >
-                <Menu className="size-5" />
-              </button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <SheetHeader>
-                <SheetTitle className="font-display text-xl">Navigation</SheetTitle>
-              </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-1">
-                {NAV_LINKS.map(([label, id]) => (
-                  <SheetClose asChild key={id}>
-                    <a
-                      href={`#${id}`}
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-card transition-colors font-mono-tight text-sm uppercase tracking-widest"
-                    >
-                      <span className="text-primary">·</span>
-                      {label}
-                    </a>
-                  </SheetClose>
-                ))}
-                <div className="my-4 h-px bg-border" />
-                <SheetClose asChild>
-                  <a
-                    href="#contact"
-                    className="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all font-mono-tight text-sm uppercase tracking-widest"
-                  >
-                    <span className="size-1.5 rounded-full bg-primary pulse-dot" />
-                    Available · Contact
-                  </a>
-                </SheetClose>
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>
@@ -468,7 +421,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pt-24 pb-14 md:pt-32 md:pb-20">
+    <section id="top" className="relative overflow-hidden min-h-[100dvh] flex flex-col justify-center pt-20 pb-10 md:min-h-0 md:pt-32 md:pb-20">
       <div
         aria-hidden
         className="hero-bg-wave absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
@@ -481,7 +434,7 @@ function Hero() {
       />
       <div className="absolute inset-0 grid-bg opacity-[0.15] pointer-events-none" aria-hidden />
 
-      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10 w-full">
         {/* meta row */}
         <div className="flex items-center gap-4 mb-6 font-mono-tight text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
           <span className="text-primary">◆</span>
@@ -496,7 +449,7 @@ function Hero() {
               <span className="inline-block w-8 h-px bg-primary" />
               Enterprise Software Engineer
             </p>
-            <h1 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
+            <h1 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
               Engineering the{" "}
               <span className="italic font-normal text-primary">quiet machinery</span>
               <br />
@@ -508,17 +461,17 @@ function Hero() {
               Angular.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
               <a
                 href="#work"
-                className="group inline-flex items-center gap-3 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-all"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-5 py-3 sm:py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 active:scale-[0.97] transition-all touch-manipulation"
               >
                 See selected work
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-3 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-border px-5 py-3 sm:py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
               >
                 Get in touch
               </a>
@@ -526,7 +479,7 @@ function Hero() {
                 href="https://github.com/winnaingsoe6666"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-3 rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary transition-all"
+                className="inline-flex items-center justify-center gap-3 rounded-full border border-border px-5 py-3 sm:py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
               >
                 <span className="font-mono-tight">{"{ }"}</span>
                 GitHub
@@ -541,7 +494,7 @@ function Hero() {
                 ["3", "banking microservices"],
                 ["11", "engineers mentored"],
               ].map(([n, l]) => (
-                <div key={l} className="bg-card p-5">
+                <div key={l} className="bg-card p-3 md:p-5">
                   <div className="font-display text-2xl md:text-5xl text-primary">{n}</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
                     {l}
@@ -564,7 +517,7 @@ function Hero() {
                   </div>
                   <span>~/wns — zsh</span>
                 </div>
-                <div className="px-5 py-4 font-mono-tight text-xs space-y-2.5" style={{ minHeight: "220px" }}>
+                <div className="px-5 py-4 font-mono-tight text-xs space-y-2.5 min-h-[180px] md:min-h-[220px]">
                   <TerminalLine prompt command="whoami" />
                   <TerminalOutput>Win Naing Soe</TerminalOutput>
 
@@ -678,8 +631,8 @@ function Marquee() {
   ];
   const row = [...words, ...words];
   return (
-    <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-4 ticker-mask overflow-hidden">
-      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-2xl md:text-5xl">
+    <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-3 md:py-4 ticker-mask overflow-hidden">
+      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-xl md:text-5xl">
         {row.map((w, i) => (
           <span key={i} className="flex items-center gap-10">
             <span className={`marquee-word ${i % 2 === 0 ? "font-light" : "font-medium"}`}>{w}</span>
@@ -695,12 +648,12 @@ function Marquee() {
 
 function About() {
   return (
-    <section id="about" className="relative py-16 md:py-24">
+    <section id="about" className="relative py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="00" label="About" />
         <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
-            <h2 className="font-sans text-3xl md:text-6xl leading-[1.1] font-light tracking-tight">
+            <h2 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
               moves money, applications, and trust — for banks, exchanges, and the people who
               depend on them.
@@ -766,10 +719,10 @@ function About() {
 
 function Arsenal() {
   return (
-    <section id="stack" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
+    <section id="stack" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
-        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
@@ -829,10 +782,10 @@ function Arsenal() {
 
 function Timeline() {
   return (
-    <section id="career" className="relative py-16 md:py-24">
+    <section id="career" className="relative py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Interactive Career Timeline" />
-        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
         </h2>
@@ -861,7 +814,7 @@ function Timeline() {
                 <div className="text-muted-foreground mt-1 text-sm">{t.company}</div>
               </div>
               <div className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:pl-12" : "md:pr-12"}`}>
-                <div className="rounded-xl border border-border bg-card p-5 hover:border-primary/40 transition-colors">
+                <div className="rounded-xl border border-border bg-card p-4 md:p-5 hover:border-primary/40 active:scale-[0.98] transition-all touch-manipulation">
                   <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-2">
                     Domain · Impact
                   </div>
@@ -896,25 +849,25 @@ function Projects() {
   const featured = PROJECTS.filter((p) => p.featured);
   const others = PROJECTS.filter((p) => !p.featured);
   return (
-    <section id="work" className="relative py-16 md:py-24 bg-card/30 border-y border-border">
+    <section id="work" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="03" label="Selected Work" />
-        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
           enterprise modernization.
         </h2>
 
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 projects-scroll md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-5 scrollbar-hide">
           {featured.map((p, i) => {
             const slug = slugForProject(p.name);
             const Card = (
               <article
-                className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 transition-all h-full"
+                className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 active:scale-[0.98] transition-all h-full touch-manipulation"
               >
-                <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
+                <div className="aspect-[3/2] md:aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
                   <div className="absolute inset-0 grid-bg opacity-30" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-display text-5xl md:text-6xl text-primary/30 group-hover:text-primary/60 transition-colors">
+                    <div className="font-display text-4xl md:text-6xl text-primary/30 group-hover:text-primary/60 transition-colors">
                       0{i + 1}
                     </div>
                   </div>
@@ -930,22 +883,22 @@ function Projects() {
                   </div>
                   <div className="absolute top-4 right-4 size-2 rounded-full bg-primary pulse-dot" />
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-lg leading-tight">{p.name}</h3>
-                  <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
+                <div className="p-3 md:p-6">
+                  <h3 className="font-display text-base md:text-lg leading-tight">{p.name}</h3>
+                  <div className="font-mono-tight text-[10px] md:text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
                     {p.role}
                   </div>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.impact}</p>
-                  <div className="mt-4 pt-3 border-t border-border flex flex-wrap gap-1.5">
+                  <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 md:line-clamp-none">{p.impact}</p>
+                  <div className="mt-3 md:mt-4 pt-2 md:pt-3 border-t border-border flex flex-wrap gap-1 md:gap-1.5">
                     {p.stack.map((s) => (
-                      <span key={s} className="text-[10px] font-mono-tight text-foreground/80">
+                      <span key={s} className="text-[9px] md:text-[10px] font-mono-tight text-foreground/80">
                         {s}
-                        <span className="text-border mx-1.5 last:hidden">/</span>
+                        <span className="text-border mx-1 md:mx-1.5 last:hidden">/</span>
                       </span>
                     ))}
                   </div>
                   {slug && (
-                    <div className="mt-3 font-mono-tight text-[11px] uppercase tracking-widest text-primary group-hover:translate-x-1 transition-transform">
+                    <div className="mt-2 md:mt-3 font-mono-tight text-[10px] md:text-[11px] uppercase tracking-widest text-primary group-hover:translate-x-1 transition-transform">
                       Read case study →
                     </div>
                   )}
@@ -972,7 +925,7 @@ function Projects() {
             {others.map((p) => (
               <div
                 key={p.name}
-                className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 px-2 -mx-2 rounded transition-colors"
+                className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 active:bg-muted px-2 -mx-2 rounded transition-colors touch-manipulation"
               >
                 <div className="md:col-span-4 font-display text-lg">{p.name}</div>
                 <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
@@ -995,10 +948,10 @@ function Projects() {
 
 function Recognition() {
   return (
-    <section id="awards" className="py-16 md:py-24">
+    <section id="awards" className="py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="04" label="Recognition & Education" />
-        <h2 className="mt-4 font-sans text-3xl md:text-6xl font-light tracking-tight max-w-3xl">
+        <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
         </h2>
@@ -1008,7 +961,7 @@ function Recognition() {
             {RECOGNITION.map((r) => (
               <div
                 key={r.title}
-                className="group rounded-xl border border-border bg-card p-5 hover:border-primary/50 transition-colors"
+                className="group rounded-xl border border-border bg-card p-5 hover:border-primary/50 active:scale-[0.98] transition-all touch-manipulation"
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="font-display text-lg leading-tight">{r.title}</h3>
@@ -1080,12 +1033,12 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-16 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
+    <section id="contact" className="relative py-12 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
       <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="05" label="Let's build something" />
 
-        <h2 className="mt-6 font-sans text-3xl md:text-6xl font-light tracking-tight leading-[1]">
+        <h2 className="mt-6 font-sans text-2xl md:text-6xl font-light tracking-tight leading-[1]">
           Let's build <br />
           <span className="italic text-primary">something great</span> <br />
           together.
@@ -1131,7 +1084,7 @@ function Contact() {
                   href={c.href}
                   target={c.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer noopener"
-                  className="flex items-center gap-4 px-5 py-4 hover:bg-background transition-colors group"
+                  className="flex items-center gap-4 px-5 py-4 md:py-4 hover:bg-background active:bg-muted active:scale-[0.98] transition-all group touch-manipulation"
                 >
                   <span className="size-10 rounded-full border border-border flex items-center justify-center font-mono-tight text-sm text-primary group-hover:border-primary/60 transition-colors">
                     {c.icon}
@@ -1179,6 +1132,59 @@ function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/* ----------------------------- BOTTOM TAB BAR (mobile) ----------------------------- */
+
+const TAB_ITEMS = [
+  { id: "about", label: "About", icon: User },
+  { id: "stack", label: "Stack", icon: Code2 },
+  { id: "career", label: "Career", icon: Briefcase },
+  { id: "work", label: "Work", icon: FolderOpen },
+  { id: "contact", label: "Contact", icon: Mail },
+] as const;
+
+function BottomTabBar() {
+  const [active, setActive] = useState("about");
+
+  useEffect(() => {
+    const sections = TAB_ITEMS.map((t) => document.getElementById(t.id)).filter(Boolean) as Element[];
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+            break;
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <nav className="bottom-tab-bar md:hidden" aria-label="Section navigation">
+      <div className="flex items-center justify-around px-2">
+        {TAB_ITEMS.map(({ id, label, icon: Icon }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`bottom-tab-item ${active === id ? "active" : ""}`}
+            aria-current={active === id ? "page" : undefined}
+          >
+            <Icon className="size-[18px]" strokeWidth={active === id ? 2 : 1.5} />
+            <span>{label}</span>
+            <span className="bottom-tab-indicator" />
+          </a>
+        ))}
+      </div>
+    </nav>
   );
 }
 

@@ -642,3 +642,135 @@ a[target="_blank"]::after {
   vertical-align: super;
   line-height: 0;
 }
+
+/* ----------------------------- MOBILE APP-LIKE: SCROLL SNAP ----------------------------- */
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------- MOBILE APP-LIKE: BOTTOM TAB BAR ----------------------------- */
+
+.bottom-tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background-color: color-mix(in oklch, var(--color-background) 80%, transparent);
+  border-top: 1px solid var(--color-border);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  transition: transform 0.3s ease;
+}
+
+.bottom-tab-bar.hidden-bar {
+  transform: translateY(100%);
+}
+
+.bottom-tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 0;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted-foreground);
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+}
+
+.bottom-tab-item.active {
+  color: var(--color-primary);
+}
+
+.bottom-tab-item:active {
+  transform: scale(0.92);
+}
+
+.bottom-tab-indicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.bottom-tab-item.active .bottom-tab-indicator {
+  opacity: 1;
+}
+
+/* ----------------------------- MOBILE APP-LIKE: TOUCH FEEDBACK ----------------------------- */
+
+@utility touch-action-manipulation {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ----------------------------- MOBILE APP-LIKE: HORIZONTAL CARD SCROLL ----------------------------- */
+
+.projects-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects-scroll > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 80vw;
+  min-width: 80vw;
+}
+
+/* ----------------------------- MOBILE: SCROLL SNAP SECTIONS ----------------------------- */
+
+@media (max-width: 767px) {
+  main#main-content {
+    scroll-snap-type: y proximity;
+  }
+  main#main-content > section {
+    scroll-snap-align: start;
+  }
+
+  /* Flatten marquee 3D on mobile */
+  .marquee-3d {
+    perspective: none;
+  }
+  .marquee-3d .marquee-track {
+    transform: none;
+  }
+
+  /* Hide back-to-top on mobile — bottom tab bar handles navigation */
+  .back-to-top {
+    display: none;
+  }
+}
+
+/* ----------------------------- MOBILE: SAFE AREA PADDING ----------------------------- */
+
+@utility safe-area-top {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+@utility safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
