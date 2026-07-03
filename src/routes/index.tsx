@@ -523,24 +523,24 @@ function Hero() {
 
                   <TerminalLine prompt command="cat role.txt" />
                   <TerminalOutput>
-                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Backend Engineer</span>
-                    {" · "}
-                    <span style={{ color: "var(--color-syntax-function)" }}>System Architect</span>
+                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Backend</span>
+                    {" / "}
+                    <span style={{ color: "var(--color-syntax-function)" }}>Full Stack Engineer</span>
                   </TerminalOutput>
 
                   <TerminalLine prompt command="ls skills/" />
                   <TerminalOutput className="flex flex-wrap gap-x-3">
                     <span style={{ color: "var(--color-syntax-keyword)" }}>java</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>kafka</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>shell-script</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>kubernetes</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>react</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>AWS</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>angular</span>
                   </TerminalOutput>
 
                   <TerminalLine prompt command="uptime" />
                   <TerminalOutput>
-                    <span style={{ color: "var(--color-syntax-number)" }}>8+</span> years in production
+                    <span style={{ color: "var(--color-syntax-number)" }}>6+</span> years in production
                   </TerminalOutput>
 
                   <TerminalLine prompt command="" cursor />
@@ -655,7 +655,7 @@ function About() {
           <div className="lg:col-span-7">
             <h2 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
               I build the <span className="italic text-primary">reliable software</span> that quietly
-              moves money, applications, and trust — for banks, exchanges, and the people who
+              moves money, applications, and trust for banks, exchanges, and the people who
               depend on them.
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed max-w-2xl">
@@ -667,7 +667,7 @@ function About() {
               <p>
                 I've launched microservices into production, modernized legacy stacks, and led
                 offshore teams for Japanese enterprise clients. What I enjoy most is the unglamorous
-                work — performance, maintainability, and the long-tail of edge cases — because
+                work - performance, maintainability, and the long-tail of edge cases because
                 that's what holds a financial system together at 3am on month-end close.
               </p>
               <p>
@@ -704,7 +704,7 @@ function About() {
               </div>
               <p className="text-sm leading-relaxed text-foreground">
                 Architecting microservices on the{" "}
-                <span className="text-primary">Mifos Fineract</span> core-banking platform at MSIS —
+                <span className="text-primary">Mifos Fineract</span> core-banking platform at MSIS,
                 expanding modular financial features for enterprise deployments.
               </p>
             </div>
@@ -723,7 +723,7 @@ function Arsenal() {
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Technical Arsenal" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
-          Tools I reach for — <span className="italic text-accent">sharpened by use</span>.
+          Tools I reach for <span className="italic text-accent">sharpened by use</span>.
         </h2>
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
