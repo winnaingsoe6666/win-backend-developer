@@ -461,7 +461,7 @@ function Hero() {
               Angular.
             </p>
 
-            <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+            <div className="mt-6 flex flex-row flex-wrap items-center gap-3">
               <a
                 href="#work"
                 className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-5 py-3 sm:py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 active:scale-[0.97] transition-all touch-manipulation"
