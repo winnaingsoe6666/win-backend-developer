@@ -89,7 +89,7 @@ export const Route = createFileRoute("/")({
           email: "mailto:winnaingsoe6666@gmail.com",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Chiang Mai",
+            addressLocality: "Bangkok",
             addressCountry: "TH",
           },
           nationality: "Myanmar",
@@ -397,7 +397,7 @@ const RECOGNITION = [
 ];
 
 const FACTS = [
-  { k: "Based in", v: "Chiang Mai, TH", icon: "◉" },
+  { k: "Based in", v: "Bangkok, TH", icon: "◉" },
   { k: "Fuel", v: "Coffee & Curiosity", icon: "☕" },
   { k: "Focus", v: "FinTech · Core Banking · AI Systems", icon: "◆" },
   { k: "Languages", v: "Burmese · English · Japanese", icon: "⌘" },
@@ -551,7 +551,7 @@ function Hero() {
           <span className="text-primary">◆</span>
           <span>Portfolio · v2026.06</span>
           <span className="hidden md:block flex-1 hairline" />
-          <span className="hidden md:inline">Chiang Mai · 13.7°N</span>
+          <span className="hidden md:inline">Bangkok · 13.7°N</span>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
@@ -1271,7 +1271,7 @@ function Contact() {
               I'm open to <span className="text-foreground">senior backend / FinTech</span>,{" "}
               <span className="text-foreground">distributed microservices</span>, and{" "}
               <span className="text-foreground">AI-assisted engineering</span> roles — remote, hybrid, or with
-              relocation from Chiang Mai.
+              relocation from Bangkok.
             </p>
             <p>
               If you're working on core banking, payments, microfinance, autonomous agent systems, or
@@ -1348,7 +1348,7 @@ function Footer() {
     <footer className="border-t border-border py-6">
       <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 font-mono-tight text-xs text-muted-foreground">
         <div>
-          © {new Date().getFullYear()} Win Naing Soe · Crafted in Chiang Mai with{" "}
+          © {new Date().getFullYear()} Win Naing Soe · Crafted in Bangkok with{" "}
           <span className="text-accent">☕</span> &amp; <span className="text-primary">code</span>
         </div>
         <div className="flex items-center gap-2">
