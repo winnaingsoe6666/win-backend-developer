@@ -448,6 +448,7 @@ function Portfolio() {
         <Hero />
         <Marquee />
         <About />
+        <FinTechSystems />
         <AiCapabilities />
         <Arsenal />
         <Timeline />
@@ -474,6 +475,7 @@ function Portfolio() {
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
+  ["FinTech Systems", "fintech-systems"],
   ["AI Engineering", "ai-engineering"],
   ["Stack", "stack"],
   ["Career", "career"],
@@ -815,6 +817,150 @@ function About() {
   );
 }
 
+/* ----------------------------- FINTECH & ENTERPRISE SYSTEMS ARCHITECTURE ----------------------------- */
+
+const FINTECH_EXPERIENCES = [
+  {
+    code: "01",
+    badge: "Core Banking Engine",
+    title: "Mifos Fineract Core Banking Platform",
+    role: "Senior Software Engineer · MSIS Company",
+    period: "Feb 2025 — Present",
+    desc: "Architect and deliver production banking microservices on the open-source Mifos Fineract financial engine. Implemented double-entry general ledger accounting, loan/deposit lifecycle management, and automated Spring Batch processing schedulers that reduced manual operational intervention by 60%.",
+    highlights: [
+      "3 banking microservices in production",
+      "15+ core banking endpoints (Loans, Deposits, GL)",
+      "Strict ACID transactions & zero ledger drift",
+    ],
+    tags: ["Java 21", "Spring Boot 3", "Mifos Fineract", "Spring Batch", "PostgreSQL", "Docker", "Angular"],
+  },
+  {
+    code: "02",
+    badge: "Capital Markets & Settlement",
+    title: "Stock Exchange Operations & Offshore Delivery",
+    role: "Senior Software Engineer · DIR-ACE Technology (DAT)",
+    period: "Mar 2020 — Jan 2025",
+    desc: "Led offshore engineering delivery for Tokyo/Japanese enterprise financial clients through full SDLC. Managed requirements definition (要件定義), automated regression test suites with Selenium, and refactored mission-critical legacy Oracle PL/SQL databases for high-precision stock trade derivative calculations.",
+    highlights: [
+      "11 engineers mentored & led across full SDLC",
+      "🏆 President's Award for Productivity & QA (2024)",
+      "Automated regression suite with Selenium & Shell",
+    ],
+    tags: ["Java", "Spring Boot", "Oracle 19c PL/SQL", "Selenium", "JBoss", "Shell Automation", "要件定義"],
+  },
+  {
+    code: "03",
+    badge: "High Scale & Payments",
+    title: "Payment Gateways & High-Concurrency Systems",
+    role: "Full Stack Developer · MAJA (JLPT Platform)",
+    period: "Nov 2020 — May 2023",
+    desc: "Engineered high-concurrency backend architecture supporting 5,000+ concurrent applicants under national rush registration with zero downtime. Integrated the 2C2P payment gateway with automated reconciliation and re-engineered PostgreSQL stored procedures for SIMM (Standard Initial Margin Model) derivative risk calculations.",
+    highlights: [
+      "5,000+ peak concurrent users with zero downtime",
+      "2C2P payment gateway & automated reconciliation",
+      "🏆 President's Award for Best System Development (2021)",
+    ],
+    tags: ["Spring Boot", "PostgreSQL", "2C2P Gateway", "SIMM Risk Model", "Cypress", "Rocky Linux"],
+  },
+  {
+    code: "04",
+    badge: "Supply Chain & Operations",
+    title: "Enterprise ERP & Warehouse Management System",
+    role: "Full-Stack / Backend Engineer · Enterprise Systems",
+    period: "Jun 2026 — Present",
+    desc: "Develop and maintain enterprise ERP modules covering Manufacturing (MFG), Bill of Materials (BOM), Inventory, Warehouse Management (WMS), Procurement, and Order Management. Spearheaded legacy modernization converting Java EE (JSP/Servlet) into a clean Spring Boot REST architecture with optimized Oracle PL/SQL stored procedures and triggers.",
+    highlights: [
+      "6 enterprise modules (MFG, BOM, Inventory, WMS, Procurement, Orders)",
+      "Modernized legacy Java EE (JSP/Servlet) to Spring Boot REST APIs",
+      "Optimized Oracle PL/SQL stored procedures & data patch scripts",
+    ],
+    tags: ["Spring Boot", "React", "Oracle PL/SQL", "Java EE", "WMS & Inventory", "REST APIs"],
+  },
+];
+
+function FinTechSystems() {
+  return (
+    <section id="fintech-systems" className="relative py-12 md:py-24 bg-card/20 border-y border-border">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="01" label="Financial & Enterprise Systems Architecture" />
+        <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-2">
+              Mission-Critical Financial Experience
+            </div>
+            <h2 className="font-sans text-2xl md:text-5xl font-light tracking-tight max-w-2xl">
+              Battle-tested <span className="italic text-primary">core banking</span> &amp; enterprise architectures.
+            </h2>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+            Six years designing and scaling production backends for financial institutions, stock exchanges, payment providers, and enterprise supply-chain ERPs where data consistency and zero-downtime are non-negotiable.
+          </p>
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-2 gap-6">
+          {FINTECH_EXPERIENCES.map((item) => (
+            <div
+              key={item.code}
+              className="rounded-2xl border border-border bg-background p-6 md:p-8 flex flex-col justify-between hover:border-primary/50 transition-all group"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <span className="font-mono-tight text-[11px] text-primary tracking-widest">
+                    / ARCHITECTURE {item.code}
+                  </span>
+                  <span className="text-[11px] font-mono-tight px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                    {item.badge}
+                  </span>
+                </div>
+
+                <h3 className="font-display text-xl md:text-2xl text-foreground group-hover:text-primary transition-colors leading-snug">
+                  {item.title}
+                </h3>
+
+                <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono-tight text-xs text-muted-foreground">
+                  <span>{item.role}</span>
+                  <span>·</span>
+                  <span className="text-primary/90">{item.period}</span>
+                </div>
+
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  {item.desc}
+                </p>
+
+                {/* Architectural Highlights */}
+                <div className="mt-5 space-y-2 pt-4 border-t border-border/60">
+                  <div className="font-mono-tight text-[10px] uppercase tracking-wider text-muted-foreground">
+                    Engineering Highlights &amp; Impact:
+                  </div>
+                  <ul className="space-y-1.5 font-mono-tight text-xs text-foreground/90">
+                    {item.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2">
+                        <span className="text-primary mt-0.5">▸</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-1.5">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-0.5 rounded border border-border bg-card/60 text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ----------------------------- ENTERPRISE AI CAPABILITIES ----------------------------- */
 
 const AI_CAPABILITIES = [
@@ -873,7 +1019,7 @@ function AiCapabilities() {
   return (
     <section id="ai-engineering" className="relative py-12 md:py-24 bg-card/20 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="01" label="Enterprise AI Engineering" />
+        <SectionLabel n="02" label="Enterprise AI Engineering" />
         <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <div className="font-mono-tight text-xs uppercase tracking-[0.25em] text-accent mb-2">
@@ -936,7 +1082,7 @@ function Arsenal() {
   return (
     <section id="stack" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="02" label="Technical Arsenal" />
+        <SectionLabel n="03" label="Technical Arsenal" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for <span className="italic text-accent">sharpened by use</span>.
         </h2>
@@ -997,7 +1143,7 @@ function Timeline() {
   return (
     <section id="career" className="relative py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="03" label="Career History & Systems Experience" />
+        <SectionLabel n="04" label="Career History & Systems Experience" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
@@ -1061,10 +1207,11 @@ function Timeline() {
 function Projects() {
   const featured = PROJECTS.filter((p) => p.featured);
   const others = PROJECTS.filter((p) => !p.featured);
+
   return (
     <section id="work" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="04" label="Selected Work" />
+        <SectionLabel n="05" label="Selected Work" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Projects spanning <span className="italic text-primary">AI Agents</span>, FinTech, and
           enterprise modernization.
@@ -1177,7 +1324,7 @@ function Recognition() {
   return (
     <section id="awards" className="py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="05" label="Recognition & Education" />
+        <SectionLabel n="06" label="Recognition & Education" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
@@ -1263,7 +1410,7 @@ function Contact() {
     <section id="contact" className="relative py-12 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
       <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
-        <SectionLabel n="06" label="Let's build something" />
+        <SectionLabel n="07" label="Let's build something" />
 
         <h2 className="mt-6 font-sans text-2xl md:text-6xl font-light tracking-tight leading-[1]">
           Let's build <br />
