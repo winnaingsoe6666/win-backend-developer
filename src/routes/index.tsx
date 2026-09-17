@@ -569,8 +569,8 @@ function Hero() {
               Architecting mission-critical <span className="italic font-normal text-primary">core banking</span> &amp; distributed <span className="text-accent">microservices</span>.
             </p>
 
-            <p className="mt-4 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              Six years shipping secure, high-throughput financial platforms (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
+            <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+              Six years architecting secure, high-throughput financial platforms and distributed microservices (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
