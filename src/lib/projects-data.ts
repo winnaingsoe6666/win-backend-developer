@@ -113,7 +113,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Pessimistic vs Optimistic Locking for Exam Seats: Chose row-level locking on exam seat slots during the checkout window to guarantee zero over-booking, trading slight checkout latency for 100% seat allocation integrity.",
     ],
     impact:
-      "Shipped a system that sustained 5,000+ concurrent users with zero downtime, and integrated the 2C2P payment gateway end-to-end. Earned the President's Award for Best System Development.",
+      "Shipped a system that sustained 5,000+ peak concurrent payment users with zero downtime, and integrated the 2C2P payment gateway end-to-end. Earned the President's Award for Best System Development.",
     highlights: [
       "Designed registration backend for peak-day concurrent load.",
       "Integrated 2C2P payment flow with reconciliation & retries.",
@@ -121,7 +121,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Tuned PostgreSQL queries for slot-allocation hot paths.",
     ],
     metrics: [
-      { value: "5,000+", label: "concurrent peak users" },
+      { value: "5,000+", label: "peak payment users" },
       { value: "2C2P", label: "payment gateway integrated" },
       { value: "1", label: "President's Award (2021)" },
     ],

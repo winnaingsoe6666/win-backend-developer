@@ -248,7 +248,7 @@ const TIMELINE = [
     period: "Nov 2020 — Mar 2022",
     domain: "JLPT National Registration System",
     impact:
-      "Engineered high-traffic backend supporting 5,000+ concurrent users with zero downtime. Integrated 2C2P payment gateway.",
+      "Engineered high-traffic backend supporting 5,000+ concurrent payment users with zero downtime. Integrated 2C2P payment gateway.",
     stack: ["Java 11", "Spring Boot", "PostgreSQL", "jQuery", "Cypress"],
     achievement: "🏆 President's Award · Best System Development (2021).",
   },
@@ -300,7 +300,7 @@ const PROJECTS = [
     tags: ["High Scale", "Enterprise", "Payments"],
     role: "Full Stack Developer",
     impact:
-      "National-scale examination registration supporting online applications, payments, and scheduling at peak load (5,000+ concurrent users).",
+      "National-scale examination registration supporting online applications, payments, and scheduling with 5,000+ peak concurrent payment users.",
     stack: ["Java 11", "Spring Boot", "PostgreSQL", "jQuery", "2C2P"],
     featured: true,
   },
@@ -380,7 +380,7 @@ const RECOGNITION = [
     title: "President's Award for Best System Development",
     org: "DIR-ACE Technology",
     date: "09 / 2021",
-    note: "For outstanding contribution to the JLPT National Registration System project handling 5,000+ concurrent applicants.",
+    note: "For outstanding contribution to the JLPT National Registration System project handling 5,000+ peak concurrent payment users.",
   },
   {
     title: "Quality Assurance Award",
@@ -399,7 +399,7 @@ const RECOGNITION = [
 const FACTS = [
   { k: "Based in", v: "Bangkok, TH", icon: "◉" },
   { k: "Fuel", v: "Coffee & Curiosity", icon: "☕" },
-  { k: "Focus", v: "FinTech · Core Banking · AI Systems", icon: "◆" },
+  { k: "Focus", v: "Core Banking · FinTech · ERP · AI", icon: "◆" },
   { k: "Languages", v: "Burmese · English · Japanese", icon: "⌘" },
 ];
 
@@ -446,7 +446,7 @@ function Portfolio() {
       <Nav />
       <main id="main-content">
         <Hero />
-        <Marquee />
+        <StatementBanner />
         <About />
         <FinTechSystems />
         <AiCapabilities />
@@ -572,7 +572,7 @@ function Hero() {
             </p>
 
             <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              Six years architecting secure, scalable backend systems for core banking, microfinance, and stock-exchange operations (5,000+ peak users, 2 President's Awards). Built on Java, Spring Boot, PostgreSQL, and distributed microservices — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
+              Six years architecting secure, scalable backend systems for core banking, microfinance, stock-exchange operations, and Enterprise ERP. Built on Java, Spring Boot, PostgreSQL, and distributed microservices — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit, Agentic).
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -584,13 +584,11 @@ function Hero() {
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer noopener"
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/50 bg-primary/5 px-4 py-2.5 text-sm font-medium text-primary hover:bg-primary/10 active:scale-[0.97] transition-all touch-manipulation"
               >
-                <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                Resume (PDF)
+                <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                Get in touch
               </a>
               <a
                 href="https://github.com/winnaingsoe6666"
@@ -607,7 +605,7 @@ function Hero() {
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
               {[
                 ["6+", "years shipping"],
-                ["5,000+", "concurrent users"],
+                ["5,000+", "peak payment users"],
                 ["11", "engineers mentored"],
                 ["2", "President's Awards"],
               ].map(([n, l]) => (
@@ -698,49 +696,24 @@ function TerminalOutput({ children, className }: { children: React.ReactNode; cl
 }
 
 
-/* ----------------------------- MARQUEE (Modern Tech Badge Stream) ----------------------------- */
+/* ----------------------------- ARCHITECTURAL STATEMENT BANNER ----------------------------- */
 
-function Marquee() {
-  const chips = [
-    { name: "Java", category: "Core" },
-    { name: "Spring Boot", category: "Backend" },
-    { name: "Claude Code", category: "AI Tooling" },
-    { name: "Model Context Protocol (MCP)", category: "AI Integration" },
-    { name: "Google Cloud (GCP)", category: "Cloud" },
-    { name: "PostgreSQL", category: "Database" },
-    { name: "Microservices", category: "Architecture" },
-    { name: "SpecKit & SDD", category: "Methodology" },
-    { name: "Angular", category: "Frontend" },
-    { name: "Next.js 15", category: "Frontend" },
-    { name: "Docker", category: "DevOps" },
-    { name: "Mifos Fineract", category: "FinTech" },
-    { name: "Spring Security", category: "Security" },
-    { name: "Test-Driven Dev (TDD)", category: "Quality" },
-    { name: "Autonomous Subagents", category: "AI Systems" },
-    { name: "RESTful APIs", category: "Backend" },
-  ];
-  const row = [...chips, ...chips];
-
+function StatementBanner() {
   return (
-    <section
-      aria-hidden
-      className="marquee-wrapper border-y border-border/70 bg-card/25 py-3.5 ticker-mask overflow-hidden backdrop-blur-xs"
-    >
-      <div className="marquee-track flex gap-3 animate-marquee whitespace-nowrap">
-        {row.map((chip, i) => (
-          <div
-            key={i}
-            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/90 px-3.5 py-1.5 shadow-xs hover:border-primary/50 transition-colors"
-          >
-            <span className="size-1.5 rounded-full bg-primary pulse-dot shrink-0" />
-            <span className="font-mono-tight text-xs font-medium text-foreground/90 tracking-wide">
-              {chip.name}
-            </span>
-            <span className="text-[10px] font-mono-tight uppercase tracking-wider text-muted-foreground/80 px-1.5 py-0.5 rounded bg-secondary/50 border border-border/40">
-              {chip.category}
-            </span>
-          </div>
-        ))}
+    <section className="relative border-y border-border/70 bg-card/25 py-4 md:py-5 backdrop-blur-xs">
+      <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <span className="size-2 rounded-full bg-primary pulse-dot shrink-0" />
+          <p className="text-sm md:text-base font-light text-foreground/90 leading-snug">
+            Designing <span className="font-normal text-primary">deterministic backend systems</span> where financial accuracy, concurrency, and auditability are non-negotiable.
+          </p>
+        </div>
+        <div className="flex items-center gap-2 font-mono-tight text-[11px] uppercase tracking-wider text-muted-foreground flex-wrap shrink-0">
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Core Banking</span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Stock Exchange</span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Enterprise ERP</span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Agentic AI</span>
+        </div>
       </div>
     </section>
   );
@@ -756,21 +729,23 @@ function About() {
         <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
             <h2 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
-              I build the <span className="italic text-primary">reliable software</span> that quietly
-              moves money, applications, and trust for banks, exchanges, and the people who
-              depend on them.
+              I build the <span className="italic text-primary">reliable software</span> that quietly moves money &amp; trust.
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed max-w-2xl">
               <p>
-                Over the last 6+ years I've worked primarily inside FinTech and core-banking
-                environments, shipping secure, scalable systems with Java, Spring Boot, PostgreSQL,
-                Microservices, and Angular.
+                Over the last 6+ years, I've engineered backend platforms across open-source core banking
+                (<span className="text-foreground font-medium">Mifos Fineract</span>), stock exchange operations,
+                payment gateways, and enterprise <span className="text-foreground font-medium">ERP &amp; WMS</span>.
               </p>
               <p>
-                I've launched microservices into production, modernized legacy stacks, and led
-                offshore teams for Japanese enterprise clients. What I enjoy most is the unglamorous
-                work - performance, maintainability, and the long-tail of edge cases because
-                that's what holds a financial system together at 3am on month-end close.
+                From architecting backends for 5,000+ peak concurrent payment users (2 President's Awards) to automating
+                batch workflows that cut manual ops by 60%, I focus on high-stakes reliability: double-entry ledger
+                consistency, financial risk models (SIMM), and edge-case resilience.
+              </p>
+              <p>
+                Today, I pair enterprise engineering (Java, Spring Boot, PostgreSQL, Oracle) with modern{" "}
+                <span className="text-foreground font-medium">AI-agent orchestration</span> (Claude Code, MCP, SpecKit)
+                to accelerate delivery without sacrificing precision.
               </p>
               <p>
                 When I'm not coding I'm probably reading, exploring mountains, playing football, or
@@ -805,9 +780,9 @@ function About() {
                 Currently
               </div>
               <p className="text-sm leading-relaxed text-foreground">
-                Architecting microservices on the{" "}
-                <span className="text-primary">Mifos Fineract</span> core-banking platform at MSIS,
-                expanding modular financial features for enterprise deployments.
+                Architecting financial microservices on the{" "}
+                <span className="text-primary font-medium">Mifos Fineract</span> core-banking platform at MSIS &amp; delivering enterprise{" "}
+                <span className="text-accent font-medium">ERP / Warehouse Management (WMS)</span> solutions.
               </p>
             </div>
           </div>
@@ -840,13 +815,13 @@ const FINTECH_EXPERIENCES = [
     title: "Stock Exchange Operations & Offshore Delivery",
     role: "Senior Software Engineer · DIR-ACE Technology (DAT)",
     period: "Mar 2020 — Jan 2025",
-    desc: "Led offshore engineering delivery for Tokyo/Japanese enterprise financial clients through full SDLC. Managed requirements definition (要件定義), automated regression test suites with Selenium, and refactored mission-critical legacy Oracle PL/SQL databases for high-precision stock trade derivative calculations.",
+    desc: "Led offshore engineering delivery for Tokyo/Japanese enterprise financial clients through full SDLC. Managed requirements definition, automated regression test suites with Selenium, and refactored mission-critical legacy Oracle PL/SQL databases for high-precision stock trade derivative calculations.",
     highlights: [
       "11 engineers mentored & led across full SDLC",
       "🏆 President's Award for Productivity & QA (2024)",
       "Automated regression suite with Selenium & Shell",
     ],
-    tags: ["Java", "Spring Boot", "Oracle 19c PL/SQL", "Selenium", "JBoss", "Shell Automation", "要件定義"],
+    tags: ["Java", "Spring Boot", "Oracle 19c PL/SQL", "Selenium", "JBoss", "Shell Automation", "Requirements Definition"],
   },
   {
     code: "03",
@@ -854,9 +829,9 @@ const FINTECH_EXPERIENCES = [
     title: "Payment Gateways & High-Concurrency Systems",
     role: "Full Stack Developer · MAJA (JLPT Platform)",
     period: "Nov 2020 — May 2023",
-    desc: "Engineered high-concurrency backend architecture supporting 5,000+ concurrent applicants under national rush registration with zero downtime. Integrated the 2C2P payment gateway with automated reconciliation and re-engineered PostgreSQL stored procedures for SIMM (Standard Initial Margin Model) derivative risk calculations.",
+    desc: "Engineered high-concurrency backend architecture supporting 5,000+ peak concurrent payment users under national rush registration with zero downtime. Integrated the 2C2P payment gateway with automated reconciliation and re-engineered PostgreSQL stored procedures for SIMM (Standard Initial Margin Model) derivative risk calculations.",
     highlights: [
-      "5,000+ peak concurrent users with zero downtime",
+      "5,000+ peak concurrent payment users with zero downtime",
       "2C2P payment gateway & automated reconciliation",
       "🏆 President's Award for Best System Development (2021)",
     ],
