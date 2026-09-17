@@ -556,40 +556,72 @@ function Hero() {
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-4 flex items-center gap-3">
-              <span className="inline-block w-8 h-px bg-primary" />
-              Senior Backend &amp; FinTech Engineer
-            </p>
-            <h1 className="font-sans text-3xl sm:text-4xl md:text-6xl leading-[1.1] font-light tracking-tight">
-              Engineering the{" "}
-              <span className="italic font-normal text-primary">quiet machinery</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-[11px] font-mono-tight uppercase tracking-wider text-primary mb-4">
+              <span className="size-1.5 rounded-full bg-primary pulse-dot" />
+              Senior Backend &amp; FinTech Systems Engineer
+            </div>
+            <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl leading-[1.08] font-light tracking-tight">
+              Mission-critical <span className="italic font-normal text-primary">core banking</span>
               <br />
-              behind modern <span className="text-accent">finance</span>.
+              &amp; backend <span className="text-accent">architectures</span>.
             </h1>
-            <p className="mt-5 max-w-2xl text-sm text-muted-foreground leading-relaxed">
-              Six years building secure, scalable backend systems for core banking, microfinance,
-              and stock-exchange operations — amplified by modern AI-agent workflows (Claude Code, MCP, SpecKit) and Google Cloud Platform.
+
+            {/* Quick-scan tech badges for 5-second recruiter test */}
+            <div className="mt-4 flex flex-wrap items-center gap-1.5">
+              {[
+                "Java 21",
+                "Spring Boot 3",
+                "Core Banking & Ledger",
+                "Distributed Microservices",
+                "PostgreSQL / Oracle",
+                "Google Cloud (GCP)",
+                "AI Agents & MCP",
+              ].map((tech, idx) => (
+                <span
+                  key={tech}
+                  className={`text-[11px] font-mono-tight px-2.5 py-1 rounded-md border ${
+                    idx < 2
+                      ? "bg-primary/15 border-primary/40 text-primary font-medium"
+                      : "bg-card/80 border-border text-foreground/80"
+                  }`}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
+              Six years architecting secure, high-throughput financial platforms and distributed microservices (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
             </p>
 
-            <div className="mt-6 flex flex-row flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-row flex-wrap items-center gap-2.5">
               <a
                 href="#work"
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-5 py-3 sm:py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 active:scale-[0.97] transition-all touch-manipulation"
+                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 active:scale-[0.97] transition-all touch-manipulation"
               >
                 See selected work
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
-                href="#ai-engineering"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-border px-5 py-3 sm:py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/50 bg-primary/5 px-4 py-2.5 text-sm font-medium text-primary hover:bg-primary/10 active:scale-[0.97] transition-all touch-manipulation"
               >
-                AI Engineering
+                <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                Resume (PDF)
+              </a>
+              <a
+                href="#ai-engineering"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
+              >
+                AI Systems
               </a>
               <a
                 href="https://github.com/winnaingsoe6666"
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center justify-center gap-3 rounded-full border border-border px-5 py-3 sm:py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
               >
                 <svg className="size-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 GitHub
@@ -640,14 +672,15 @@ function Hero() {
 
                   <TerminalLine prompt command="ls skills/" />
                   <TerminalOutput className="flex flex-wrap gap-x-3">
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>java</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>java-21</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot-3</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>microservices</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>oracle-19c</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>GCP</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>claude-code</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>mcp</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>speckit</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>GCP</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>angular</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>speckit-sdd</span>
                   </TerminalOutput>
 
                   <TerminalLine prompt command="uptime" />
