@@ -568,7 +568,7 @@ function Hero() {
             </h1>
 
             <p className="mt-3 font-sans text-xl sm:text-2xl text-foreground/90 font-light leading-snug">
-              Architecting mission-critical <span className="italic font-normal text-primary">core banking</span> &amp; distributed <span className="text-accent">microservices</span>.
+              Architecting mission-critical <span className="italic font-normal text-primary">core banking</span>, FinTech, <span className="text-accent">Enterprise ERP</span> &amp; AI-assisted engineering.
             </p>
 
             <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
