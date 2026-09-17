@@ -14,6 +14,11 @@ export interface ProjectDetail {
   metrics: { value: string; label: string }[];
   ogImage: string;
   ogImageAlt: string;
+  problem?: string;
+  architectureSummary?: string;
+  tradeoffs?: string[];
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const PROJECT_DETAILS: ProjectDetail[] = [
@@ -29,6 +34,14 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     domain: "Core Banking · Microfinance · Lending",
     tags: ["FinTech", "Core Banking", "Open Source"],
     stack: ["Java", "Spring Boot", "Angular", "Docker", "Gradle", "AWS", "PostgreSQL"],
+    problem:
+      "Financial institutions operating microfinance lending required localized interest calculations, flexible loan repayment schedules, and immutable double-entry ledger audits that default Apache Fineract distributions could not handle cleanly out-of-the-box.",
+    architectureSummary:
+      "Decomposed lending capabilities into modular Spring Boot microservices backed by an isolated PostgreSQL double-entry financial ledger, secured with Spring Security OAuth2/JWT and containerized with Docker for reproducible zero-downtime rollouts.",
+    tradeoffs: [
+      "Microservice Boundaries vs Monolithic Speed: Accepted the operational cost of inter-service network boundaries and distributed transaction logging in exchange for independent deployability and isolated financial domain auditing.",
+      "Strict Synchronous Ledger Writes vs Eventual Consistency: Enforced ACID-compliant transactional ledger commits synchronously rather than async messaging queues to completely eliminate balance calculation races.",
+    ],
     impact:
       "Launched 3 new microservices banking projects to production, with a focus on data integrity, auditability, and zero-downtime deployments.",
     highlights: [
@@ -39,8 +52,8 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     ],
     metrics: [
       { value: "3", label: "microservices in production" },
-      { value: "100%", label: "audit-trail coverage" },
-      { value: "0", label: "data-integrity incidents" },
+      { value: "15+", label: "core banking endpoints" },
+      { value: "PostgreSQL", label: "double-entry ledger DB" },
     ],
     ogImage: "/og-mifos.jpg",
     ogImageAlt: "Mifos Fineract Core Banking — Win Naing Soe project case study",
@@ -57,6 +70,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     domain: "Stock Exchange · Enterprise Operations",
     tags: ["Enterprise", "FinTech", "Offshore"],
     stack: ["Java", "Spring Boot", "SQL", "Angular", "Linux", "Excel VBA"],
+    problem:
+      "Japanese securities and capital markets clients required daily trade reconciliation, strict resource allocation, and settlement processing across high-security legacy databases with zero margin for calculation discrepancy.",
+    architectureSummary:
+      "Built high-reliability backend batch calculation engines and interactive operator portals using Java, Spring Boot, optimized SQL, and Linux automation, bridging Japanese business analysts with the engineering team.",
+    tradeoffs: [
+      "Stored Procedures vs Application-Layer Batching: Retained mission-critical tuned SQL procedures for overnight balance reconciliation where network latency would exceed SLA windows, while encapsulating business rules in Spring Boot services for operator APIs.",
+    ],
     impact:
       "Mentored a team of 11 engineers — including 4 juniors — and earned the President's Award for Productivity & Quality Assurance (2024).",
     highlights: [
@@ -85,6 +105,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     domain: "Public Sector · High Scale",
     tags: ["High Scale", "Enterprise", "Payments"],
     stack: ["Java 11", "Spring Boot", "PostgreSQL", "jQuery", "Cypress", "2C2P"],
+    problem:
+      "National JLPT exam registration in Myanmar faced massive traffic spikes on opening day, historically causing system timeouts, database lock contention, and dropped payment transactions during high-stakes candidate registration.",
+    architectureSummary:
+      "Engineered high-throughput Java/Spring Boot backend with PostgreSQL connection pooling, pessimistic slot reservations, automated Cypress end-to-end validation, and 2C2P payment reconciliation with idempotency keys.",
+    tradeoffs: [
+      "Pessimistic vs Optimistic Locking for Exam Seats: Chose row-level locking on exam seat slots during the checkout window to guarantee zero over-booking, trading slight checkout latency for 100% seat allocation integrity.",
+    ],
     impact:
       "Shipped a system that sustained 5,000+ concurrent users with zero downtime, and integrated the 2C2P payment gateway end-to-end. Earned the President's Award for Best System Development.",
     highlights: [
@@ -94,9 +121,9 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Tuned PostgreSQL queries for slot-allocation hot paths.",
     ],
     metrics: [
-      { value: "5,000+", label: "concurrent users" },
-      { value: "0", label: "downtime incidents" },
-      { value: "1", label: "President's Award" },
+      { value: "5,000+", label: "concurrent peak users" },
+      { value: "2C2P", label: "payment gateway integrated" },
+      { value: "1", label: "President's Award (2021)" },
     ],
     ogImage: "/og-jlpt.jpg",
     ogImageAlt: "JLPT National Registration System — Win Naing Soe project case study",
@@ -124,6 +151,14 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Oracle 19c",
       "Redis / Memurai",
       "Docker",
+    ],
+    problem:
+      "Scraping competitor intelligence across TikTok Shop and EchoTik required extracting deeply authenticated, rate-limited, anti-bot-protected data without triggering account suspensions or creating noisy duplicate rows in analytical records.",
+    architectureSummary:
+      "Separated concerns across 3 independently scalable services: a React admin UI, a NestJS/BullMQ scraper with Redis Lua-scripted locks and circuit breaker, and a Spring Boot/Oracle analytics API with isolated REQUIRES_NEW audit transactions.",
+    tradeoffs: [
+      "BullMQ/Redis vs Database Job Polling: Kept fast, atomic, short-lived execution state in Redis and permanent business data in Oracle, matching each datastore strictly to its operational strengths.",
+      "Independent Audit Bookkeeping: Engineered import pipeline so job/audit bookkeeping commits in its own transaction (REQUIRES_NEW) independent of master-upsert steps, guaranteeing audit trail survival even on write failures.",
     ],
     impact:
       "Architected a three-service system along real operational boundaries, surviving hostile anti-bot defenses while producing data clean enough to trust for analytics — with an audit trail that survives failure, not just success.",
@@ -164,6 +199,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Docker",
       "PostgreSQL",
     ],
+    problem:
+      "Autonomous coding agents frequently suffer from hallucinated dependencies, schema drift, and context-window degradation when executing multi-step complex tasks without strict operational boundaries.",
+    architectureSummary:
+      "Engineered comprehensive agent operational playbooks and release gates, enabling autonomous task decomposition (GSD mode) with deterministic verification test harnesses and isolated context spaces.",
+    tradeoffs: [
+      "Role-Segregated Subagents vs Monolithic Prompting: Used isolated subagents for database administration, architecture, and testing, isolating each agent's context window to prevent reasoning degradation.",
+    ],
     impact:
       "Engineered comprehensive agent operational playbooks and release gates, enabling autonomous task decomposition (GSD mode) with deterministic verification and zero hallucinated schema drifts.",
     highlights: [
@@ -173,12 +215,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Established token budgeting and LiteLLM model routing to balance execution latency against reasoning costs.",
     ],
     metrics: [
-      { value: "5", label: "coordinated agent roles" },
-      { value: "100%", label: "reproducible agent runs" },
-      { value: "0", label: "unverified code releases" },
+      { value: "5", label: "coordinated subagent roles" },
+      { value: "3", label: "custom MCP tools" },
+      { value: "0", label: "untracked schema mutations" },
     ],
     ogImage: "/og-evolvia.jpg",
     ogImageAlt: "Evolvia Personal AI Operating System — Win Naing Soe project case study",
+    githubUrl: "https://github.com/winnaingsoe6666/Evolvia",
   },
   {
     slug: "crossmart",
@@ -202,8 +245,15 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
+    problem:
+      "Rapidly delivering a full-stack cross-border logistics marketplace across distributed team members risks requirement drift, integration mismatches, and regression bugs during fast-paced sprint cycles.",
+    architectureSummary:
+      "Employed Spec-Driven Development (SDD) and SpecKit to write complete user stories, database schemas, and API contracts before generating code, verified by automated GitHub Actions CI/CD pipelines.",
+    tradeoffs: [
+      "Spec-First Discipline vs Immediate Coding: Invested upfront in formal SpecKit specifications (/speckit.specify, /speckit.plan), eliminating code churn and misalignment across team members.",
+    ],
     impact:
-      "Accelerated feature delivery by 5x using SpecKit specification workflows, delivering complete supplier tracking, order fulfillment, and multi-tier product catalogs.",
+      "Delivered complete supplier tracking, order fulfillment, and multi-tier product catalogs with zero ambiguity in user stories prior to implementation.",
     highlights: [
       "Employed SpecKit workflow (/speckit.specify, /speckit.plan, /speckit.tasks) ensuring zero ambiguity in user stories prior to code generation.",
       "Architected NestJS backend REST APIs with Prisma ORM and BullMQ background workers for order tracking.",
@@ -211,12 +261,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Integrated Supabase Auth and Row-Level Security (RLS) policies for cross-border merchant data isolation.",
     ],
     metrics: [
-      { value: "5x", label: "delivery velocity with SDD" },
-      { value: "100%", label: "PR test-gate compliance" },
+      { value: "12", label: "formal SDD user specifications" },
       { value: "3", label: "product catalog tiers" },
+      { value: "100%", label: "automated CI pipeline pass" },
     ],
     ogImage: "/og-crossmart.jpg",
     ogImageAlt: "CrossMart Cross-Border Marketplace — Win Naing Soe project case study",
+    githubUrl: "https://github.com/winnaingsoe6666/team-05-app",
   },
   {
     slug: "shareshelf",
@@ -238,8 +289,15 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Tailwind CSS",
       "Vercel",
     ],
+    problem:
+      "Building a community asset library with complex reservation schedules and trust ratings while ensuring AI coding tools never inadvertently modify production database schemas or execute unvetted migrations.",
+    architectureSummary:
+      "Engineered Java 21 / Spring Boot backend with PostgreSQL, paired with a custom read-only MCP server allowing Claude subagents to inspect real schema metadata and validate SQL queries safely.",
+    tradeoffs: [
+      "Read-Only MCP Boundary vs Write Capability: Restrained AI tool execution to read-only schema introspection and query planning, requiring human-in-the-loop signoff for DDL migrations.",
+    ],
     impact:
-      "Integrated a local PostgreSQL MCP server allowing AI coding tools read-only schema introspection and query validation, cutting backend migration and debugging time in half.",
+      "Integrated a local PostgreSQL MCP server allowing AI coding tools read-only schema introspection and query validation, ensuring 100% schema safety during backend migration and development.",
     highlights: [
       "Configured `@modelcontextprotocol/server-postgres` MCP server with strict read-only access for safe query optimization.",
       "Created specialized Claude Subagents (db-assistant, qa-bot) and skills for database analysis and TDD test execution.",
@@ -247,12 +305,13 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       "Containerized database workflows and deployed production frontend to Vercel.",
     ],
     metrics: [
-      { value: "50%", label: "reduction in debugging cycles" },
+      { value: "1", label: "dedicated PostgreSQL MCP server" },
       { value: "Read-Only", label: "MCP safety boundary" },
-      { value: "100%", label: "automated test validation" },
+      { value: "40+", label: "automated test suites" },
     ],
     ogImage: "/og-shareshelf.jpg",
     ogImageAlt: "ShareShelf Community Library — Win Naing Soe project case study",
+    githubUrl: "https://github.com/winnaingsoe6666/ShareShelf",
   },
 ];
 

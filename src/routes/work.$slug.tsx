@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { getProjectBySlug, PROJECT_DETAILS, type ProjectDetail } from "@/lib/projects-data";
+import { absUrl } from "@/lib/site";
 
 export const Route = createFileRoute("/work/$slug")({
   loader: ({ params }) => {
@@ -19,7 +20,8 @@ export const Route = createFileRoute("/work/$slug")({
     }
     const title = `${p.name} — Win Naing Soe`;
     const description = `${p.tagline} ${p.impact}`;
-    const url = `/work/${p.slug}`;
+    const url = absUrl(`/work/${p.slug}`);
+    const image = absUrl(p.ogImage);
     return {
       meta: [
         { title },
@@ -33,14 +35,14 @@ export const Route = createFileRoute("/work/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
-        { property: "og:image", content: p.ogImage },
+        { property: "og:image", content: image },
         { property: "og:image:width", content: "1216" },
         { property: "og:image:height", content: "640" },
         { property: "og:image:alt", content: p.ogImageAlt },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: p.ogImage },
+        { name: "twitter:image", content: image },
         { name: "twitter:image:alt", content: p.ogImageAlt },
       ],
       links: [{ rel: "canonical", href: url }],
@@ -54,7 +56,7 @@ export const Route = createFileRoute("/work/$slug")({
             headline: p.name,
             description,
             url,
-            image: p.ogImage,
+            image,
             keywords: [...p.tags, ...p.stack].join(", "),
             author: {
               "@type": "Person",
@@ -70,8 +72,8 @@ export const Route = createFileRoute("/work/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-              { "@type": "ListItem", position: 2, name: "Work", item: "/#work" },
+              { "@type": "ListItem", position: 1, name: "Home", item: absUrl("/") },
+              { "@type": "ListItem", position: 2, name: "Work", item: absUrl("/#work") },
               { "@type": "ListItem", position: 3, name: p.name, item: url },
             ],
           }),
@@ -160,6 +162,10 @@ function ProjectPage() {
               width={1216}
               height={640}
               className="w-full aspect-[1216/640] object-cover"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/og-image.jpg";
+              }}
             />
           </div>
 
@@ -183,6 +189,47 @@ function ProjectPage() {
               </div>
               <p className="text-lg leading-relaxed text-foreground/90">{p.description}</p>
             </div>
+
+            {p.problem && (
+              <div>
+                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary mb-3">
+                  / Problem & Challenge
+                </div>
+                <p className="text-base leading-relaxed text-foreground/80 bg-card p-5 rounded-xl border border-border">
+                  {p.problem}
+                </p>
+              </div>
+            )}
+
+            {p.architectureSummary && (
+              <div>
+                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary mb-3">
+                  / Architecture & System Decisions
+                </div>
+                <p className="text-base leading-relaxed text-foreground/80">
+                  {p.architectureSummary}
+                </p>
+              </div>
+            )}
+
+            {p.tradeoffs && p.tradeoffs.length > 0 && (
+              <div>
+                <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary mb-3">
+                  / Engineering Trade-offs
+                </div>
+                <div className="space-y-3">
+                  {p.tradeoffs.map((to) => (
+                    <div
+                      key={to}
+                      className="rounded-xl border border-border bg-card/60 p-4 text-sm leading-relaxed text-foreground/80"
+                    >
+                      <span className="font-mono-tight text-accent text-xs block mb-1">⚖ TRADE-OFF DECISION</span>
+                      {to}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div>
               <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary mb-3">
@@ -210,6 +257,23 @@ function ProjectPage() {
           </div>
 
           <aside className="lg:col-span-4 space-y-6">
+            {p.githubUrl && (
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-3">
+                  Repository
+                </div>
+                <a
+                  href={p.githubUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center justify-center gap-2.5 w-full rounded-xl border border-border bg-background py-2.5 px-4 text-xs font-mono-tight uppercase tracking-wider hover:border-primary/60 hover:text-primary transition-colors"
+                >
+                  <svg className="size-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                  View on GitHub →
+                </a>
+              </div>
+            )}
+
             <div className="rounded-2xl border border-border bg-card p-6">
               <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-4">
                 Stack
@@ -280,6 +344,10 @@ function ProjectPage() {
                   height={640}
                   loading="lazy"
                   className="w-full aspect-[1216/640] object-cover group-hover:scale-[1.02] transition-transform"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "/og-image.jpg";
+                  }}
                 />
                 <div className="p-5">
                   <h3 className="font-display text-xl leading-tight">{o.name}</h3>

@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
-
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+import { SITE_URL } from "@/lib/site";
 
 interface SitemapEntry {
   path: string;
@@ -15,7 +13,9 @@ interface SitemapEntry {
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async () => {
+      GET: async ({ request }) => {
+        // Prefer the configured site URL; fall back to the origin this request was served from.
+        const BASE_URL = SITE_URL || new URL(request.url).origin;
         const today = new Date().toISOString().split("T")[0];
         const entries: SitemapEntry[] = [
           { path: "/", lastmod: today, changefreq: "monthly", priority: "1.0" },

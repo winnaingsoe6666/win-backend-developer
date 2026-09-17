@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { absUrl } from "../lib/site";
 
 function NotFoundComponent() {
   return (
@@ -104,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Win Naing Soe — Portfolio",
-          url: "/",
+          url: absUrl("/"),
         }),
       },
     ],
