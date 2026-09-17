@@ -24,9 +24,9 @@ function slugForProject(name: string): string | undefined {
   return undefined;
 }
 
-const PAGE_TITLE = "Win Naing Soe — Enterprise Software Engineer · FinTech & Core Banking";
+const PAGE_TITLE = "Win Naing Soe — Senior Full-Stack & AI Systems Engineer · FinTech, Microservices & AI-Assisted Systems";
 const PAGE_DESCRIPTION =
-  "Senior Backend / Full-Stack Engineer with 6+ years building secure, scalable systems for core banking, microfinance, and stock-exchange platforms. Java · Spring Boot · PostgreSQL · Microservices · Angular.";
+  "Senior Full-Stack & AI Systems Engineer with 6+ years building enterprise banking, microservices, and high-velocity AI agent architectures. Java · Spring Boot · GCP · Claude Code · MCP · SpecKit · Next.js · Angular.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "Win Naing Soe, Senior Backend Engineer, Full-Stack Engineer, FinTech, Core Banking, Java, Spring Boot, PostgreSQL, Microservices, Angular, Mifos Fineract, Chiang Mai",
+          "Win Naing Soe, Senior AI-Assisted Engineer, Senior Full-Stack Engineer, AI Systems Architect, FinTech, Core Banking, Java, Spring Boot, Claude Code, Model Context Protocol, MCP, SpecKit, SDD, GCP, PostgreSQL, Microservices, Angular, Next.js",
       },
       { property: "og:title", content: PAGE_TITLE },
       { property: "og:description", content: PAGE_DESCRIPTION },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "640" },
       {
         property: "og:image:alt",
-        content: "Win Naing Soe — Enterprise Software Engineer, FinTech & Core Banking",
+        content: "Win Naing Soe — Senior Full-Stack & AI Systems Engineer",
       },
       { name: "twitter:title", content: PAGE_TITLE },
       { name: "twitter:description", content: PAGE_DESCRIPTION },
@@ -61,7 +61,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Person",
           name: "Win Naing Soe",
-          jobTitle: "Senior Backend / Full-Stack Software Engineer",
+          jobTitle: "Senior Full-Stack & AI Systems Engineer",
           description: PAGE_DESCRIPTION,
           url: "/",
           image: "/og-image.jpg",
@@ -79,14 +79,20 @@ export const Route = createFileRoute("/")({
           knowsAbout: [
             "Java",
             "Spring Boot",
+            "Anthropic Claude Code",
+            "Model Context Protocol (MCP)",
+            "Spec-Driven Development (SDD)",
+            "SpecKit",
+            "Multi-Agent Systems",
+            "Google Cloud Platform (GCP)",
+            "Test-Driven Development (TDD)",
             "PostgreSQL",
             "Microservices",
+            "Next.js",
             "Angular",
             "REST APIs",
             "Core Banking",
             "FinTech",
-            "Mifos Fineract",
-            "System Modernization",
             "Docker",
             "AWS",
           ],
@@ -105,55 +111,82 @@ export const Route = createFileRoute("/")({
 
 const STACK = [
   {
-    title: "Domain Expertise",
+    title: "AI & Agentic Engineering",
     code: "01",
     items: [
-      "Core Banking",
-      "Microfinance",
-      "Loan Management",
-      "Payment Integration",
-      "Stock Exchange Systems",
-      "Financial Reporting",
+      "Anthropic Claude Code (CLI)",
+      "Model Context Protocol (MCP)",
+      "Multi-Agent & Subagents",
+      "SpecKit (SDD) & Superpowers",
+      "LiteLLM Proxy & Token Budgeting",
+      "AI Code Review & Verification",
     ],
-    tags: ["Business Analysis", "System Integration", "Compliance"],
+    tags: ["Agentic Workflows", "Prompt Playbooks", "Context Discipline"],
+  },
+  {
+    title: "Domain & Financial Systems",
+    code: "02",
+    items: [
+      "Core Banking & Microfinance",
+      "Mifos Fineract Platform",
+      "Stock Exchange Operations",
+      "Payment Gateway (2C2P)",
+      "SIMM Risk Calculations",
+      "Requirements Definition (BRD / SRS)",
+    ],
+    tags: ["FinTech", "Offshore SDLC", "Compliance"],
   },
   {
     title: "Backend & Architecture",
-    code: "02",
+    code: "03",
     items: [
-      "Java",
-      "Spring Boot",
-      "REST APIs",
-      "Microservices",
-      "Spring Security",
-      "Shell Scripting",
+      "Java (8/11/17/21) · Spring Boot",
+      "Spring Security & Spring Batch",
+      "RESTful APIs & Microservices",
+      "Spec-Driven Development (SDD)",
+      "Test-Driven Development (TDD)",
+      "NestJS & Node.js",
     ],
-    tags: ["System Design", "SOLID", "Enterprise Apps"],
+    tags: ["System Design", "SOLID", "Clean Code"],
   },
   {
-    title: "Web App Development",
-    code: "03",
-    items: ["Angular", "TypeScript / JS", "HTML5 / CSS / SCSS", "Responsive UI", "Single Page Apps"],
-    tags: ["UI/UX Design", "Web Vitals", "Accessibility"],
+    title: "Cloud, GCP & DevOps",
+    code: "04",
+    items: [
+      "Google Cloud Platform (GCP)",
+      "Cloud Run & Cloud Storage",
+      "AWS (Lightsail, EC2)",
+      "Docker & Docker Compose",
+      "CI/CD (GitHub Actions, GitLab)",
+      "Linux / Bash Automation",
+    ],
+    tags: ["GCP", "Containers", "DevOps"],
   },
   {
     title: "Database & Storage",
-    code: "04",
+    code: "05",
     items: [
-      "PostgreSQL",
-      "Oracle",
-      "MySQL",
-      "Stored Procedures",
-      "Query Optimization",
-      "Database Migration",
+      "PostgreSQL & PostgreSQL MCP",
+      "Oracle PL/SQL & Stored Procs",
+      "Supabase & Prisma ORM",
+      "Redis & BullMQ Queues",
+      "Query Optimization & Indexing",
+      "Database Migrations (Flyway)",
     ],
-    tags: ["Data Modeling", "Indexing", "Modernization"],
+    tags: ["Data Modeling", "High Concurrency", "Integrity"],
   },
   {
-    title: "DevOps & Tools",
-    code: "05",
-    items: ["Docker", "Git", "AWS (EC2, S3)", "CI/CD Pipelines", "Linux / Unix", "Test Automation"],
-    tags: ["Agile/Scrum", "Code Reviews", "Git Workflow"],
+    title: "Frontend & Web Engineering",
+    code: "06",
+    items: [
+      "Angular (TS / JS)",
+      "React 19 & Next.js 15",
+      "TypeScript & Tailwind CSS",
+      "shadcn/ui & Radix UI",
+      "Automated Testing (Playwright, Cypress)",
+      "Responsive & Accessible UI",
+    ],
+    tags: ["Next.js", "Angular", "Modern UI"],
   },
 ];
 
@@ -212,6 +245,33 @@ const TIMELINE = [
 
 const PROJECTS = [
   {
+    name: "Evolvia — Personal AI OS",
+    tags: ["AI Agents", "MCP", "Architecture"],
+    role: "AI Systems Architect",
+    impact:
+      "Personal Life OS with autonomous multi-agent orchestration, Claude Code CLI, and custom Model Context Protocol (MCP) integrations.",
+    stack: ["Claude Code", "MCP", "Subagents", "Superpowers", "TypeScript", "Docker"],
+    featured: true,
+  },
+  {
+    name: "CrossMart — Cross-Border Marketplace",
+    tags: ["E-Commerce", "SDD", "Next.js 15"],
+    role: "Full-Stack Engineer & Team Co-Lead",
+    impact:
+      "Cross-border marketplace platform built with Spec-Driven Development (SDD) & SpecKit, Next.js 15, NestJS, and Supabase.",
+    stack: ["Next.js 15", "NestJS", "Supabase", "Prisma", "BullMQ", "SpecKit"],
+    featured: true,
+  },
+  {
+    name: "ShareShelf — Community Resource Library",
+    tags: ["MCP", "Spring Boot", "Full Stack"],
+    role: "Full-Stack Developer",
+    impact:
+      "Community tool library utilizing a PostgreSQL MCP server and specialized Claude Subagents for safe schema maintenance and query analysis.",
+    stack: ["Java", "Spring Boot", "PostgreSQL", "PostgreSQL MCP", "Subagents"],
+    featured: true,
+  },
+  {
     name: "Mifos Fineract — Core Banking",
     tags: ["FinTech", "Core Banking", "Open Source"],
     role: "Senior Full-Stack Engineer",
@@ -238,6 +298,14 @@ const PROJECTS = [
     featured: true,
   },
   {
+    name: "Multi-Platform Scraping & Analytics Platform",
+    tags: ["Data Pipeline", "Full Stack", "Systems Engineering"],
+    role: "Full-Stack / Systems Engineer",
+    impact:
+      "Production data pipeline scraping TikTok Shop & EchoTik behind anti-bot defenses, landing audit-grade analytics across 3 independently deployable services.",
+    stack: ["React 19", "NestJS 11", "BullMQ", "Spring Boot 3", "Oracle 19c", "Redis"],
+  },
+  {
     name: "KPI Management System",
     tags: ["Enterprise", "Analytics"],
     role: "Backend Developer",
@@ -262,22 +330,34 @@ const PROJECTS = [
 
 const RECOGNITION = [
   {
+    title: "Anthropic Official Certifications (7 Certifications)",
+    org: "Anthropic / Skilljar",
+    date: "2026",
+    note: "Official certifications in Claude Code 101, Claude Code in Action, Model Context Protocol (MCP) Intro, Subagents Intro, Agent Skills Intro, Claude Platform 101, and Claude 101.",
+  },
+  {
     title: "ITPEC — Fundamental Information Technology Engineer (FE)",
     org: "IT Professionals Examination Council, Japan",
     date: "06 / 2023",
-    note: "National-level IT certification. ID MMFE23S00159.",
+    note: "National-level IT engineer credential under mutual recognition agreement with Japan Information-technology Promotion Agency (IPA). ID MMFE23S00159.",
+  },
+  {
+    title: "President's Award for Productivity & Quality Assurance",
+    org: "DIR-ACE Technology (Daiwa Institute of Research Group)",
+    date: "2024",
+    note: "Recognized for leading offshore delivery with zero critical defects and exemplary engineering standards.",
   },
   {
     title: "Best System Development Award",
     org: "DIR-ACE Technology",
     date: "09 / 2021",
-    note: "For outstanding contribution to the JLPT Registration System project.",
+    note: "For outstanding contribution to the JLPT National Registration System project handling 5,000+ concurrent applicants.",
   },
   {
     title: "Quality Assurance Award",
     org: "DIR-ACE Technology",
     date: "09 / 2021",
-    note: "Recognized for productivity and quality on the CstNavi team.",
+    note: "Recognized for productivity, test automation, and code quality on the CstNavi financial system team.",
   },
   {
     title: "Java Web Development — Talent Program",
@@ -291,7 +371,7 @@ const FACTS = [
   { k: "Based in", v: "Chiang Mai, TH", icon: "◉" },
   { k: "Fuel", v: "Coffee & Curiosity", icon: "☕" },
   { k: "Focus", v: "FinTech · Core Banking", icon: "◆" },
-  { k: "Languages", v: "Burmese · English · 日本語", icon: "⌘" },
+  { k: "Languages", v: "Burmese · English · Japanese", icon: "⌘" },
 ];
 
 /* ----------------------------- COMPONENT ----------------------------- */
@@ -339,6 +419,7 @@ function Portfolio() {
         <Hero />
         <Marquee />
         <About />
+        <AiCapabilities />
         <Arsenal />
         <Timeline />
         <Projects />
@@ -364,6 +445,7 @@ function Portfolio() {
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
+  ["AI Engineering", "ai-engineering"],
   ["Stack", "stack"],
   ["Career", "career"],
   ["Work", "work"],
@@ -447,7 +529,7 @@ function Hero() {
           <div className="lg:col-span-7">
             <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-4 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-primary" />
-              Enterprise Software Engineer
+              Senior Full-Stack &amp; AI Systems Engineer
             </p>
             <h1 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
               Engineering the{" "}
@@ -457,8 +539,7 @@ function Hero() {
             </h1>
             <p className="mt-5 max-w-2xl text-sm text-muted-foreground leading-relaxed">
               Six years building secure, scalable backend systems for core banking, microfinance,
-              and stock-exchange operations. Java · Spring Boot · PostgreSQL · Microservices ·
-              Angular.
+              and stock-exchange operations — amplified by modern AI-agent workflows (Claude Code, MCP, SpecKit) and Google Cloud Platform.
             </p>
 
             <div className="mt-6 flex flex-row flex-wrap items-center gap-3">
@@ -470,10 +551,10 @@ function Hero() {
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
               <a
-                href="#contact"
+                href="#ai-engineering"
                 className="inline-flex items-center justify-center gap-3 rounded-full border border-border px-5 py-3 sm:py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
               >
-                Get in touch
+                AI Engineering
               </a>
               <a
                 href="https://github.com/winnaingsoe6666"
@@ -490,9 +571,9 @@ function Hero() {
             <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
               {[
                 ["6+", "years shipping"],
+                ["7", "Anthropic certs"],
                 ["5,000+", "concurrent users"],
-                ["3", "banking microservices"],
-                ["11", "engineers mentored"],
+                ["5x", "delivery velocity"],
               ].map(([n, l]) => (
                 <div key={l} className="bg-card p-3 md:p-5">
                   <div className="font-display text-2xl md:text-5xl text-primary">{n}</div>
@@ -523,18 +604,20 @@ function Hero() {
 
                   <TerminalLine prompt command="cat role.txt" />
                   <TerminalOutput>
-                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Backend</span>
-                    {" / "}
-                    <span style={{ color: "var(--color-syntax-function)" }}>Full Stack Engineer</span>
+                    <span style={{ color: "var(--color-syntax-string)" }}>Senior Full-Stack</span>
+                    {" & "}
+                    <span style={{ color: "var(--color-syntax-function)" }}>AI Systems Engineer</span>
                   </TerminalOutput>
 
                   <TerminalLine prompt command="ls skills/" />
                   <TerminalOutput className="flex flex-wrap gap-x-3">
                     <span style={{ color: "var(--color-syntax-keyword)" }}>java</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>spring-boot</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>shell-script</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>claude-code</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>mcp</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>speckit</span>
+                    <span style={{ color: "var(--color-syntax-keyword)" }}>GCP</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>postgresql</span>
-                    <span style={{ color: "var(--color-syntax-keyword)" }}>AWS</span>
                     <span style={{ color: "var(--color-syntax-keyword)" }}>angular</span>
                   </TerminalOutput>
 
@@ -610,34 +693,48 @@ function TerminalOutput({ children, className }: { children: React.ReactNode; cl
 }
 
 
-/* ----------------------------- MARQUEE ----------------------------- */
+/* ----------------------------- MARQUEE (Modern Tech Badge Stream) ----------------------------- */
 
 function Marquee() {
-  const words = [
-    "Java",
-    "Spring Boot",
-    "PostgreSQL",
-    "Microservices",
-    "Angular",
-    "Docker",
-    "AWS",
-    "Mifos Fineract",
-    "Core Banking",
-    "REST APIs",
-    "Spring Security",
-    "CI/CD",
-    "System Design",
-    "Linux",
+  const chips = [
+    { name: "Java", category: "Core" },
+    { name: "Spring Boot", category: "Backend" },
+    { name: "Claude Code", category: "AI Tooling" },
+    { name: "Model Context Protocol (MCP)", category: "AI Integration" },
+    { name: "Google Cloud (GCP)", category: "Cloud" },
+    { name: "PostgreSQL", category: "Database" },
+    { name: "Microservices", category: "Architecture" },
+    { name: "SpecKit & SDD", category: "Methodology" },
+    { name: "Angular", category: "Frontend" },
+    { name: "Next.js 15", category: "Frontend" },
+    { name: "Docker", category: "DevOps" },
+    { name: "Mifos Fineract", category: "FinTech" },
+    { name: "Spring Security", category: "Security" },
+    { name: "Test-Driven Dev (TDD)", category: "Quality" },
+    { name: "Autonomous Subagents", category: "AI Systems" },
+    { name: "RESTful APIs", category: "Backend" },
   ];
-  const row = [...words, ...words];
+  const row = [...chips, ...chips];
+
   return (
-    <section aria-hidden className="marquee-wrapper marquee-3d border-y border-border bg-card/40 py-3 md:py-4 ticker-mask overflow-hidden">
-      <div className="marquee-track flex gap-10 animate-marquee whitespace-nowrap font-display text-xl md:text-5xl">
-        {row.map((w, i) => (
-          <span key={i} className="flex items-center gap-10">
-            <span className={`marquee-word ${i % 2 === 0 ? "font-light" : "font-medium"}`}>{w}</span>
-            <span className="marquee-sep text-sm">✦</span>
-          </span>
+    <section
+      aria-hidden
+      className="marquee-wrapper border-y border-border/70 bg-card/25 py-3.5 ticker-mask overflow-hidden backdrop-blur-xs"
+    >
+      <div className="marquee-track flex gap-3 animate-marquee whitespace-nowrap">
+        {row.map((chip, i) => (
+          <div
+            key={i}
+            className="inline-flex items-center gap-2 rounded-full border border-border/80 bg-background/90 px-3.5 py-1.5 shadow-xs hover:border-primary/50 transition-colors"
+          >
+            <span className="size-1.5 rounded-full bg-primary pulse-dot shrink-0" />
+            <span className="font-mono-tight text-xs font-medium text-foreground/90 tracking-wide">
+              {chip.name}
+            </span>
+            <span className="text-[10px] font-mono-tight uppercase tracking-wider text-muted-foreground/80 px-1.5 py-0.5 rounded bg-secondary/50 border border-border/40">
+              {chip.category}
+            </span>
+          </div>
         ))}
       </div>
     </section>
@@ -715,13 +812,128 @@ function About() {
   );
 }
 
+/* ----------------------------- ENTERPRISE AI CAPABILITIES ----------------------------- */
+
+const AI_CAPABILITIES = [
+  {
+    code: "01",
+    badge: "System Integration",
+    enTitle: "Production AI & Agentic Integration",
+    desc: "Architect and implement autonomous subagents and custom Model Context Protocol (MCP) servers connected directly to enterprise databases (PostgreSQL/Oracle) and REST APIs, avoiding brittle chat prompts.",
+    tags: ["Claude Code CLI", "MCP Servers", "Subagents", "REST APIs"],
+  },
+  {
+    code: "02",
+    badge: "Verification & QA",
+    enTitle: "AI Output Verification & Code Review",
+    desc: "Apply 6+ years of FinTech rigor to audit and verify AI-generated code. Eliminate hallucinations, race conditions, and vulnerabilities via automated TDD test suites (JUnit, Cypress, Playwright).",
+    tags: ["TDD", "Code Review", "Regression Testing", "OWASP"],
+  },
+  {
+    code: "03",
+    badge: "Requirements & SDD",
+    enTitle: "Requirements Definition & Spec-Driven Development",
+    desc: "Translate complex business domain workflows into unambiguous specifications using SpecKit (/speckit.specify, /speckit.plan, /speckit.tasks) and formal PRDs before writing or generating code.",
+    tags: ["SpecKit", "SDD", "Requirements Spec", "Business Flow"],
+  },
+  {
+    code: "04",
+    badge: "Context & Memory",
+    enTitle: "Data & Context Engineering",
+    desc: "Prevent context rot and hallucination by structuring project knowledge graphs (claude-mem), active state trackers (Context7), and relational schema indexing across PostgreSQL and Supabase.",
+    tags: ["claude-mem", "Context7", "PostgreSQL", "Supabase"],
+  },
+  {
+    code: "05",
+    badge: "Security & Governance",
+    enTitle: "Security, Access Control & AI Governance",
+    desc: "Enforce least-privilege tool boundaries (read-only MCP permissions, isolated environments), safeguard proprietary banking data against model leakage, and implement audit logging.",
+    tags: ["Least Privilege", "Read-Only MCP", "Spring Security", "Audit"],
+  },
+  {
+    code: "06",
+    badge: "LLMOps & Cost",
+    enTitle: "Cost Management & LLMOps",
+    desc: "Manage token economics with LiteLLM proxies, intelligent model routing (cost-efficient models for tasks vs. reasoning models for architecture), and resilient fallback strategies.",
+    tags: ["LiteLLM Proxy", "Token Budgeting", "Model Routing", "Monitoring"],
+  },
+  {
+    code: "07",
+    badge: "Tooling & Velocity",
+    enTitle: "AI Tooling Mastery & 10x Velocity",
+    desc: "Leverage Claude Code, Cursor, and the Superpowers framework for autonomous GSD (Get Stuff Done) execution, validated by 7 official Anthropic Skilljar certifications.",
+    tags: ["Claude Code CLI", "Cursor", "Superpowers", "Anthropic Certified"],
+  },
+];
+
+function AiCapabilities() {
+  return (
+    <section id="ai-engineering" className="relative py-12 md:py-24 bg-card/20 border-y border-border">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <SectionLabel n="01" label="Enterprise AI Engineering" />
+        <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div className="font-mono-tight text-xs uppercase tracking-[0.25em] text-accent mb-2">
+              Digital Skill Standard 2026 Aligned
+            </div>
+            <h2 className="font-sans text-2xl md:text-5xl font-light tracking-tight max-w-2xl">
+              High-Value Senior <span className="italic text-primary">AI-Assisted</span> Engineering.
+            </h2>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
+            Not just prompting chatbots — integrating autonomous agents, Model Context Protocol (MCP), and Spec-Driven Development (SDD) into real production architectures while preserving banking-grade stability.
+          </p>
+        </div>
+
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border rounded-2xl overflow-hidden border border-border">
+          {AI_CAPABILITIES.map((c, i) => (
+            <div
+              key={c.code}
+              className={`bg-background p-6 group hover:bg-card transition-colors flex flex-col justify-between ${
+                i === 6 ? "md:col-span-2 lg:col-span-3 bg-gradient-to-r from-primary/5 via-background to-accent/5" : ""
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono-tight text-[11px] text-primary tracking-widest">
+                    / PILLAR {c.code}
+                  </span>
+                  <span className="text-[11px] font-mono-tight px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                    {c.badge}
+                  </span>
+                </div>
+                <h3 className="font-display text-lg leading-snug text-foreground group-hover:text-primary transition-colors">
+                  {c.enTitle}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  {c.desc}
+                </p>
+              </div>
+              <div className="mt-5 pt-4 border-t border-border/60 flex flex-wrap gap-1.5">
+                {c.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-0.5 rounded border border-border bg-card/60 text-muted-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ----------------------------- ARSENAL ----------------------------- */
 
 function Arsenal() {
   return (
     <section id="stack" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="01" label="Technical Arsenal" />
+        <SectionLabel n="02" label="Technical Arsenal" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Tools I reach for <span className="italic text-accent">sharpened by use</span>.
         </h2>
@@ -784,7 +996,7 @@ function Timeline() {
   return (
     <section id="career" className="relative py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="02" label="Interactive Career Timeline" />
+        <SectionLabel n="03" label="Interactive Career Timeline" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Six years, one through-line:{" "}
           <span className="italic text-primary">make finance software trustworthy.</span>
@@ -851,9 +1063,9 @@ function Projects() {
   return (
     <section id="work" className="relative py-12 md:py-24 bg-card/30 border-y border-border">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="03" label="Selected Work" />
+        <SectionLabel n="04" label="Selected Work" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
-          Projects spanning <span className="italic text-primary">FinTech</span>, core banking, and
+          Projects spanning <span className="italic text-primary">AI Agents</span>, FinTech, and
           enterprise modernization.
         </h2>
 
@@ -922,21 +1134,35 @@ function Projects() {
             / Other notable builds
           </div>
           <div className="divide-y divide-border border-y border-border">
-            {others.map((p) => (
-              <div
-                key={p.name}
-                className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 active:bg-muted px-2 -mx-2 rounded transition-colors touch-manipulation"
-              >
-                <div className="md:col-span-4 font-display text-lg">{p.name}</div>
-                <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
-                  {p.role}
+            {others.map((p) => {
+              const slug = slugForProject(p.name);
+              const Row = (
+                <div
+                  className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 active:bg-muted px-2 -mx-2 rounded transition-colors touch-manipulation"
+                >
+                  <div className="md:col-span-4 font-display text-lg flex items-center gap-2">
+                    {p.name}
+                    {slug && (
+                      <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity text-sm">→</span>
+                    )}
+                  </div>
+                  <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
+                    {p.role}
+                  </div>
+                  <div className="md:col-span-4 text-sm text-muted-foreground">{p.impact}</div>
+                  <div className="md:col-span-2 font-mono-tight text-xs text-primary text-left md:text-right">
+                    {p.stack.join(" · ")}
+                  </div>
                 </div>
-                <div className="md:col-span-4 text-sm text-muted-foreground">{p.impact}</div>
-                <div className="md:col-span-2 font-mono-tight text-xs text-primary text-left md:text-right">
-                  {p.stack.join(" · ")}
-                </div>
-              </div>
-            ))}
+              );
+              return slug ? (
+                <Link key={p.name} to="/work/$slug" params={{ slug }} className="block">
+                  {Row}
+                </Link>
+              ) : (
+                <div key={p.name}>{Row}</div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -950,7 +1176,7 @@ function Recognition() {
   return (
     <section id="awards" className="py-12 md:py-24">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionLabel n="04" label="Recognition & Education" />
+        <SectionLabel n="05" label="Recognition & Education" />
         <h2 className="mt-4 font-sans text-2xl md:text-6xl font-light tracking-tight max-w-3xl">
           Awards, certifications, and the{" "}
           <span className="italic text-accent">long road of learning</span>.
@@ -1005,7 +1231,7 @@ function Recognition() {
                 System Design, and deeper Financial Technology.
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">
-                {["Cloud Architecture", "AI-Assisted Dev", "System Design", "FinTech"].map((t) => (
+                {["Anthropic Claude Code", "Model Context Protocol (MCP)", "SpecKit & SDD", "Google Cloud (GCP)", "FinTech"].map((t) => (
                   <span
                     key={t}
                     className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded border border-border text-muted-foreground"
@@ -1036,7 +1262,7 @@ function Contact() {
     <section id="contact" className="relative py-12 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
       <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
-        <SectionLabel n="05" label="Let's build something" />
+        <SectionLabel n="06" label="Let's build something" />
 
         <h2 className="mt-6 font-sans text-2xl md:text-6xl font-light tracking-tight leading-[1]">
           Let's build <br />
@@ -1047,13 +1273,13 @@ function Contact() {
         <div className="mt-10 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-7 space-y-4 text-muted-foreground leading-relaxed max-w-xl">
             <p>
-              I'm open to <span className="text-foreground">senior backend</span>,{" "}
-              <span className="text-foreground">full-stack</span>, and{" "}
-              <span className="text-foreground">FinTech</span> roles — remote, hybrid, or with
+              I'm open to <span className="text-foreground">senior AI-assisted</span>,{" "}
+              <span className="text-foreground">senior full-stack / backend</span>, and{" "}
+              <span className="text-foreground">FinTech &amp; AI systems</span> roles — remote, hybrid, or with
               relocation from Chiang Mai.
             </p>
             <p>
-              If you're working on core banking, payments, microfinance, system modernization, or
+              If you're working on core banking, payments, microfinance, autonomous agent systems, or
               an enterprise platform that has to be{" "}
               <em className="text-accent not-italic">correct, fast, and quiet</em> — I'd love to
               talk.
@@ -1061,10 +1287,11 @@ function Contact() {
 
             <div className="flex flex-wrap gap-2 pt-2">
               {[
-                "Senior Software Engineer",
-                "Backend Engineer",
-                "Full-Stack Engineer",
-                "FinTech Projects",
+                "Senior AI-Assisted Engineer",
+                "AI Systems Architect",
+                "Senior Backend / Full-Stack",
+                "FinTech & Core Banking",
+                "GCP & Microservices",
               ].map((t) => (
                 <span
                   key={t}
