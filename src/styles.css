@@ -44,7 +44,7 @@
   --color-syntax-punctuation: var(--syntax-punctuation);
   --color-syntax-function: var(--syntax-function);
 
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 }
@@ -276,8 +276,6 @@
 
 @utility font-display {
   font-family: var(--font-display);
-  font-optical-sizing: auto;
-  font-variation-settings: "opsz" 144, "SOFT" 50;
   letter-spacing: -0.025em;
 }
 

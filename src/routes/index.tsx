@@ -563,7 +563,7 @@ function Hero() {
               Senior Backend &amp; FinTech Engineer
             </p>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-foreground">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground">
               Win Naing Soe
             </h1>
 
