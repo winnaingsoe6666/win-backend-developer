@@ -570,7 +570,7 @@ function Hero() {
             </p>
 
             <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              Six years architecting secure, high-throughput financial platforms and distributed microservices (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
+              Six years architecting secure, scalable backend systems for core banking, microfinance, and stock-exchange operations (5,000+ peak users, 2 President's Awards). Built on Java, Spring Boot, PostgreSQL, and distributed microservices — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
