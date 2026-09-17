@@ -554,50 +554,26 @@ function Hero() {
           <span className="hidden md:inline">Bangkok · 13.7°N</span>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-[11px] font-mono-tight uppercase tracking-wider text-primary mb-3">
-              <span className="size-1.5 rounded-full bg-primary pulse-dot" />
-              Senior Backend &amp; FinTech Systems Engineer
-            </div>
-            <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl leading-[1.08] font-light tracking-tight">
-              <span className="block font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground tracking-tight mb-2">
-                Win Naing Soe
-              </span>
-              Mission-critical <span className="italic font-normal text-primary">core banking</span>
-              <br />
-              &amp; backend <span className="text-accent">architectures</span>.
-            </h1>
-
-            {/* Quick-scan tech badges for 5-second recruiter test */}
-            <div className="mt-4 flex flex-wrap items-center gap-1.5">
-              {[
-                "Java 21",
-                "Spring Boot 3",
-                "Core Banking & Ledger",
-                "Distributed Microservices",
-                "PostgreSQL / Oracle",
-                "Google Cloud (GCP)",
-                "AI Agents & MCP",
-              ].map((tech, idx) => (
-                <span
-                  key={tech}
-                  className={`text-[11px] font-mono-tight px-2.5 py-1 rounded-md border ${
-                    idx < 2
-                      ? "bg-primary/15 border-primary/40 text-primary font-medium"
-                      : "bg-card/80 border-border text-foreground/80"
-                  }`}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              Six years architecting secure, high-throughput financial platforms and distributed microservices (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
+            <p className="font-mono-tight text-xs uppercase tracking-[0.25em] text-primary mb-3 flex items-center gap-3">
+              <span className="inline-block w-8 h-px bg-primary" />
+              Senior Backend &amp; FinTech Engineer
             </p>
 
-            <div className="mt-6 flex flex-row flex-wrap items-center gap-2.5">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-foreground">
+              Win Naing Soe
+            </h1>
+
+            <p className="mt-3 font-sans text-xl sm:text-2xl text-foreground/90 font-light leading-snug">
+              Architecting mission-critical <span className="italic font-normal text-primary">core banking</span> &amp; distributed <span className="text-accent">microservices</span>.
+            </p>
+
+            <p className="mt-4 max-w-xl text-sm md:text-base text-muted-foreground leading-relaxed">
+              Six years shipping secure, high-throughput financial platforms (5,000+ peak users, 2 President's Awards) — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit).
+            </p>
+
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="#work"
                 className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 active:scale-[0.97] transition-all touch-manipulation"
@@ -615,12 +591,6 @@ function Hero() {
                 Resume (PDF)
               </a>
               <a
-                href="#ai-engineering"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
-              >
-                AI Systems
-              </a>
-              <a
                 href="https://github.com/winnaingsoe6666"
                 target="_blank"
                 rel="noreferrer noopener"
@@ -632,16 +602,16 @@ function Hero() {
             </div>
 
             {/* metric strip */}
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-px bg-border rounded-xl overflow-hidden border border-border">
               {[
                 ["6+", "years shipping"],
                 ["5,000+", "concurrent users"],
                 ["11", "engineers mentored"],
                 ["2", "President's Awards"],
               ].map(([n, l]) => (
-                <div key={l} className="bg-card p-3 md:p-5">
-                  <div className="font-display text-2xl md:text-5xl text-primary">{n}</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-2 font-mono-tight">
+                <div key={l} className="bg-card p-3 md:p-4">
+                  <div className="font-display text-2xl md:text-4xl text-primary">{n}</div>
+                  <div className="text-xs uppercase tracking-wider text-muted-foreground mt-1.5 font-mono-tight">
                     {l}
                   </div>
                 </div>
