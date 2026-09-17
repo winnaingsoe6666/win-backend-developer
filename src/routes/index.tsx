@@ -556,11 +556,14 @@ function Hero() {
 
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end">
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-[11px] font-mono-tight uppercase tracking-wider text-primary mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1 text-[11px] font-mono-tight uppercase tracking-wider text-primary mb-3">
               <span className="size-1.5 rounded-full bg-primary pulse-dot" />
               Senior Backend &amp; FinTech Systems Engineer
             </div>
             <h1 className="font-sans text-3xl sm:text-5xl md:text-6xl leading-[1.08] font-light tracking-tight">
+              <span className="block font-display text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground tracking-tight mb-2">
+                Win Naing Soe
+              </span>
               Mission-critical <span className="italic font-normal text-primary">core banking</span>
               <br />
               &amp; backend <span className="text-accent">architectures</span>.
