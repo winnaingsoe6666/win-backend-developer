@@ -882,7 +882,7 @@ const FINTECH_EXPERIENCES = [
     code: "02",
     badge: "Capital Markets & Settlement",
     title: "Stock Exchange Operations & Offshore Delivery",
-    role: "Senior Software Engineer · DIR-ACE Technology (DAT)",
+    role: "Software Engineer · DIR-ACE Technology (DAT)",
     period: "Mar 2020 — Jan 2025",
     desc: "Led offshore engineering delivery for Tokyo/Japanese enterprise financial clients through full SDLC. Managed requirements definition, automated regression test suites with Selenium, and refactored mission-critical legacy Oracle PL/SQL databases for high-precision stock trade derivative calculations.",
     highlights: [
