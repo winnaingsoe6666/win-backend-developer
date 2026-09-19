@@ -7,7 +7,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { AuroraBg } from "@/components/aurora-bg";
 import { User, Code2, Briefcase, FolderOpen, Award, Mail } from "lucide-react";
 
-
 const PROJECT_SLUG_MAP: Record<string, string> = {
   "Mifos Fineract — Core Banking": "mifos-fineract",
   "Mifos Fineract": "mifos-fineract",
@@ -15,15 +14,15 @@ const PROJECT_SLUG_MAP: Record<string, string> = {
   "Stock Exchange": "stock-exchange",
   "JLPT National Registration System": "jlpt-registration",
   "JLPT Registration System": "jlpt-registration",
-  "JLPT": "jlpt-registration",
+  JLPT: "jlpt-registration",
   "Multi-Platform Scraping & Analytics Platform": "tiktok-scraping-platform",
   "TikTok Scraping Platform": "tiktok-scraping-platform",
   "Evolvia — Personal AI OS": "evolvia",
-  "Evolvia": "evolvia",
+  Evolvia: "evolvia",
   "CrossMart — Cross-Border Marketplace": "crossmart",
-  "CrossMart": "crossmart",
+  CrossMart: "crossmart",
   "ShareShelf — Community Resource Library": "shareshelf",
-  "ShareShelf": "shareshelf",
+  ShareShelf: "shareshelf",
 };
 
 function slugForProject(name: string): string | undefined {
@@ -45,7 +44,8 @@ function slugForProject(name: string): string | undefined {
   return undefined;
 }
 
-const PAGE_TITLE = "Win Naing Soe — Senior Backend & FinTech Engineer · Microservices & AI-Augmented Systems";
+const PAGE_TITLE =
+  "Win Naing Soe — Senior Backend & FinTech Engineer · Microservices & AI-Augmented Systems";
 const PAGE_DESCRIPTION =
   "Senior Backend & FinTech Engineer with 6+ years building mission-critical core banking, high-throughput microservices, and AI-accelerated delivery systems. Java · Spring Boot · PostgreSQL · Oracle · GCP · Claude Code · MCP · SpecKit · Next.js.";
 
@@ -117,10 +117,7 @@ export const Route = createFileRoute("/")({
             "Docker",
             "AWS",
           ],
-          sameAs: [
-            "https://linkedin.com/in/win-naing-soe",
-            "https://github.com/winnaingsoe6666",
-          ],
+          sameAs: ["https://linkedin.com/in/win-naing-soe", "https://github.com/winnaingsoe6666"],
         }),
       },
     ],
@@ -270,7 +267,8 @@ const PROJECTS = [
     slug: "mifos-fineract",
     tags: ["FinTech", "Core Banking", "Open Source"],
     role: "Senior Full-Stack Engineer",
-    impact: "Built and enhanced scalable banking microservices on an open-source financial platform.",
+    impact:
+      "Built and enhanced scalable banking microservices on an open-source financial platform.",
     stack: ["Java", "Spring Boot", "Docker", "Angular", "PostgreSQL"],
     featured: true,
   },
@@ -338,7 +336,8 @@ const PROJECTS = [
     name: "KPI Management System",
     tags: ["Enterprise", "Analytics"],
     role: "Backend Developer",
-    impact: "Performance tracking for monitoring KPIs across departments with interactive dashboards.",
+    impact:
+      "Performance tracking for monitoring KPIs across departments with interactive dashboards.",
     stack: ["Java", "Spring Boot", "MySQL", "React"],
   },
   {
@@ -534,7 +533,10 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden min-h-[100dvh] flex flex-col justify-center pt-20 pb-10 md:min-h-0 md:pt-32 md:pb-20">
+    <section
+      id="top"
+      className="relative overflow-hidden min-h-[100dvh] flex flex-col justify-center pt-20 pb-10 md:min-h-0 md:pt-32 md:pb-20"
+    >
       <div
         aria-hidden
         className="hero-bg-wave absolute inset-0 opacity-30 mix-blend-screen pointer-events-none"
@@ -568,11 +570,16 @@ function Hero() {
             </h1>
 
             <p className="mt-3 font-sans text-xl sm:text-2xl text-foreground/90 font-light leading-snug">
-              Architecting mission-critical <span className="italic font-normal text-primary">core banking</span>, FinTech, <span className="text-accent">Enterprise ERP</span> &amp; AI-assisted engineering.
+              Architecting mission-critical{" "}
+              <span className="italic font-normal text-primary">core banking</span>, FinTech,{" "}
+              <span className="text-accent">Enterprise ERP</span> &amp; AI-assisted engineering.
             </p>
 
             <p className="mt-5 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-              Six years architecting secure, scalable backend systems for core banking, microfinance, stock-exchange operations, and Enterprise ERP. Built on Java, Spring Boot, PostgreSQL, and distributed microservices — accelerated with modern AI-agent orchestration (Claude Code, MCP, SpecKit, Agentic).
+              Six years architecting secure, scalable backend systems for core banking,
+              microfinance, stock-exchange operations, and Enterprise ERP. Built on Java, Spring
+              Boot, PostgreSQL, and distributed microservices — accelerated with modern AI-agent
+              orchestration (Claude Code, MCP, SpecKit, Agentic).
             </p>
 
             <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -587,7 +594,18 @@ function Hero() {
                 href="#contact"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/50 bg-primary/5 px-4 py-2.5 text-sm font-medium text-primary hover:bg-primary/10 active:scale-[0.97] transition-all touch-manipulation"
               >
-                <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <svg
+                  className="size-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
                 Get in touch
               </a>
               <a
@@ -596,7 +614,9 @@ function Hero() {
                 rel="noreferrer noopener"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-border px-4 py-2.5 text-sm font-medium hover:border-primary/60 hover:text-primary active:scale-[0.97] transition-all touch-manipulation"
               >
-                <svg className="size-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
                 GitHub
               </a>
             </div>
@@ -622,7 +642,10 @@ function Hero() {
           {/* profile terminal */}
           <div className="lg:col-span-5">
             <div className="relative animate-float">
-              <div className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl" style={{ animation: "glow-breathe 8s ease-in-out infinite" }} />
+              <div
+                className="absolute -inset-3 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 blur-2xl"
+                style={{ animation: "glow-breathe 8s ease-in-out infinite" }}
+              />
               <div className="relative rounded-2xl overflow-hidden code-surface ring-signal">
                 <div className="flex items-center justify-between px-4 py-2.5 code-chrome font-mono-tight text-[10px] uppercase tracking-widest">
                   <div className="flex items-center gap-1.5">
@@ -658,7 +681,8 @@ function Hero() {
 
                   <TerminalLine prompt command="uptime" />
                   <TerminalOutput>
-                    <span style={{ color: "var(--color-syntax-number)" }}>6+</span> years in production
+                    <span style={{ color: "var(--color-syntax-number)" }}>6+</span> years in
+                    production
                   </TerminalOutput>
 
                   <TerminalLine prompt command="" cursor />
@@ -672,7 +696,15 @@ function Hero() {
   );
 }
 
-function TerminalLine({ prompt, command, cursor }: { prompt?: boolean; command: string; cursor?: boolean }) {
+function TerminalLine({
+  prompt,
+  command,
+  cursor,
+}: {
+  prompt?: boolean;
+  command: string;
+  cursor?: boolean;
+}) {
   return (
     <div className="flex items-center gap-2">
       {prompt && (
@@ -687,14 +719,19 @@ function TerminalLine({ prompt, command, cursor }: { prompt?: boolean; command: 
   );
 }
 
-function TerminalOutput({ children, className }: { children: React.ReactNode; className?: string }) {
+function TerminalOutput({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <div className={`pl-4 ${className ?? ""}`} style={{ color: "var(--color-code-muted)" }}>
       {children}
     </div>
   );
 }
-
 
 /* ----------------------------- ARCHITECTURAL STATEMENT BANNER ----------------------------- */
 
@@ -705,14 +742,24 @@ function StatementBanner() {
         <div className="flex items-center gap-3 min-w-0">
           <span className="size-2 rounded-full bg-primary pulse-dot shrink-0" />
           <p className="text-sm md:text-base font-light text-foreground/90 leading-snug">
-            Designing <span className="font-normal text-primary">deterministic backend systems</span> where financial accuracy, concurrency, and auditability are non-negotiable.
+            Designing{" "}
+            <span className="font-normal text-primary">deterministic backend systems</span> where
+            financial accuracy, concurrency, and auditability are non-negotiable.
           </p>
         </div>
         <div className="flex items-center gap-2 font-mono-tight text-[11px] uppercase tracking-wider text-muted-foreground flex-wrap shrink-0">
-          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Core Banking</span>
-          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Stock Exchange</span>
-          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Enterprise ERP</span>
-          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">Agentic AI</span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">
+            Core Banking
+          </span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">
+            Stock Exchange
+          </span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">
+            Enterprise ERP
+          </span>
+          <span className="px-2.5 py-1 rounded-md border border-border/70 bg-background/80 text-foreground/80">
+            Agentic AI
+          </span>
         </div>
       </div>
     </section>
@@ -729,23 +776,26 @@ function About() {
         <div className="grid lg:grid-cols-12 gap-10 mt-6">
           <div className="lg:col-span-7">
             <h2 className="font-sans text-2xl md:text-6xl leading-[1.1] font-light tracking-tight">
-              I build the <span className="italic text-primary">reliable software</span> that quietly moves money &amp; trust.
+              I build the <span className="italic text-primary">reliable software</span> that
+              quietly moves money &amp; trust.
             </h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed max-w-2xl">
               <p>
-                Over the last 6+ years, I've engineered backend platforms across open-source core banking
-                (<span className="text-foreground font-medium">Mifos Fineract</span>), stock exchange operations,
-                payment gateways, and enterprise <span className="text-foreground font-medium">ERP &amp; WMS</span>.
+                Over the last 6+ years, I've engineered backend platforms across open-source core
+                banking (<span className="text-foreground font-medium">Mifos Fineract</span>), stock
+                exchange operations, payment gateways, and enterprise{" "}
+                <span className="text-foreground font-medium">ERP &amp; WMS</span>.
               </p>
               <p>
-                From architecting backends for 5,000+ peak concurrent payment users (2 President's Awards) to automating
-                batch workflows that cut manual ops by 60%, I focus on high-stakes reliability: double-entry ledger
-                consistency, financial risk models (SIMM), and edge-case resilience.
+                From architecting backends for 5,000+ peak concurrent payment users (2 President's
+                Awards) to automating batch workflows that cut manual ops by 60%, I focus on
+                high-stakes reliability: double-entry ledger consistency, financial risk models
+                (SIMM), and edge-case resilience.
               </p>
               <p>
-                Today, I pair enterprise engineering (Java, Spring Boot, PostgreSQL, Oracle) with modern{" "}
-                <span className="text-foreground font-medium">AI-agent orchestration</span> (Claude Code, MCP, SpecKit)
-                to accelerate delivery without sacrificing precision.
+                Today, I pair enterprise engineering (Java, Spring Boot, PostgreSQL, Oracle) with
+                modern <span className="text-foreground font-medium">AI-agent orchestration</span>{" "}
+                (Claude Code, MCP, SpecKit) to accelerate delivery without sacrificing precision.
               </p>
               <p>
                 When I'm not coding I'm probably reading, exploring mountains, playing football, or
@@ -781,8 +831,10 @@ function About() {
               </div>
               <p className="text-sm leading-relaxed text-foreground">
                 Architecting financial microservices on the{" "}
-                <span className="text-primary font-medium">Mifos Fineract</span> core-banking platform at MSIS &amp; delivering enterprise{" "}
-                <span className="text-accent font-medium">ERP / Warehouse Management (WMS)</span> solutions.
+                <span className="text-primary font-medium">Mifos Fineract</span> core-banking
+                platform at MSIS &amp; delivering enterprise{" "}
+                <span className="text-accent font-medium">ERP / Warehouse Management (WMS)</span>{" "}
+                solutions.
               </p>
             </div>
           </div>
@@ -807,7 +859,15 @@ const FINTECH_EXPERIENCES = [
       "15+ core banking endpoints (Loans, Deposits, GL)",
       "Strict ACID transactions & zero ledger drift",
     ],
-    tags: ["Java 21", "Spring Boot 3", "Mifos Fineract", "Spring Batch", "PostgreSQL", "Docker", "Angular"],
+    tags: [
+      "Java 21",
+      "Spring Boot 3",
+      "Mifos Fineract",
+      "Spring Batch",
+      "PostgreSQL",
+      "Docker",
+      "Angular",
+    ],
   },
   {
     code: "02",
@@ -821,7 +881,15 @@ const FINTECH_EXPERIENCES = [
       "🏆 President's Award for Productivity & QA (2024)",
       "Automated regression suite with Selenium & Shell",
     ],
-    tags: ["Java", "Spring Boot", "Oracle 19c PL/SQL", "Selenium", "JBoss", "Shell Automation", "Requirements Definition"],
+    tags: [
+      "Java",
+      "Spring Boot",
+      "Oracle 19c PL/SQL",
+      "Selenium",
+      "JBoss",
+      "Shell Automation",
+      "Requirements Definition",
+    ],
   },
   {
     code: "03",
@@ -835,7 +903,14 @@ const FINTECH_EXPERIENCES = [
       "2C2P payment gateway & automated reconciliation",
       "🏆 President's Award for Best System Development (2021)",
     ],
-    tags: ["Spring Boot", "PostgreSQL", "2C2P Gateway", "SIMM Risk Model", "Cypress", "Rocky Linux"],
+    tags: [
+      "Spring Boot",
+      "PostgreSQL",
+      "2C2P Gateway",
+      "SIMM Risk Model",
+      "Cypress",
+      "Rocky Linux",
+    ],
   },
   {
     code: "04",
@@ -855,7 +930,10 @@ const FINTECH_EXPERIENCES = [
 
 function FinTechSystems() {
   return (
-    <section id="fintech-systems" className="relative py-12 md:py-24 bg-card/20 border-y border-border">
+    <section
+      id="fintech-systems"
+      className="relative py-12 md:py-24 bg-card/20 border-y border-border"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="01" label="Financial & Enterprise Systems Architecture" />
         <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -864,11 +942,14 @@ function FinTechSystems() {
               Mission-Critical Financial Experience
             </div>
             <h2 className="font-sans text-2xl md:text-5xl font-light tracking-tight max-w-2xl">
-              Battle-tested <span className="italic text-primary">core banking</span> &amp; enterprise architectures.
+              Battle-tested <span className="italic text-primary">core banking</span> &amp;
+              enterprise architectures.
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-            Six years designing and scaling production backends for financial institutions, stock exchanges, payment providers, and enterprise supply-chain ERPs where data consistency and zero-downtime are non-negotiable.
+            Six years designing and scaling production backends for financial institutions, stock
+            exchanges, payment providers, and enterprise supply-chain ERPs where data consistency
+            and zero-downtime are non-negotiable.
           </p>
         </div>
 
@@ -898,9 +979,7 @@ function FinTechSystems() {
                   <span className="text-primary/90">{item.period}</span>
                 </div>
 
-                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-                  {item.desc}
-                </p>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
 
                 {/* Architectural Highlights */}
                 <div className="mt-5 space-y-2 pt-4 border-t border-border/60">
@@ -992,7 +1071,10 @@ const AI_CAPABILITIES = [
 
 function AiCapabilities() {
   return (
-    <section id="ai-engineering" className="relative py-12 md:py-24 bg-card/20 border-y border-border">
+    <section
+      id="ai-engineering"
+      className="relative py-12 md:py-24 bg-card/20 border-y border-border"
+    >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <SectionLabel n="02" label="Enterprise AI Engineering" />
         <div className="mt-4 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -1005,7 +1087,9 @@ function AiCapabilities() {
             </h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-md leading-relaxed">
-            Moving beyond ad-hoc prompting — integrating autonomous subagents, Model Context Protocol (MCP), and Spec-Driven Development (SDD) into real production architectures while preserving banking-grade stability.
+            Moving beyond ad-hoc prompting — integrating autonomous subagents, Model Context
+            Protocol (MCP), and Spec-Driven Development (SDD) into real production architectures
+            while preserving banking-grade stability.
           </p>
         </div>
 
@@ -1014,7 +1098,9 @@ function AiCapabilities() {
             <div
               key={c.code}
               className={`bg-background p-6 group hover:bg-card transition-colors flex flex-col justify-between ${
-                i === 6 ? "md:col-span-2 lg:col-span-3 bg-gradient-to-r from-primary/5 via-background to-accent/5" : ""
+                i === 6
+                  ? "md:col-span-2 lg:col-span-3 bg-gradient-to-r from-primary/5 via-background to-accent/5"
+                  : ""
               }`}
             >
               <div>
@@ -1029,9 +1115,7 @@ function AiCapabilities() {
                 <h3 className="font-display text-lg leading-snug text-foreground group-hover:text-primary transition-colors">
                   {c.enTitle}
                 </h3>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {c.desc}
-                </p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
               </div>
               <div className="mt-5 pt-4 border-t border-border/60 flex flex-wrap gap-1.5">
                 {c.tags.map((t) => (
@@ -1099,11 +1183,14 @@ function Arsenal() {
                 Core Expertise
               </div>
               <h3 className="font-display text-lg leading-tight">
-                Backend engineering, financial systems, distributed pipelines, and AI-accelerated delivery.
+                Backend engineering, financial systems, distributed pipelines, and AI-accelerated
+                delivery.
               </h3>
             </div>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Designing secure microservice architectures · building core banking, loan & payment platforms · orchestrating autonomous agent workflows · leading engineering teams and code reviews.
+              Designing secure microservice architectures · building core banking, loan & payment
+              platforms · orchestrating autonomous agent workflows · leading engineering teams and
+              code reviews.
             </p>
           </div>
         </div>
@@ -1137,9 +1224,7 @@ function Timeline() {
                 className={`absolute left-4 md:left-1/2 top-3 -translate-x-1/2 size-3 rounded-full bg-primary ring-4 ring-background pulse-dot`}
               />
               <div
-                className={`pl-12 md:pl-0 ${
-                  i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
-                }`}
+                className={`pl-12 md:pl-0 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}
               >
                 <div className="font-mono-tight text-[11px] uppercase tracking-widest text-primary">
                   {t.period}
@@ -1196,9 +1281,7 @@ function Projects() {
           {featured.map((p, i) => {
             const slug = (p as { slug?: string }).slug || slugForProject(p.name);
             const Card = (
-              <article
-                className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 active:scale-[0.98] transition-all h-full touch-manipulation"
-              >
+              <article className="group relative rounded-2xl border border-border bg-background overflow-hidden hover:border-primary/50 active:scale-[0.98] transition-all h-full touch-manipulation">
                 <div className="aspect-[3/2] md:aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-primary/15 via-background to-accent/10">
                   <div className="absolute inset-0 grid-bg opacity-30" />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -1223,10 +1306,15 @@ function Projects() {
                   <div className="font-mono-tight text-[10px] md:text-[11px] uppercase tracking-widest text-muted-foreground mt-1">
                     {p.role}
                   </div>
-                  <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 md:line-clamp-none">{p.impact}</p>
+                  <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 md:line-clamp-none">
+                    {p.impact}
+                  </p>
                   <div className="mt-3 md:mt-4 pt-2 md:pt-3 border-t border-border flex flex-wrap gap-1 md:gap-1.5">
                     {p.stack.map((s) => (
-                      <span key={s} className="text-[9px] md:text-[10px] font-mono-tight text-foreground/80">
+                      <span
+                        key={s}
+                        className="text-[9px] md:text-[10px] font-mono-tight text-foreground/80"
+                      >
                         {s}
                         <span className="text-border mx-1 md:mx-1.5 last:hidden">/</span>
                       </span>
@@ -1250,7 +1338,6 @@ function Projects() {
           })}
         </div>
 
-
         {/* others as list */}
         <div className="mt-10">
           <div className="font-mono-tight text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
@@ -1260,13 +1347,13 @@ function Projects() {
             {others.map((p) => {
               const slug = (p as { slug?: string }).slug || slugForProject(p.name);
               const Row = (
-                <div
-                  className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 active:bg-muted px-2 -mx-2 rounded transition-colors touch-manipulation"
-                >
+                <div className="group grid md:grid-cols-12 gap-4 py-4 items-baseline hover:bg-card/50 active:bg-muted px-2 -mx-2 rounded transition-colors touch-manipulation">
                   <div className="md:col-span-4 font-display text-lg flex items-center gap-2">
                     {p.name}
                     {slug && (
-                      <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity text-sm">→</span>
+                      <span className="text-primary opacity-0 group-hover:opacity-100 transition-opacity text-sm">
+                        →
+                      </span>
                     )}
                   </div>
                   <div className="md:col-span-2 font-mono-tight text-xs text-muted-foreground uppercase tracking-wider">
@@ -1327,9 +1414,7 @@ function Recognition() {
               <div className="font-mono-tight text-[10px] uppercase tracking-widest text-accent mb-3">
                 Education
               </div>
-              <h3 className="font-display text-xl leading-tight">
-                B.E. in Electronics
-              </h3>
+              <h3 className="font-display text-xl leading-tight">B.E. in Electronics</h3>
               <div className="text-sm text-muted-foreground mt-1">
                 Technological University, Kalay · 2012 — 2018
               </div>
@@ -1354,7 +1439,13 @@ function Recognition() {
                 System Design, and deeper Financial Technology.
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">
-                {["Anthropic Claude Code", "Model Context Protocol (MCP)", "SpecKit & SDD", "Google Cloud (GCP)", "FinTech"].map((t) => (
+                {[
+                  "Anthropic Claude Code",
+                  "Model Context Protocol (MCP)",
+                  "SpecKit & SDD",
+                  "Google Cloud (GCP)",
+                  "FinTech",
+                ].map((t) => (
                   <span
                     key={t}
                     className="text-[10px] font-mono-tight uppercase tracking-wider px-2 py-1 rounded border border-border text-muted-foreground"
@@ -1375,14 +1466,32 @@ function Recognition() {
 
 function Contact() {
   const channels = [
-    { label: "Email", v: "winnaingsoe6666@gmail.com", href: "mailto:winnaingsoe6666@gmail.com", icon: "✉" },
+    {
+      label: "Email",
+      v: "winnaingsoe6666@gmail.com",
+      href: "mailto:winnaingsoe6666@gmail.com",
+      icon: "✉",
+    },
     { label: "WhatsApp", v: "+66 960 308 914", href: "https://wa.me/66960308914", icon: "✆" },
-    { label: "LinkedIn", v: "/in/win-naing-soe", href: "https://linkedin.com/in/win-naing-soe", icon: "in" },
-    { label: "GitHub", v: "@winnaingsoe6666", href: "https://github.com/winnaingsoe6666", icon: null },
+    {
+      label: "LinkedIn",
+      v: "/in/win-naing-soe",
+      href: "https://linkedin.com/in/win-naing-soe",
+      icon: "in",
+    },
+    {
+      label: "GitHub",
+      v: "@winnaingsoe6666",
+      href: "https://github.com/winnaingsoe6666",
+      icon: null,
+    },
   ];
 
   return (
-    <section id="contact" className="relative py-12 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40">
+    <section
+      id="contact"
+      className="relative py-12 md:py-24 border-t border-border bg-gradient-to-b from-background to-card/40"
+    >
       <div className="absolute inset-0 grid-bg opacity-[0.1] pointer-events-none" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6 md:px-10">
         <SectionLabel n="07" label="Let's build something" />
@@ -1398,12 +1507,12 @@ function Contact() {
             <p>
               I'm open to <span className="text-foreground">senior backend / FinTech</span>,{" "}
               <span className="text-foreground">distributed microservices</span>, and{" "}
-              <span className="text-foreground">AI-assisted engineering</span> roles — remote, hybrid, or with
-              relocation from Bangkok.
+              <span className="text-foreground">AI-assisted engineering</span> roles — remote,
+              hybrid, or with relocation from Bangkok.
             </p>
             <p>
-              If you're working on core banking, payments, microfinance, autonomous agent systems, or
-              an enterprise platform that has to be{" "}
+              If you're working on core banking, payments, microfinance, autonomous agent systems,
+              or an enterprise platform that has to be{" "}
               <em className="text-accent not-italic">correct, fast, and quiet</em> — I'd love to
               talk.
             </p>
@@ -1438,7 +1547,9 @@ function Contact() {
                 >
                   <span className="size-10 rounded-full border border-border flex items-center justify-center font-mono-tight text-sm text-primary group-hover:border-primary/60 transition-colors">
                     {c.label === "GitHub" ? (
-                      <svg className="size-[18px]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                      <svg className="size-[18px]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z" />
+                      </svg>
                     ) : (
                       c.icon
                     )}
@@ -1503,7 +1614,9 @@ function BottomTabBar() {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const sections = TAB_ITEMS.map((t) => document.getElementById(t.id)).filter(Boolean) as Element[];
+    const sections = TAB_ITEMS.map((t) => document.getElementById(t.id)).filter(
+      Boolean,
+    ) as Element[];
     if (!sections.length) return;
 
     const observer = new IntersectionObserver(

@@ -176,8 +176,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
       { value: "2", label: "datastores (Redis + Oracle)" },
     ],
     ogImage: "/og-tiktok-scraping.jpg",
-    ogImageAlt:
-      "Multi-Platform Scraping & Analytics Platform — Win Naing Soe project case study",
+    ogImageAlt: "Multi-Platform Scraping & Analytics Platform — Win Naing Soe project case study",
   },
   {
     slug: "evolvia",
