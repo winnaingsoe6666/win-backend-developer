@@ -792,9 +792,9 @@ function About() {
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed max-w-2xl">
               <p>
                 Over the last 6+ years, I've engineered backend platforms across open-source core
-                banking (<span className="text-foreground font-medium">Mifos Fineract</span>), stock
+                banking (<span className="text-primary font-medium">Mifos Fineract</span>), stock
                 exchange operations, payment gateways, and enterprise{" "}
-                <span className="text-foreground font-medium">ERP &amp; WMS</span>.
+                <span className="text-accent font-medium">ERP &amp; WMS</span>.
               </p>
               <p>
                 From architecting backends for 5,000+ peak concurrent payment users (2 President's
@@ -804,7 +804,7 @@ function About() {
               </p>
               <p>
                 Today, I pair enterprise engineering (Java, Spring Boot, PostgreSQL, Oracle) with
-                modern <span className="text-foreground font-medium">AI-agent orchestration</span>{" "}
+                modern <span className="text-primary font-medium">AI-agent orchestration</span>{" "}
                 (Claude Code, MCP, SpecKit) to accelerate delivery without sacrificing precision.
               </p>
               <p>
