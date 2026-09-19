@@ -206,6 +206,19 @@ const STACK = [
     ],
     tags: ["Next.js", "Angular", "Modern UI"],
   },
+  {
+    title: "Testing & Quality Assurance",
+    code: "07",
+    items: [
+      "JUnit & Test-Driven Development (TDD)",
+      "Cypress (E2E Testing)",
+      "Playwright (E2E & Verification)",
+      "Selenium (Regression Automation)",
+      "Automated Regression Suites",
+      "Security & Code Review (OWASP)",
+    ],
+    tags: ["TDD", "E2E Testing", "Regression Automation"],
+  },
 ];
 
 const TIMELINE = [
@@ -1197,7 +1210,7 @@ function Arsenal() {
           ))}
 
           {/* core expertise tile */}
-          <div className="bg-gradient-to-br from-primary/10 via-background to-accent/10 p-5 md:col-span-2 lg:col-span-1 flex flex-col justify-between">
+          <div className="bg-gradient-to-br from-primary/10 via-background to-accent/10 p-5 md:col-span-2 lg:col-span-2 flex flex-col justify-between">
             <div>
               <div className="font-mono-tight text-[10px] uppercase tracking-widest text-primary mb-2">
                 Core Expertise
