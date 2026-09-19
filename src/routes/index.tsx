@@ -222,7 +222,7 @@ const TIMELINE = [
   {
     role: "Senior Full-Stack Software Engineer",
     company: "MSIS Company",
-    period: "Feb 2025 — Jan 2026",
+    period: "Feb 2025 — Jun 2026",
     domain: "Mifos Fineract — Core Banking Platform",
     impact:
       "Architected and shipped scalable banking microservices on an open-source financial platform serving enterprise operations.",
@@ -861,7 +861,7 @@ const FINTECH_EXPERIENCES = [
     badge: "Core Banking Engine",
     title: "Mifos Fineract Core Banking Platform",
     role: "Senior Full-Stack Software Engineer · MSIS Company",
-    period: "Feb 2025 — Jan 2026",
+    period: "Feb 2025 — Jun 2026",
     desc: "Architect and deliver production banking microservices on the open-source Mifos Fineract financial engine. Implemented double-entry general ledger accounting, loan/deposit lifecycle management, and automated Spring Batch processing schedulers that reduced manual operational intervention by 60%.",
     highlights: [
       "3 banking microservices in production",
