@@ -61,7 +61,7 @@ export const Route = createFileRoute("/work/$slug")({
             author: {
               "@type": "Person",
               name: "Win Naing Soe",
-              jobTitle: "Senior Backend / Full-Stack Software Engineer",
+              jobTitle: "Senior Backend & FinTech Engineer",
             },
             about: p.domain,
           }),

@@ -210,9 +210,19 @@ const STACK = [
 
 const TIMELINE = [
   {
+    role: "Full-Stack / Backend Engineer",
+    company: "Confidential Client · NDA",
+    period: "Jul 2026 — Present",
+    domain: "Enterprise ERP & Warehouse Management System",
+    impact:
+      "Developing enterprise ERP modules (MFG, BOM, Inventory, WMS, Procurement, Order Management) and modernizing legacy Java EE into a Spring Boot REST architecture.",
+    stack: ["Spring Boot", "React", "Oracle PL/SQL", "Java EE"],
+    achievement: "Modernized legacy Java EE (JSP/Servlet) into Spring Boot REST APIs.",
+  },
+  {
     role: "Senior Full-Stack Software Engineer",
     company: "MSIS Company",
-    period: "Feb 2025 — Present",
+    period: "Feb 2025 — Jan 2026",
     domain: "Mifos Fineract — Core Banking Platform",
     impact:
       "Architected and shipped scalable banking microservices on an open-source financial platform serving enterprise operations.",
@@ -830,11 +840,10 @@ function About() {
                 Currently
               </div>
               <p className="text-sm leading-relaxed text-foreground">
-                Architecting financial microservices on the{" "}
-                <span className="text-primary font-medium">Mifos Fineract</span> core-banking
-                platform at MSIS &amp; delivering enterprise{" "}
+                Delivering enterprise{" "}
                 <span className="text-accent font-medium">ERP / Warehouse Management (WMS)</span>{" "}
-                solutions.
+                solutions for a confidential enterprise client — building on 6+ years including core
+                banking on <span className="text-primary font-medium">Mifos Fineract</span> at MSIS.
               </p>
             </div>
           </div>
@@ -851,8 +860,8 @@ const FINTECH_EXPERIENCES = [
     code: "01",
     badge: "Core Banking Engine",
     title: "Mifos Fineract Core Banking Platform",
-    role: "Senior Software Engineer · MSIS Company",
-    period: "Feb 2025 — Present",
+    role: "Senior Full-Stack Software Engineer · MSIS Company",
+    period: "Feb 2025 — Jan 2026",
     desc: "Architect and deliver production banking microservices on the open-source Mifos Fineract financial engine. Implemented double-entry general ledger accounting, loan/deposit lifecycle management, and automated Spring Batch processing schedulers that reduced manual operational intervention by 60%.",
     highlights: [
       "3 banking microservices in production",
@@ -916,8 +925,8 @@ const FINTECH_EXPERIENCES = [
     code: "04",
     badge: "Supply Chain & Operations",
     title: "Enterprise ERP & Warehouse Management System",
-    role: "Full-Stack / Backend Engineer · Enterprise Systems",
-    period: "Jun 2026 — Present",
+    role: "Full-Stack / Backend Engineer · Confidential Client (NDA)",
+    period: "Jul 2026 — Present",
     desc: "Develop and maintain enterprise ERP modules covering Manufacturing (MFG), Bill of Materials (BOM), Inventory, Warehouse Management (WMS), Procurement, and Order Management. Spearheaded legacy modernization converting Java EE (JSP/Servlet) into a clean Spring Boot REST architecture with optimized Oracle PL/SQL stored procedures and triggers.",
     highlights: [
       "6 enterprise modules (MFG, BOM, Inventory, WMS, Procurement, Orders)",

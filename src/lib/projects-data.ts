@@ -53,7 +53,7 @@ export const PROJECT_DETAILS: ProjectDetail[] = [
     metrics: [
       { value: "3", label: "microservices in production" },
       { value: "15+", label: "core banking endpoints" },
-      { value: "PostgreSQL", label: "double-entry ledger DB" },
+      { value: "1", label: "double-entry ledger DB" },
     ],
     ogImage: "/og-mifos.jpg",
     ogImageAlt: "Mifos Fineract Core Banking — Win Naing Soe project case study",
