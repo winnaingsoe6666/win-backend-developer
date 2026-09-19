@@ -1,11 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { PROJECT_DETAILS } from "@/lib/projects-data";
 import { absUrl } from "@/lib/site";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { AuroraBg } from "@/components/aurora-bg";
-import { User, Code2, Briefcase, FolderOpen, Award, Mail } from "lucide-react";
+import { User, Code2, Briefcase, FolderOpen, Mail } from "lucide-react";
 
 const PROJECT_SLUG_MAP: Record<string, string> = {
   "Mifos Fineract — Core Banking": "mifos-fineract",
@@ -408,7 +408,7 @@ const RECOGNITION = [
     title: "Quality Assurance Award",
     org: "DIR-ACE Technology",
     date: "09 / 2021",
-    note: "Recognized for productivity, test automation, and code quality on the CstNavi financial system team.",
+    note: "Recognized for productivity, test automation, and code quality during an internal financial systems engagement.",
   },
   {
     title: "Java Web Development — Talent Program",

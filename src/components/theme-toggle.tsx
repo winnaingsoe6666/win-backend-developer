@@ -15,6 +15,15 @@ function apply(theme: Theme) {
   root.classList.remove("theme-dark", "theme-light", "theme-sunset");
   root.classList.add(`theme-${r}`);
   root.setAttribute("data-theme", theme);
+
+  // Keep the mobile browser chrome (address bar) in sync with the active theme.
+  // Read the resolved color straight off <body> instead of hardcoding per-theme
+  // hex values, so this never drifts from the actual CSS tokens in styles.css.
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    const bg = getComputedStyle(document.body).backgroundColor;
+    if (bg) meta.setAttribute("content", bg);
+  }
 }
 
 export function ThemeToggle() {
@@ -25,6 +34,8 @@ export function ThemeToggle() {
     const stored = (localStorage.getItem("theme") as Theme | null) ?? "system";
     setTheme(stored);
     setMounted(true);
+    // Sync theme-color meta with whatever the inline boot script already applied.
+    apply(stored);
     const mq = window.matchMedia("(prefers-color-scheme: light)");
     const onChange = () => {
       if ((localStorage.getItem("theme") as Theme | null) === "system") apply("system");
